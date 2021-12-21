@@ -1,0 +1,31 @@
+\section{Methods}
+\label{sec:methods}
+
+\todo[inline, color=lightgray!40]
+{
+    Provide a detailed explanation of the machine learning algorithm(s) you will apply to your problems. In this project, you are allowed to use third-party implementations in your source code, but only if you can demonstrate that you understand how they work. This entails that you should include a proper explanation of your method(s), their training objective and how it is optimized, hyperparameters, strengths and weaknesses, and of course, why you chose them for your problem.
+
+    \vspace{0.2cm}
+    \textbf{Amount:} 2 - 4 pages 
+}
+
+\subsection{Motivation and introduction NLLS}
+
+For the radiated power scaling a non-linear least square regression model has been used. The point of using a non-linear regression model is that the suspected regression exponents are non-linear and that it is not evident how interplay between chosen observables affects the value of the exponents.
+
+\subsection{Determining dependence of between observables}
+
+To determine the dependence of the observables Principal Component Analysis (PCA) has been applied to the dataset to determining the dependence between the observables. In exploratory data analysis PCA is a method used for used for reducing dimensionality of the data. This is not the purpose of this paper, but rather to determine the dependence between each observables. The principle components are a set of unit vectors where the $i$'th unit vector is the direction of the line that best fits the data while being orthogonal to the first $i-1$ unit vectors. The best fitting line is defined as the least square of the residual - the distance from the point to the line that follows the direction of the principal component. The principal components are unit vectors that form an orthonormal basis - the different dimensions of the data is then linearly uncorrelated. The principal components are eigenvectors of the covariance matrix. Computing the single value decomposition of the covariance matrix is then a common way of computing the principal components. This the method that the library $ \verb| scikitlearn.decomposition.PCA|$ uses. 
+
+\subsubsection{Non-linear PCA}
+
+Non-linear dependencies between observables is clearly seen in the collinearity plots. This calls for a non-linear method of determining the dependence between variables. Such a method is the Non-linear PCA (NPCA) which is just a generalization of PCA from lines to curves.
+
+\subsection{Non-Linear Least-Square (NLLS) regression model}
+
+The non-linear leas square is a regression model where the residuals are given where it seeks to minimize the square of a loss function where the residuals are the argument. Mathematically this can be expressed as:
+\begin{align}
+    \mathrm{minimize} F(x) = \frac{1}{2}\sum_i \rho(f_i(x))^2, i = 0, \dots, m-1
+\end{align}
+
+where $F(x)$ is the cost function, $\rho$ is the loss function (scalar function), $f_i(x)$ the residual of the $i$'th datapoint. The general purpose is to reduce the influence of outliers in the data.

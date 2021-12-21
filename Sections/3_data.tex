@@ -1,0 +1,136 @@
+\section{Data}
+\label{sec:data}
+
+\subsection{Experimental data}
+
+Experimental data from IPP's Juice database has been used for the radiated power scaling. It is a database of global plasma parameters for every discharge in the first campaign where every observable have been averaged over $200 \mathrm{ms}$ of the discharge for denoising purposes. The observables in the database comes from the W7X archive which is a web base service for accessing data measured by every diagnostic.
+
+\subsection{Motivation for observables used in the regression model}
+
+\subsection{Dimension analysis for data used in regression model}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Observable & SI & Diagnostic dimension  \\
+        \hline
+        $P_{Heat}$ & $\mathrm{W}$ & $\mathrm{MW}$ \\
+        $\Bar{n}_e$ & $\mathrm{m^{-3}}$ & $\mathrm{m^{-3}}$ \\
+        $Z_{eff}$ & Dimensionless & Dimensionless  \\
+        $p_{neutral}$ & $\mathrm{mBar}$ & $\mathrm{mBar}$ \\
+        $I_{C^{2+}}$ & $\mathrm{W m^{-3}}$ & $\mathrm{pixel count/ms}$  \\
+        \hline
+    \end{tabular}
+    \caption{Dimensions of observables used in the regression model. SI dimensions are compared with the dimensions given by the diagnostic.}
+    \label{tab:my_label}
+\end{table}
+
+\subsection{$P_{rad}$}
+
+The radiated power loss $P_{rad}$ has been measure by the bolometer system which consists of one horizontally and one vertically viewing cameras by 32 and 43 collimated blackened detectors. The triangular cross-section of the reactor is covered with the lines of sight for various magnetic configurations. Having measurements along a line of sight enables you to integrate along the line of sight to acquire line-integrated signals such as radiate power loss $P_{rad}$ from the plasma.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c}
+        Responsivity (spectral range) & $2\mathrm{eV} - 5\mathrm{eV}$  \\
+        Detectors & Resistive metal\\
+        Absorbers & $5\mathrm{\mu m}$ gold\\
+        Coating (Improving the absorption coefficient in the visible spectral range) & $50\mathrm{nm}$ - C
+    \end{tabular}
+    \caption{The properties of the bolometer systems measuring the radiated power $P_{rad}.$}
+    \label{tab:bolometer_system_properties}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c}
+     Filters (enables those to obtain some information about the soft X - ray radiation ($>800\mathrm{eV}$))   &  $6\mathrm{\mu m} - 12\mathrm{\mu m}$ - Beryllium \\
+    \end{tabular}
+    \caption{The properties of the secondary array of bolometer systems measuring the radiated power $P_{rad}$ form the high-$Z$ impurities.}
+    \label{tab:bolometer_secondary_array}
+\end{table}
+
+\subsubsection{$P_{ECRH}$}
+
+To get the radiated power fraction the radiated power needs to be divided by the power entering the SOL $P_{SOL}$. Assuming that the losses from the main plasma is small the power entering the SOL can be approximated to be the input power of the machine $P_{in}$. In W7X this is mainly $P_{ECRH}$ - the electron cyclotron heating, but Neutral Beam injection (NBI) is included for the relevant campaign in the approximation of the input power of the SOL.
+
+\subsubsection{$\Bar{n}_e$}
+
+The line integrated electron density $\Bar{n}_e$ is evaluated along the line of sight (LOS) by the Integral Electron Density Dispersion Interferometer (IEDDI). The diagnostic exploits the change in the refractive index of the plasma which is only proportional to the wavelength of the laser light and the local density of free electrons to derive the density. The change in refractive index is governed by the electron density for the laser wavelength used. Since it is a dispersion interferometer is applies a Frequency Doubling Crystal (FDC) which mitigates any vibration induced phase shifts. It is used as the density feedback-control measurement since it is only sensitive to the free electron density which corresponds to the plasma density. 
+
+measured quantity: 	Line integrated electron density
+location: 	Laser path: AEZ31, AET31
+location: 	Toroidal angle: 170,5°
+measured range: 	1017 - 1021 m-2
+temporal resolution: 	up to 50 kHz
+radial resolution: 	none (one channel) 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c}
+        Location & Laser path: AEZ31, AET31\\
+        Location & Toroidal angle: 170,5$\circ$\\
+        Measured range & $10^{17} - 10^{21} \mathrm{m^{-2}}$\\
+        Temporal resolution & $\leq 50 \mathrm{kHz}$\\
+        Radial resoultion & None (Single channel)\\
+        Channels & Single channel  \\
+        Power & 20 $\mathrm{W}$\\
+        Laser type &  $\mathrm{CO_2}$\\
+        Wavelength  & 10.6 $\mathrm{\mu m}$\\
+        Harmonicity ($\mathrm{AfGaSe_2}$ frequency doubling crystal) & Second harmonic \\
+        Interference wavelength & 5.3 $\mathrm{\mu m}$\\
+    \end{tabular}
+    \caption{Caption}
+    \label{tab:my_label}
+\end{table}
+
+The detected phase difference of the signal measured can be shown to be independent of geometrical path length along the beam path. This means that the vibrations of the optical components will not affect the phase signal. The IEDDI has the same LOS as the Thomson scattering system and a cross calibration can therefore be performed making the measurement more robust. The magnetic configuration affects the path length through the plasma so a good average value is used for the single-pass $\sim 133 \mathrm{cm}$.
+
+\subsubsection{$Z_{eff}$}
+
+\subsubsection{$p_{neutral}$}
+
+The neutral pressure gauges  measures the neutral gas pressure in $\sim 18$ toroidally and poloidally distributed positions around the torus. The gauges in use are hot-cathode ionization gauges, optimized for operation in strong magnetic field and for long pulse operation. 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c}
+    Locations &  Main chamber, divertor, pumps\\
+    Operational limits and availability     & Routine operation\\
+    Mode of operation & Single-shot, continuous, scanning\\
+    Spatial resolution & Real or k-space, range or single value\\
+    Frequency resolution & \\
+    radial coverage & \\
+    Frequency resolution & \\
+    Calibration & Absolutely calibrated neutral gas pressure\\
+    Data availability & Data available in the archive
+    \end{tabular}
+    \caption{Operational details on the measurement of neutral pressure from the neutral pressure gauges.}
+    \label{tab:p_neutral_data_info}
+\end{table}
+
+\subsubsection{$I_{C^{2+}}$}
+
+The intensity of the emission from impurity and neutral radiation is measure by the Coherence Imaging Spectroscopy (CIS). It is a camera-based interferometric system which measures the Doppler particle flow velocities and temperature associated with a selection of visible emission lines form the plasma. The interference pattern is generated by birefringent crystals and overlaid on camera images of the plasma visible radiation, allowing 2D LOS integrated measurements. The choice of impurities and neutral is selected by narrowband filters. It is also possible to select single charged state of single particle species.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c}
+        Measured quantity & Emission line intensity, particle flow velocity in SOL, particle temperature in SOL (under development)\\
+        Narrowband filter wavelength & $\sim 2 \mathrm{nm}$ \\
+        Location & AEA21 port - toroidal view from module 2 into module 1
+        AEF30 port - vertical view on lower divertor module 3\\
+        Operational limits and availability & Routinely operational, species under investigation may vary\\
+        Mode of operation & continuous\\
+        Resolution radiation intensity & depending on particle species\\
+        Resolution temperature & Under development\\
+        Resolution flow velocity & from 2-3 $\mathrm{km / s}$ to 50 $\mathrm{km / s}$\\
+        Calibration radiation intensity & no absolute calibration available, only relative quantities\\
+        Calibration flow velocity & absolute calibration with tunable laser\\
+        Calibration temperature & under development\\
+        Data availability & Raw data available at the end of each operational day, processed data under request
+    \end{tabular}
+    \caption{The properties of the Coherence Imaging Spectroscopy diagnostic.}
+    \label{tab:CIS_properties}
+\end{table}
