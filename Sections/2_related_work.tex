@@ -50,13 +50,6 @@ To get the energy balance Eq. \ref{eq:Braginskii_Boltzmann_eq} is multiplied wit
 \label{eq:Braginskii_energy_balance}
 \end{equation}
 
-Derivation of the relation:
-\begin{equation}
-    \frac{\partial Q_{\parallel}}{\partial x} = -n_e n_Z L_Z(T_e)
-\end{equation}
-
-where $x$ is along the SOL, considering straightened out flux tubes.
-
 \subsection{Post et al. - Analytic criteria for power exhaust in divertors}
 
 Impurity radiation is a key mechanism for exhausting power from the edge plasma to the divertor targets and walls, and the main chamber. \cite{post1995calculations} has used ADPAK impurity radiation rates to develop criteria for the required impurity fraction, -species, connection lenght and mid-plane (half the distance from target to target) electron temperature for reaching detachment. \cite{post1995calculations} have also developed criteria for the required enhancement over coronal equilibrium due to charge exchange recombination and impurity recycling rate to radiate a given power for Be, C, Ne and Ar. 
@@ -218,7 +211,7 @@ For high $Z$ radiating impurities a reasonable assumption is that the radiated p
     f_z = \frac{P_{rad}}{S \Delta C_n C_z \Bar{n_e}^2 L_z} = \frac{\Bar{n_Z}}{\Bar{n_e}}
 \label{eq:matthews_zeff_deriv_1}
 \end{equation}
-where $C_n = \frac{n_{e,rad}}{\Bar{n_{e}}}$, $C_Z = \frac{n_{Z,rad}}{\Bar{n_{e}}}$. This gives a corresponding equation for $Z_{eff}$:
+where $C_n = \frac{n_{e,rad}}{\Bar{n_{e}}}$, $C_Z = \frac{n_{Z,rad}}{\Bar{n_{e}}}$. This gives a corresponding equation for $Z_{eff}$ assuming one main radiator of charge state $Z$:
 \begin{equation}
     Z_{eff}\approx 1 + Z(Z-1)f_z = 1 + \frac{Z(Z-1)P_{rad}}{S\Delta C_n C_Z \Bar{n_e}^2 L_z}.
 \label{eq:matthews_zeff_eq3}
@@ -294,7 +287,7 @@ Because of two orders of magnitude lower field line pitch $\Theta \sim 10^{-3}$ 
 \begin{align}
     q_{\parallel} &= D_{eff}\frac{\partial T_
     e}{\partial l_{\parallel}}\\
-    D_{eff} &\equiv \kappa_0 T_e^{2.5} + \chi n \Theta^{-1}\\
+    D_{eff} &\equiv \kappa_0 T_e^{2.5} + \chi n \Theta^{-2}\\
     \Theta &\equiv \frac{dx}{d l_{\parallel}}\\
     & = \frac{\iota_i r}{R}\\
     \iota_i &\equiv r_i \iota'\\
@@ -345,6 +338,17 @@ Another expression can be derived using $I_{C^{2+}}$ as the global plasma parame
 
 where $\Tilde{C}$ is the constant including $L_Z$.
 
-
-
 The relations from the two-point model cannot be used to simplify further since it is based on the assumption of dominant parallel transport. However, the relations derived from the extended two-point model still hold since it corrects the assumed dominant parallel transport with a correction factor $f_{cond}$.
+
+\subsection{Competing transport regime}
+
+In the regime between the limiting cases where parallel and cross-field transport are dominant, parallel transport competes with the cross-field transport. This regime can be described by the equation from \cite{feng2002transport}, but directed along a field line:
+\begin{align}
+\label{eq:fengs_transport_model_heat_flux}
+    q_{\parallel} = D_{eff} \frac{\partial T_e}{\partial l_{\parallel}}\\
+    q_{\parallel} = \kappa_{0e} T_e^{2.5} \frac{\partial T_e}{\partial l_{\parallel}} + \chi n \Theta^{-2}\frac{\partial T_e}{\partial l_{\parallel}}
+\end{align}
+where $D_{eff} = \kappa_{0e} T_e^{2.5} + \chi n \Theta^{-2}$. Combining it with the equation for heat flux loss due to radiation, the equation for heat flux along field lines comparing upstream and downstream conditions can be expressed as:
+\begin{equation}
+    q_u^2 - q_d^2 = 2\int_{T_d}^{T_u} dT_e D_{eff}(T_e)n_e^2f_ZL_Z(T_e)
+\end{equation}

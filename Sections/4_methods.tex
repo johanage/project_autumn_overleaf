@@ -23,9 +23,73 @@ Non-linear dependencies between observables is clearly seen in the collinearity 
 
 \subsection{Non-Linear Least-Square (NLLS) regression model}
 
-The non-linear leas square is a regression model where the residuals are given where it seeks to minimize the square of a loss function where the residuals are the argument. Mathematically this can be expressed as:
+Given an arbitrary nonlinear model on the form:
+\begin{equation}
+    y = f(\mathbf{x}; \mathbf{\beta}) + \epsilon
+\end{equation}
+
+where $\mathbf{x}$ is the vector of all data points, $\mathbf{\beta}$ is the vector of the unknown parameters, $\epsilon$ a noise term and the functional part $f$ is a nonlinear function. The nonlinear least square is a regression model where the residuals are given where it seeks to minimize the square of a loss function where the argument is the residuals. Mathematically this can be expressed as:
 \begin{align}
-    \mathrm{minimize} F(x) = \frac{1}{2}\sum_i \rho(f_i(x))^2, i = 0, \dots, m-1
+    \underset{\beta}{\mathrm{min}} F(\mathbf{x};\mathbf{\beta}) &=\underset{\beta}{\mathrm{min}} \frac{1}{2} \sum_i \rho(f_i(x_i; \mathbf{\beta}))^2, i = 0, \dots, m-1\\
+    &= \underset{\beta}{\mathrm{min}} \frac{1}{2}\Vert \mathbf{e}(\mathbf{x}) \Vert^2
 \end{align}
 
-where $F(x)$ is the cost function, $\rho$ is the loss function (scalar function), $f_i(x)$ the residual of the $i$'th datapoint. The general purpose is to reduce the influence of outliers in the data.
+where $F(x)$ is the cost function, $\rho$ is the loss function (scalar function), $f_i(x)$ the residual of the $i$'th datapoint, $\mathbf{e}$ is the residual vectors with the vector of the datapoints $\mathbf{x}$ as its argument. The general purpose of $\rho$ is to reduce the influence of outliers in the data. The minimum value of $F$ is obtained when the gradient is zero:
+\begin{equation}
+   \frac{\partial F}{\partial \mathbf{\beta}} = \sum_i \rho(y_i - f(x_i; \mathbf{\beta})) \frac{\partial \rho(f_i(x_i; \mathbf{\beta})}{\partial \mathbf{\beta}} = 0
+\end{equation}
+where the derivatives $\frac{\partial \rho(f_i(x_i; \mathbf{\beta})}{\partial \mathbf{\beta}}$ are functions of both the independent variables and the regression parameters which consequently results in these equations not being a closed set. Instead initial estimates must be given for the parameters and then the parameters $\mathbf{\beta}$ are refined iteratively; $\beta_j \approx \beta^{k+1}_j = \beta^k_j + \Delta \beta_j$. An analytical solution does not exist for NLLS problems as it does for a LLS problem, so the strategy is to linearise the problem and then use the same method to get the analytical solution as t. The following iterative approach is used:
+\begin{enumerate}
+    \item Choose an initial estimate.
+    \item Linearise problem.
+    \item Solve linearized problem.
+    \item Update estimate
+\end{enumerate}
+
+and after last step the iterative procedure is to start at linearising the problem again. 
+
+\subsubsection{Linearisation}
+
+A Taylor expansion of the nonlinear problem is done with respect to the objective function $f(\mathbf{x})$, where $rho = f$ is set for simplicity:
+\begin{equation}
+    f(x_i;\mathbf{\beta}) \approx f(x_i;\mathbf{\beta}^k) + \sum_j \frac{\partial f(x_i;\mathbf{\beta}^k)}{\beta_j}(\beta_j - \beta_j^k) = f(x_i; \mathbf{\beta}^k) + \sum_j J_{ij}\beta_j.
+\end{equation}
+
+where $\mathbf{J}$ is the Jacobian which appears in the derivative of the residual:
+\begin{equation}
+    \frac{\partial (y_i - f(x_i))}{\partial \beta_j} = -\frac{\partial f(x_i;\mathbf{\beta})}{\partial \beta_j} = -J_{ij}
+\end{equation}
+
+and the residuals can be rewritten using the linear approximation as:
+\begin{align}
+    y_i - f(x_i;\mathbf{\beta}) &= (y_i - f(x_i;\mathbf{\beta}^k) ) + (f(x_i;\mathbf{\beta}^k- f(x_i;\mathbf{\beta} ) )\\
+    &\approx (y_i - f(x_i;\mathbf{\beta}^k) ) + f(x_i;\mathbf{\beta}^k) -\left( f(x_i;\mathbf{\beta}^k) + \sum_j \frac{\partial f(x_i;\mathbf{\beta}^k)}{\beta_j}(\beta_j - \beta_j^k) \right)
+\end{align}
+
+\subsubsection{Solving the linearised problem}
+
+\subsubsection{Estimate update}
+\begin{equation}
+    \beta_j \approx \beta^{k+1}_j = \beta^k_j + \Delta \beta_j
+\end{equation}
+
+One of the disadvantages of NLLS is that bad initial estimates can result ending up in local minima rather than the global. An unfortunate property which NLLS shares with LLS is that it is strongly sensitive to outliers which in a nonlinear model are hard to detect. However, the effect of outliers can be countered using a loss functions $\rho$.
+
+The NLLS-function from the $\verb|scipy|$ python-library was used as the regression routine. The important parameters in $\verb|scipy.optimize.leas_square|$ are given in Table \ref{tab:NLLS_params}:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Parameter & Description & Values used \\
+        \hline
+        $\verb|x0|$ & Initial parameter estimate &\\
+        $\verb|fun|$ & Objective function &\\
+        $\verb|bounds|$ & Bounds on parameters &\\
+        $\verb|loss|$ & Loss function &\\
+        $\verb|f_scale|$  & Value of soft margin between outlier and inlier residuals  &\\
+        $\verb|kwargs|$ & &\\
+        \hline
+    \end{tabular}
+    \caption{The parameters of interest in the non-linear least square regression problem.}
+    \label{tab:NLLS_params}
+\end{table}

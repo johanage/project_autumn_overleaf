@@ -406,7 +406,9 @@ The following atomic processes can play a key role in the energy balance in the 
     \item Sputtering
 \end{enumerate}
 
-\subsubsection{Productions of impurities}
+\subsubsection{Impurity sources}
+\textbf{Sputtering}
+
 \textbf{By ion impact}
 
 transport to main plasma
@@ -426,37 +428,17 @@ Impurity radiation are due to the emission of photons during the radiative decay
     &+ n_e n_z^{+i+1}\langle \sigma\nu \rangle_{recomb}^{+i + 1 \to i}
 \end{align}
 
-where $\Gamma_z^{+i}$ is the parallel ion flux for element $Z$ with charge state $+i$, ground state $g$, and $E_l$ is the energy of level $l$. This leads to the equation for the total radiated power (\ref{eq:tot_rad_power_post-1995}):
+where $\langle \sigma \nu \rangle_{process}$ is the rate of a process (i.e. ionisation), $\Gamma_z^{+i}$ is the parallel ion flux for element $Z$ with charge state $+i$, ground state $g$, and $E_l$ is the energy of level $l$. This leads to the equation for the total radiated power (\ref{eq:tot_rad_power_post-1995}):
 \begin{equation}
     P_{rad} = \sum_{i=0}^z n_e n_z^{+i}\sum^{all\hspace{0.1cm}l}\langle \sigma \nu \rangle_{excitation}^{g\to l}(E_l - E_g)
 \label{eq:tot_rad_power_post-1995}
 \end{equation}
 
-The steady state with no transport, called coronal equilibrium, the charge state distribution and the radiation rate coefficient are only dependent on the electron temperature.
-
-\textbf{Impurity radiation from the divertor plasma}
-
-The assessment of conditions needed to radiate the required energy in the divertor can be done by looking at parallel heat conduction and using pressure balance along field lines given in Eqs. \ref{eq:post_1998_par_heat_cond_1} and \ref{eq:post_1998_par_heat_cond_2}:
-\begin{align}
-    \label{eq:post_1998_par_heat_cond_1}
-    \frac{\partial Q_{\parallel}}{\partial r} = -n_e n_Z L_Z(T_e), Q_{\parallel} =& -\kappa_0 T_e^{2.5}\frac{\partial T_e}{\partial x}\\
-    p_e =& n_e T_e \implies \frac{1}{2}\frac{\partial }{\partial x}(Q_{\parallel}^2) = \frac{p_e^2}{T_e^2}\kappa_0f_ZL_ZT_e^2{2.5}\frac{\partial T_e}{\partial x}\nonumber\\
-    \approx& p_e^2\kappa_0f_ZL_ZT_e^{0.5}\frac{\partial T_e}{\partial x}\nonumber\\
-    \implies& \frac{1}{2}Q_{\parallel}^2 \approx p_e^2\kappa_0f_ZL_ZT_e^{0.5}dT_e\nonumber\\
-    \label{eq:post_1998_par_heat_cond_2}
-    \implies& \frac{\Delta Q_{\parallel}}{n_{es}\sqrt{F_Z}} \approx \sqrt{2 \Bar{\kappa_0}T_{es}^2\int_0^{T_{es}}L_Z(T_e)T_e^{0.5}dT_e}
-\end{align}
-
-where $x$ is the direction along field lines, and:
-\begin{align*}
-    \kappa_0 \approx \frac{3.1\times 10^{9}}{Z_{eff}\ln \Lambda}\left( \frac{\mathrm{erg}}{\mathrm{cm}\mathrm{s}\mathrm{eV}^{3.5}} \right)\\
-    F_Z(f_z) = \frac{f_Z(\%)}{Z_eff} = \frac{f_Z(\%)}{1 + 0.01f_Z(\%)Z(Z-1)}\\
-    \Bar{\kappa_0} = \kappa Z_{eff}
-\end{align*}
+The steady state with no transport, called coronal equilibrium, the charge state distribution and the radiation rate coefficient are only dependent on the electron temperature. This is what appears in \cite{post1995analytic} when an analytical model is derived for the heat flux transport along magnetic field lines.
 
 \subsubsection{Hydrogen radiation}
 
-For densities $n_e \geq 10^{19}\mathrm{m^{-3}}$, the time between excitation of electrons, de-excitation and ionization collisions are comparable to the radiative decay time of the excited states of hydrogen. This could make "multi-step" processes important where the rate is density dependent. For low temperatures $T_e \leq 3 \mathrm{eV}$ could be important as well. Sputtering can be severely reduced when the temperature is reduced by ionization losses. However, this does not necessarily reduce the peak heat flux since the plasma deposits the ionization energy, $13.6 \mathrm{eV}$ per electron-ion pair for hydrogen, on the divertor plate as it recombines. 
+For densities $n_e \geq 10^{19}\mathrm{m^{-3}}$, the time between excitation of electrons, de-excitation and ionization collisions are comparable to the radiative decay time of the excited states of hydrogen. This could make "multi-step" processes important where the rate is density dependent. For low temperatures $T_e \leq 3 \mathrm{eV}$ it could be important as well. Sputtering can be severely reduced when the temperature is reduced by ionization losses. However, this does not necessarily reduce the peak heat flux since the plasma deposits the ionization energy, $13.6 \mathrm{eV}$ per electron-ion pair for hydrogen, on the divertor plate as it recombines. 
 
 \subsubsection{Recycling}
 
@@ -492,7 +474,7 @@ P_{brem} = C_B n_e^2 Z_{eff}T^{1/2},
 \label{eq:post_1998_power_loss_bremsstrahlung}
 \end{equation}
 
-and alpha heating given by Eq. (for DT fusion): \ref{eq:post_1998_power_loss_alpha}
+and alpha heating given by Eq. \ref{eq:post_1998_power_loss_alpha} (for DT fusion): 
 \begin{equation}
     P_{\alpha} = \frac{n_e^2}{4}f_{DT}^2\langle\sigma \nu \rangle_{DT} E_{\alpha},
 \label{eq:post_1998_power_loss_alpha}
@@ -532,6 +514,8 @@ These issues can be described by a simplified radial energy transport model give
 \subsubsection{Chemical Sputtering}
 
 Hydrogen is very reactive and if graphite walls are used to face the plasma it will produce a flux of hydrocarbons at the plasma edge (\cite{post1995review}). The result is that these hydrocarbons will eventually leave the walls and mix with the edge plasma.
+
+
 \begin{comment}
 \subsubsection{Physical sputtering}
 
@@ -540,5 +524,5 @@ Hydrogen is very reactive and if graphite walls are used to face the plasma it w
 \end{comment}
 section{Elastic scattering of atoms, molecules and ions}
 
-\subsection{Comparison of basic plasma transport properties between stellarator island- and standard tokamak divertors}
+
 
