@@ -15,10 +15,11 @@ Experimental data from IPP's Juice database has been used for the radiated power
         \hline
         Observable & SI & Diagnostic dimension  \\
         \hline
-        $P_{Heat}$ & $\mathrm{W}$ & $\mathrm{MW}$ \\
-        $\Bar{n}_e$ & $\mathrm{m^{-3}}$ & $\mathrm{m^{-3}}$ \\
-        $Z_{eff}$ & Dimensionless & Dimensionless  \\
-        $p_{neutral}$ & $\mathrm{mBar}$ & $\mathrm{mBar}$ \\
+        $P_{rad}$ & $\mathrm{W}$ & $\mathrm{MW}$ \\ \hline
+        $P_{Heat}$ & $\mathrm{W}$ & $\mathrm{MW}$ \\ \hline
+        $\Bar{n}_e$ & $\mathrm{m^{-3}}$ & $\mathrm{m^{-3}}$ \\\hline
+        $Z_{eff}$ & Dimensionless & Dimensionless  \\\hline
+        $p_{neutral}$ & $\mathrm{mBar}$ & $\mathrm{mBar}$ \\\hline
         $I_{C^{2+}}$ & $\mathrm{W m^{-3}}$ & $\mathrm{pixel count/ms}$  \\
         \hline
     \end{tabular}
@@ -26,7 +27,7 @@ Experimental data from IPP's Juice database has been used for the radiated power
     \label{tab:my_label}
 \end{table}
 
-\subsection{$P_{rad}$}
+\subsection{\texorpdfstring{$P_{rad}$}{TEXT}}
 
 The radiated power loss $P_{rad}$ has been measure by the bolometer system which consists of one horizontally and one vertically viewing cameras by 32 and 43 collimated blackened detectors. The triangular cross-section of the reactor is covered with the lines of sight for various magnetic configurations. Having measurements along a line of sight enables you to integrate along the line of sight to acquire line-integrated signals such as radiate power loss $P_{rad}$ from the plasma.
 
@@ -34,10 +35,10 @@ The radiated power loss $P_{rad}$ has been measure by the bolometer system which
     \centering
     \begin{tabular}{|c|c|}
         \hline
-        Spectral range & $2\mathrm{eV} - 5\mathrm{eV}$  \\
-        Detectors & Resistive metal\\
-        Absorbers & $5\mathrm{\mu m}$ gold\\
-        Coating & $50\mathrm{nm}$ - C\\
+        Spectral range & $2\mathrm{eV} - 5\mathrm{eV}$  \\ \hline
+        Detectors & Resistive metal\\ \hline
+        Absorbers & $5\mathrm{\mu m}$ gold\\ \hline
+        Coating & $50\mathrm{nm}$ - C\\ \hline
         Filters &  $6\mathrm{\mu m} - 12\mathrm{\mu m}$ - Beryllium \\
         \hline
     \end{tabular}
@@ -53,27 +54,20 @@ To get the radiated power fraction the radiated power needs to be divided by the
 
 The line integrated electron density $\Bar{n}_e$ is evaluated along the line of sight (LOS) by the Integral Electron Density Dispersion Interferometer (IEDDI). The diagnostic exploits the change in the refractive index of the plasma which is only proportional to the wavelength of the laser light and the local density of free electrons to derive the density. The change in refractive index is governed by the electron density for the laser wavelength used. Since it is a dispersion interferometer is applies a Frequency Doubling Crystal (FDC) which mitigates any vibration induced phase shifts. It is used as the density feedback-control measurement since it is only sensitive to the free electron density which corresponds to the plasma density. 
 
-measured quantity: 	Line integrated electron density
-location: 	Laser path: AEZ31, AET31
-location: 	Toroidal angle: 170,5°
-measured range: 	1017 - 1021 m-2
-temporal resolution: 	up to 50 kHz
-radial resolution: 	none (one channel) 
-
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|}
         \hline
-        Location & Laser path: AEZ31, AET31\\
-        Location & Toroidal angle: 170,5$\circ$\\
-        Measured range & $10^{17} - 10^{21} \mathrm{m^{-2}}$\\
-        Temporal resolution & $\leq 50 \mathrm{kHz}$\\
-        Radial resoultion & None (Single channel)\\
-        Channels & Single channel  \\
-        Power & 20 $\mathrm{W}$\\
-        Laser type &  $\mathrm{CO_2}$\\
-        Wavelength  & 10.6 $\mathrm{\mu m}$\\
-        Harmonicity ($\mathrm{AfGaSe_2}$ frequency doubling crystal) & Second harmonic \\
+        Location & Laser path: AEZ31, AET31\\ \hline
+        Location & Toroidal angle: 170,5$\circ$\\ \hline
+        Measured range & $10^{17} - 10^{21} \mathrm{m^{-2}}$\\ \hline
+        Temporal resolution & $\leq 50 \mathrm{kHz}$\\ \hline
+        Radial resoultion & None (Single channel)\\ \hline
+        Channels & Single channel  \\ \hline
+        Power & 20 $\mathrm{W}$\\ \hline
+        Laser type &  $\mathrm{CO_2}$\\ \hline
+        Wavelength  & 10.6 $\mathrm{\mu m}$\\ \hline
+        Harmonicity ($\mathrm{AfGaSe_2}$ frequency doubling crystal) & Second harmonic \\ \hline
         Interference wavelength & 5.3 $\mathrm{\mu m}$\\
         \hline
     \end{tabular}
@@ -95,15 +89,15 @@ The neutral pressure gauges  measures the neutral gas pressure in $\sim 18$ toro
     \centering
     \begin{tabular}{|c|c|}
     \hline
-    Locations &  Main chamber, divertor, pumps\\
-    Operational limits and availability     & Routine operation\\
-    Mode of operation & Single-shot, continuous, scanning\\
-    Spatial resolution & Real or k-space, range or single value\\
-    Frequency resolution & \\
-    radial coverage & \\
-    Frequency resolution & \\
-    Calibration & Absolutely calibrated neutral gas pressure\\
-    Data availability & Data available in the archive\\
+    Locations &  Main chamber, divertor, pumps\\ \hline
+    Operational limits and availability     & Routine operation\\ \hline
+    Mode of operation & Single-shot, continuous, scanning\\ \hline
+    Spatial resolution & Real or k-space, range or single value\\ \hline
+    Frequency resolution & \\ \hline
+    radial coverage & \\ \hline
+    Frequency resolution & \\ \hline
+    Calibration & Absolutely calibrated neutral gas pressure\\ \hline
+    Data availability & Data available in the archive\\ 
     \hline
     \end{tabular}
     \caption{Operational details on the measurement of neutral pressure from the neutral pressure gauges.}
@@ -116,23 +110,22 @@ The intensity of the emission from impurity and neutral radiation is measure by 
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|}
+    \begin{tabularx}{0.95\textwidth}{|X|X|}
         \hline
-        Measured quantity & Emission line intensity, particle flow velocity in SOL, particle temperature in SOL (under development)\\
-        Narrowband filter wavelength & $\sim 2 \mathrm{nm}$ \\
+        Measured quantity & Emission line intensity, particle flow velocity in SOL, particle temperature in SOL (under development)\\ \hline
+        Narrowband filter wavelength & $\sim 2 \mathrm{nm}$ \\ \hline
         Location & AEA21 port - toroidal view from module 2 into module 1
-        AEF30 port - vertical view on lower divertor module 3\\
-        Operational limits and availability & Routinely operational, species under investigation may vary\\
-        Mode of operation & continuous\\
+        AEF30 port - vertical view on lower divertor module 3\\ \hline
+        Operational limits and availability & Routinely operational, species under investigation may vary\\ \hline
+        Mode of operation & continuous\\ \hline
         Resolution radiation intensity & depending on particle species\\
-        Resolution temperature & Under development\\
-        Resolution flow velocity & from 2-3 $\mathrm{km / s}$ to 50 $\mathrm{km / s}$\\
-        Calibration radiation intensity & no absolute calibration available, only relative quantities\\
-        Calibration flow velocity & absolute calibration with tunable laser\\
-        Calibration temperature & under development\\
-        Data availability & Raw data available at the end of each operational day, processed data under request\\
-        \hline
-    \end{tabular}
+        Resolution temperature & Under development\\ \hline
+        Resolution flow velocity & from 2-3 $\mathrm{km / s}$ to 50 $\mathrm{km / s}$\\ \hline
+        Calibration radiation intensity & no absolute calibration available, only relative quantities\\ \hline
+        Calibration flow velocity & absolute calibration with tunable laser\\ \hline
+        Calibration temperature & under development\\ \hline
+        Data availability & Raw data available at the end of each operational day, processed data under request\\ \hline
+    \end{tabularx}
     \caption{The properties of the Coherence Imaging Spectroscopy diagnostic.}
     \label{tab:CIS_properties}
 \end{table}

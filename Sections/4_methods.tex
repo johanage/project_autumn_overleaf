@@ -15,11 +15,7 @@ For the radiated power scaling a non-linear least square regression model has be
 
 \subsection{Determining dependence of between observables}
 
-To determine the dependence of the observables Principal Component Analysis (PCA) has been applied to the dataset to determining the dependence between the observables. In exploratory data analysis PCA is a method used for used for reducing dimensionality of the data. This is not the purpose of this paper, but rather to determine the dependence between each observables. The principle components are a set of unit vectors where the $i$'th unit vector is the direction of the line that best fits the data while being orthogonal to the first $i-1$ unit vectors. The best fitting line is defined as the least square of the residual - the distance from the point to the line that follows the direction of the principal component. The principal components are unit vectors that form an orthonormal basis - the different dimensions of the data is then linearly uncorrelated. The principal components are eigenvectors of the covariance matrix. Computing the single value decomposition of the covariance matrix is then a common way of computing the principal components. This the method that the library $ \verb| scikitlearn.decomposition.PCA|$ uses. 
 
-\subsubsection{Non-linear PCA}
-
-Non-linear dependencies between observables is clearly seen in the collinearity plots. This calls for a non-linear method of determining the dependence between variables. Such a method is the Non-linear PCA (NPCA) which is just a generalization of PCA from lines to curves.
 
 \subsection{Non-Linear Least-Square (NLLS) regression model}
 
@@ -30,13 +26,13 @@ Given an arbitrary nonlinear model on the form:
 
 where $\mathbf{x}$ is the vector of all data points, $\mathbf{\beta}$ is the vector of the unknown parameters, $\epsilon$ a noise term and the functional part $f$ is a nonlinear function. The nonlinear least square is a regression model where the residuals are given where it seeks to minimize the square of a loss function where the argument is the residuals. Mathematically this can be expressed as:
 \begin{align}
-    \underset{\beta}{\mathrm{min}} F(\mathbf{x};\mathbf{\beta}) &=\underset{\beta}{\mathrm{min}} \frac{1}{2} \sum_i \rho(f_i(x_i; \mathbf{\beta}))^2, i = 0, \dots, m-1\\
+    \underset{\beta}{\mathrm{min}} F(\mathbf{x};\mathbf{\beta}) &=\underset{\beta}{\mathrm{min}} \frac{1}{2} \sum_i \rho(f(x_i; \mathbf{\beta}))^2, i = 0, \dots, m-1\\
     &= \underset{\beta}{\mathrm{min}} \frac{1}{2}\Vert \mathbf{e}(\mathbf{x}) \Vert^2
 \end{align}
 
-where $F(x)$ is the cost function, $\rho$ is the loss function (scalar function), $f_i(x)$ the residual of the $i$'th datapoint, $\mathbf{e}$ is the residual vectors with the vector of the datapoints $\mathbf{x}$ as its argument. The general purpose of $\rho$ is to reduce the influence of outliers in the data. The minimum value of $F$ is obtained when the gradient is zero:
+where $F(x)$ is the cost function, $\rho$ is the loss function (scalar function), $f_i(x)$ the residual of the $i$'th datapoint, $\mathbf{e}$ is the residual vectors with the vector of the data points $\mathbf{x}$ as its argument. The general purpose of $\rho$ is to reduce the influence of outliers in the data. The minimum value of $F$ is obtained when the gradient is zero:
 \begin{equation}
-   \frac{\partial F}{\partial \mathbf{\beta}} = \sum_i \rho(y_i - f(x_i; \mathbf{\beta})) \frac{\partial \rho(f_i(x_i; \mathbf{\beta})}{\partial \mathbf{\beta}} = 0
+   \frac{\partial F}{\partial \mathbf{\beta}} = \sum_i \rho(y_i - f(x_i; \mathbf{\beta})) \frac{\partial \rho(f(x_i; \mathbf{\beta})}{\partial \mathbf{\beta}} = 0
 \end{equation}
 where the derivatives $\frac{\partial \rho(f_i(x_i; \mathbf{\beta})}{\partial \mathbf{\beta}}$ are functions of both the independent variables and the regression parameters which consequently results in these equations not being a closed set. Instead initial estimates must be given for the parameters and then the parameters $\mathbf{\beta}$ are refined iteratively; $\beta_j \approx \beta^{k+1}_j = \beta^k_j + \Delta \beta_j$. An analytical solution does not exist for NLLS problems as it does for a LLS problem, so the strategy is to linearise the problem and then use the same method to get the analytical solution as t. The following iterative approach is used:
 \begin{enumerate}
@@ -46,50 +42,94 @@ where the derivatives $\frac{\partial \rho(f_i(x_i; \mathbf{\beta})}{\partial \m
     \item Update estimate
 \end{enumerate}
 
-and after last step the iterative procedure is to start at linearising the problem again. 
+and after last step the procedure is to restart linearising the problem. 
 
 \subsubsection{Linearisation}
 
-A Taylor expansion of the nonlinear problem is done with respect to the objective function $f(\mathbf{x})$, where $rho = f$ is set for simplicity:
+A Taylor expansion of the nonlinear problem is done with respect to the objective function $f(\mathbf{x})$, where $\rho = f$ is set for simplicity:
 \begin{equation}
     f(x_i;\mathbf{\beta}) \approx f(x_i;\mathbf{\beta}^k) + \sum_j \frac{\partial f(x_i;\mathbf{\beta}^k)}{\beta_j}(\beta_j - \beta_j^k) = f(x_i; \mathbf{\beta}^k) + \sum_j J_{ij}\beta_j.
 \end{equation}
 
 where $\mathbf{J}$ is the Jacobian which appears in the derivative of the residual:
 \begin{equation}
-    \frac{\partial (y_i - f(x_i))}{\partial \beta_j} = -\frac{\partial f(x_i;\mathbf{\beta})}{\partial \beta_j} = -J_{ij}
+    \frac{\partial (y_i - f(x_i))}{\partial \beta_j} = -\frac{\partial f(x_i;\mathbf{\beta})}{\partial \beta_j} \equiv -J_{ij}.
 \end{equation}
 
-and the residuals can be rewritten using the linear approximation as:
+The Jacobian is computed numerically using finite differences. The residuals can be rewritten using the linear approximation as:
 \begin{align}
-    y_i - f(x_i;\mathbf{\beta}) &= (y_i - f(x_i;\mathbf{\beta}^k) ) + (f(x_i;\mathbf{\beta}^k- f(x_i;\mathbf{\beta} ) )\\
-    &\approx (y_i - f(x_i;\mathbf{\beta}^k) ) + f(x_i;\mathbf{\beta}^k) -\left( f(x_i;\mathbf{\beta}^k) + \sum_j \frac{\partial f(x_i;\mathbf{\beta}^k)}{\beta_j}(\beta_j - \beta_j^k) \right)
+    y_i - f(x_i;\mathbf{\beta}) &= (y_i - f(x_i;\mathbf{\beta}^k) ) + (f(x_i;\mathbf{\beta}^k- f(x_i;\mathbf{\beta} ) ) \nonumber\\
+    &\approx (y_i - f(x_i;\mathbf{\beta}^k) ) + f(x_i;\mathbf{\beta}^k) -\left( f(x_i;\mathbf{\beta}^k) + \sum_j \frac{\partial f(x_i;\mathbf{\beta}^k)}{\beta_j}(\beta_j - \beta_j^k) \right)\nonumber\\
+    &= (y_i - f(x_i;\mathbf{\beta}^k) ) - \sum_j \frac{\partial f(x_i;\mathbf{\beta}^k)}{\beta_j}(\beta_j - \beta_j^k)\\
+    &\approx (y_i - f(x_i;\mathbf{\beta}^k) ) - \sum_{j=0}^{m-1} J_{ij}(\beta_j - \beta_j^k) \nonumber \\
+    \label{eq:NLLS_residual_equation}
+    &= \Delta y_i - \sum_{j=0}^{m-1}J_{ij}\Delta \beta_j
 \end{align}
+
+where $\Delta y_i \equiv y_i - f(x_i;\mathbf{\beta}^k)$ and $\Delta \beta_j \equiv \beta_j - \beta_j^k$.
 
 \subsubsection{Solving the linearised problem}
 
-\subsubsection{Estimate update}
+Substituting the results from Eq. \ref{eq:NLLS_residual_equation} into the gradient equation for $F$ the following linearised equation to solve is:
+\begin{align}
+    \frac{\partial F}{\partial \mathbf{\beta}} &= \sum_i (y_i - f(x_i; \mathbf{\beta}) ) \frac{\partial f(x_i; \mathbf{\beta} )}{\partial \mathbf{\beta} } = 0\\
+    &= -\sum_i (\Delta y_i - \sum_{j=0}^{m-1}J_{ij}\Delta \beta_j) J_{ij} = 0\\
+    \implies \sum_i \Delta y_i J_{ij} &= \sum_i J_{ij}\sum_{k=0}^{m-1}J_{ik}\Delta \beta_j
+\end{align}
+
+which in vector form becomes:
 \begin{equation}
+    \mathbf{J}^T\bm {\Delta y} = (\mathbf{J}^{T} \mathbf{J})\bm \Delta \bm \beta
+\end{equation}
+
+Rewriting the equation so you get an expression for $\bm{\Delta \beta_j}$:
+\begin{equation}
+    \bm{\Delta \beta} = (\bm J^T \bm J )^{-1}\bm J^T\Delta y
+\end{equation}
+
+which forms the basis for the Gauss-Newton algorithm for a NLLS problem.
+
+\subsubsection{Estimate update}
+
+The parameters $\bm \beta$ are updated iteratively where each component is given by:
+\begin{equation}
+\label{eq:NLLS_estimatge_update}
     \beta_j \approx \beta^{k+1}_j = \beta^k_j + \Delta \beta_j
 \end{equation}
 
-One of the disadvantages of NLLS is that bad initial estimates can result ending up in local minima rather than the global. An unfortunate property which NLLS shares with LLS is that it is strongly sensitive to outliers which in a nonlinear model are hard to detect. However, the effect of outliers can be countered using a loss functions $\rho$.
+and convergence criterion is defined for the change of the cost function $F$. The algorithm converges when:
+\begin{equation}
+    dF \equiv \frac{F^{k+1} - F^k}{F^k} < \epsilon
+\end{equation}
+
+where $\epsilon$ is the user defined error tolerance.
+
+\subsubsection{Method discussion}
+
+One of the disadvantages of NLLS is that bad initial estimates can result ending up in local minima rather than the global. An unfortunate property which NLLS shares with LLS is that it is strongly sensitive to outliers which in a nonlinear model are hard to detect. However, the effect of outliers can be countered using a loss function $\rho$ which weakens the effect of outliers such as a logarithmic function.
 
 The NLLS-function from the $\verb|scipy|$ python-library was used as the regression routine. The important parameters in $\verb|scipy.optimize.leas_square|$ are given in Table \ref{tab:NLLS_params}:
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|}
+    \begin{tabularx}{0.9\textwidth}{| X | X | X |}
         \hline
-        Parameter & Description & Values used \\
-        \hline
-        $\verb|x0|$ & Initial parameter estimate &\\
-        $\verb|fun|$ & Objective function &\\
-        $\verb|bounds|$ & Bounds on parameters &\\
-        $\verb|loss|$ & Loss function &\\
-        $\verb|f_scale|$  & Value of soft margin between outlier and inlier residuals  &\\
-        $\verb|kwargs|$ & &\\
-        \hline
-    \end{tabular}
-    \caption{The parameters of interest in the non-linear least square regression problem.}
+        \textbf{Parameter} & \textbf{Description} & \textbf{Values used} \\ \hline
+        \Verb|x0| & Initial parameter estimate & Vector of ones \\ \hline
+        \Verb|fun| & Objective function & $\alpha \Pi_i O_i^{\beta_i}$; $O_i \equiv$ the $i$'th observable \\ \hline
+        \Verb|bounds| & Bounds on parameters & $(-\infty, \infty)$, $(-2, 2), (-10, 10)$, $(0,10)$\\ \hline
+        \Verb|loss| & Loss function & \Verb|linear|, \Verb|softl1|, \Verb|huber|, \Verb|cauchy|, \Verb|arctan|\\ \hline
+        \Verb|f_scale|  & $\rho(f^2) = C^2 \rho(f^2/c^2); C \equiv$ \Verb|f_scale| & $\{1, 5\}$ \\ \hline
+        \Verb|kwargs| & Data & $P_{ECRH}$, $\bar{n}_e$, $Z_{eff}$,$p_{neutral}$, $I_{C^{2+}}$ \\ \hline
+    \end{tabularx}
+    \caption{The parameters of interest in the NLLS problem. The loss functions are standard options in the scipy-implementation of NLLS, no loss function was defined specifically for this paper.}
     \label{tab:NLLS_params}
 \end{table}
+
+
+
+
+
+
+
+
+

@@ -9,11 +9,24 @@
     \textbf{Amount:} 0.5 - 1 page
 }
 
-\subsection{Comparison with the Two-point model}
+\subsection{Collinearity plots}
 
-\subsection{Comparison with the Post model}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.15]{Images/Results/inlc_prad_AEA21_collinearity_plot_col_cis.png}
+    \caption{Collinearity of the observables used in the regression model.}
+    \label{fig:collinearity_AEA21_col_CIS}
+\end{figure}
 
-\subsection{Comparison with the Goldston model}
+\subsubsection{Qualitative comment on collinearity}
+
+It is worth noting that in most of the models the following quantities are used in a product to represent the radiated power $\{ \Bar{n}_e, Z_{eff}, I_{C^{2+}} \}$. From the collinearity plot it is evident that $Z_{eff}$ is indeed independent of all the other observables as it shows a approximately uniform distribution. This could indicate either that the line averaged $Z_{eff}$ cannot be used as a proxy for the impurity fraction or that the errors in the data are too large for it to be reliably used. If $Z_{eff}$ 
+
+However, $I_{c^{2+}}$ and $\Bar{n}_e$ show a stronger than linear dependence. The line integrated density $\Bar{n}_e$ says more about the upstream conditions than the downstream, thus if it assumed a linear relationship between the down- and upstream density than the following argument could make sense. The dependency could indicate that the emissivity $I_{c^{2+}}$ increases due to higher collisionality. This could also be explained by the collinearity with the neutral pressure as collisionality $\nu \propto v^{-3}$ and the neutral pressure tends to slow down the ions down due to friction between ions and neutrals. However, the latter depends on which port the pressure is measured by, in Fig. \ref{fig:collinearity_AEA21_col_CIS} the neutral pressure is measured in the main chamber. Assuming the radiation front is located between the target and the X-point the argument of momentum loss due to ion-neutral friction is not evident.
+
+\subsection{Comparison with the Two-point, Post and Goldston model}
+
+\subsection{Comment on collinearity}
 
 \subsection{Relation with scaling from perpendicular regime}
 
