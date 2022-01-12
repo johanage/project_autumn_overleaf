@@ -9,38 +9,43 @@
     \textbf{Amount:} 0.5 - 1 page
 }
 
-\subsection{Collinearity plots}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.15]{Images/Results/inlc_prad_AEA21_collinearity_plot_col_cis.png}
-    \caption{Collinearity of the observables used in the regression model.}
-    \label{fig:collinearity_AEA21_col_CIS}
-\end{figure}
 
 \subsubsection{Qualitative comment on collinearity}
 
 It is worth noting that in most of the models the following quantities are used in a product to represent the radiated power $\{ \Bar{n}_e, Z_{eff}, I_{C^{2+}} \}$. From the collinearity plot it is evident that $Z_{eff}$ is indeed independent of all the other observables as it shows a approximately uniform distribution. This could indicate either that the line averaged $Z_{eff}$ cannot be used as a proxy for the impurity fraction or that the errors in the data are too large for it to be reliably used. If $Z_{eff}$ 
 
-However, $I_{c^{2+}}$ and $\Bar{n}_e$ show a stronger than linear dependence. The line integrated density $\Bar{n}_e$ says more about the upstream conditions than the downstream, thus if it assumed a linear relationship between the down- and upstream density than the following argument could make sense. The dependency could indicate that the emissivity $I_{c^{2+}}$ increases due to higher collisionality. This could also be explained by the collinearity with the neutral pressure as collisionality $\nu \propto v^{-3}$ and the neutral pressure tends to slow down the ions down due to friction between ions and neutrals. However, the latter depends on which port the pressure is measured by, in Fig. \ref{fig:collinearity_AEA21_col_CIS} the neutral pressure is measured in the main chamber. Assuming the radiation front is located between the target and the X-point the argument of momentum loss due to ion-neutral friction is not evident.
+However, $I_{c^{2+}}$ and $\Bar{n}_e$ show a stronger than linear dependence. The line integrated density $\Bar{n}_e$  dependency could indicate that the emissivity $I_{c^{2+}}$ increases due to higher collisionality since $\nu \propto (n^{\star})^{2}$ where $n^{\star}$ is the bulk plasma density (\cite{miyamoto2005plasma}). The indication of higher collisionality could strengthen the tendency of the radiation increasing due to increased impact radiation between the plasma and Carbon. 
+
+The increase in collisionality could be further strengthened by the collinearity with the neutral pressure as collisionality $\nu \propto v^{-3}$ and the neutral pressure tends to slow down the ions down due to friction between ions and neutrals. However, the latter depends on which port the pressure is measured by, in Fig. \ref{fig:collinearity_AEI30_col_CIS} the neutral pressure is measured in the divertor. Assuming the radiation front is located between the target and the X-point the argument of momentum loss due to ion-neutral friction is not evident and needs to be related to the neutral pressure in this region. The port AEI30 measures the pressure in the divertor and indicates a relation between the neutral pressure and $I_{C^{2+}}$.
 
 \subsection{Comparison with the Two-point, Post and Goldston model}
 
-\subsection{Comment on collinearity}
+1 Discuss the validity of using the upstream downstream conditions given by the extended two-point model in the evaluation of the integral in the 1D model of Post.
 
-\subsection{Relation with scaling from perpendicular regime}
+2 Comparison of stellarator vs. tokamak conditions. Comment on the indication of being in a competing regime
 
-\subsection{Comparison of the results}
+2: Comparing tokamak and stellarators the main difference in transport properties is due to the geometry of the magnetic field. Since tokamaks are axisymmetric it is reasonable to analyse the transport properties in the SOL in a toroidal cross-section. The field line pitch is present in tokamaks as well as stellarators but the order of difference is so large that the effect can be neglected to simplify the modeling of transport properties. Thus the model for the parallel dominant transport regime applies to tokamaks as given by \cite{post1995analytic} and \cite{goldston2017new}. This allows the spread of the heat flux to be analysed by one length namely the SOL width as discussed by \cite{goldston2017new} where a spreading factor is introduced computed from the Eich fit (\cite{eich2013scaling}). The latter is essentially a description of the power spreading (heat dissipation/diffusion) convolution between the radial dependent heat flux and a Gaussian function with width $S$, which is the spreading factor first introduced by \cite{makowski2012analysis}. On the basis of the Heuristic-Drift model (\cite{goldston2011heuristic})) \cite{goldston2017new} derives a scaling for an exponential decay length $\lambda_q$ of the parallel energy transport using the integral power decay length which relates the peak heat flux to the deposited power first introduced by \cite{loarte1999multi}. This is a result of the symmetry and the transport properties of the tokamak - it allows the reduction from 3D to 1D for the energy transport. This also simplifies to determine a scaling for the contributions to the energy transport where radiation loss is the most important. If it assumed that the radiation loss is the dominant contribution to the difference between the up- and downstream heat flux including the transport effects and can scale this difference to global plasma parameters you have a scaling for the radiated power.
 
-\subsubsection{Independent/dependent variables collinearity}
+Unfortunately, for stellarators, it is another story. The transport properties is inherently 3D due to the helical shape of the field which makes the effect of the field line pitch significant compared to tokamaks. This restricts the modelling for the energy transport effects because the dimensionality of the problem cannot be simplified in the same way as tokamaks. Thus leading to anther approach to get the radiated power scaling where we look at the validity of the 1D transport model in the limited regimes where parallel or cross-field transport respectively dominates to determine the validity of the models. 
 
-\subsection{Qualitative discussion on residuals/error}
+Besides the differences between the power loss due to radiation between tokamaks and stellarators there are some common factors. Both of the equations for $\frac{\partial q_{\parallel}^2}{\partial l}$ where $l$ is the distance along a field line is strongly dependent on the inverse of $T$ - respectively $\frac{\partial q_{\parallel}}{\partial l} \propto T^{-2}$ for both the regimes. This implies that the power loss is concentrated at in the region of low temperature along the field line (\cite{goldston2017new}). However, due to the difference in transport properties the stellarator ID which is much more affected by the cross-field transport will have longer connection lengths and thus spend more time in the low temperature regions than the typical case of a tokamak PD.   
 
-\subsubsection{Quantify the error}
-- determine error measure, compare several error measures?
+\subsection{Comment on the results}
+
+Discuss the generality of the results based on the prediction for the single discharges. Do they represent the whole global plasma parameter space? Use the plot where they are located with respect to all the other discharges.
+
+\subsubsection{Parameter investigation of NLLS}
+
+
+
 
 \subsubsection{Explanation of the difference in exponents and interplay between the observables}
 
 Questions/Notes:
-- Cause and effect when changing ports (interplay between IC2+ exponents and neutral pressure)
+- Cause and effect when changing ports (interplay between IC2+ exponents and neutral pressure) - if this would be included then it has to be demonstrated
 - 
+
+\subsection{Further work}
+
+If you get a scaling for the effective radiation surface and the impurity fraction you basically have the radiated power. This can be extracted from the data from EMC3-EIRENE simulations.

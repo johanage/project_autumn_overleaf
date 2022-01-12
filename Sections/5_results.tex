@@ -28,11 +28,11 @@ Starting from Eq. \ref{eq:post_rad_plus_transport}:
 
 the integral can be calculated numerically because $L_Z(T)$ is atomic data and independent of the particular conditions of the fusion reactor. The atomic data can be retrieved from the ADAS database (\hyperlink{https://open.adas.ac.uk/about-open-adas}{ADAS}) described in (\cite{summers2011atomic}). This leaves $f_Z$ as the unknown parameter in the equation which is hard to measure in general (\cite{schneider2006plasma}). The upstream and downstream temperature $T_u, T_d$ can be either varied to investigate the dependency or estimated from the two point model for a given input heat flux $q_u$ and upstream density $n_u$. Therefore the LHS of Eq. \ref{eq:post_rad_plus_transport} can be computed as a function of upstream and downstream temperature. Assuming the upstream and downstream temperature is known or can easily be inferred it is possible to solve for the radiated power by solving the resulting second order equation using the relation given in equation \ref{eq:relation_prad_heatflux_diff}:
 \begin{align}
-    q_{\parallel}^2 - q_{\parallel,0}^2 &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e \nonumber \\ 
-    (q_{\parallel} - q_{\parallel,0})(q_{\parallel} + q_{\parallel,0}) &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e \nonumber \\
-    (q_{\parallel} - q_{\parallel,0})(q_{\parallel} - q_{\parallel,0} + 2q_{\parallel,0}) &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e \nonumber \\
-    q_{rad}(q_{rad} + 2q_{\parallel,0}) &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e \nonumber \\
-    \implies q_{rad}^2 + 2q_{\parallel,0}q_{rad} - n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e &= 0
+    q_{u}^2 - q_{d}^2 &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e \nonumber \\ 
+    (q_{u} - q_{d})(q_{u} + q_{d}) &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e \nonumber \\
+    (q_{u} - q_{d})(q_{u} - q_{d} + 2q_{d}) &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e \nonumber \\
+    q_{rad}(q_{rad} + 2q_{d}) &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e \nonumber \\
+    \implies q_{rad}^2 + 2q_{d}q_{rad} - n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e &= 0
 \end{align}
 
 where $n_s = n_u$ and $q_{\parallel,0} = q_d$ which has the solution:
@@ -47,7 +47,15 @@ where $\mathrm{RHS}$ is the right hand side of Eq. \ref{eq:post_rad_plus_transpo
     \mathrm{RHS} \equiv n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e
 \end{equation}
 
-and the only unknown is $f_z$. The result is equal the detachment condition for $q_d$ as \cite{post1995analytic} uses in their analysis defining detachment for all the SOL input power being radiated. This makes it possible for analysing the Post model for given up- and downstream conditions.
+and the only unknown is $f_z$. The result is equal the detachment condition for $q_d$ as \cite{post1995analytic} uses in their analysis defining detachment for all the SOL input power being radiated. This makes it possible for analysing the Post model for given up- and downstream conditions. Since the downstream heat flux is hard to control Eq. \ref{eq:sol_2nddeg_prad} should be rewritten so that it is expressed by the upstream heat flux instead of the downstream. Substituting the results from the extended two-point model for the boundary condition for the heat flux at the target  where $q_u (1 - f_{power}) = q_d$ where $f_{power} = \frac{q_{rad}}{q_u}$, assuming that radiation is the only loss, into Eq. \ref{eq:sol_2nddeg_prad} gives the following equation:
+\begin{align}
+    q_{rad} &= \sqrt{(q_u - q_{rad})^2 + \mathrm{RHS} } - (q_u - q_{rad}) \nonumber\\
+    0 &=  \sqrt{(q_u - q_{rad})^2 + \mathrm{RHS} } - q_u \nonumber\\
+    q_u^2 - \mathrm{RHS} &=  (q_u - q_{rad})^2  \nonumber\\
+    q_u - q_{rad} &= \pm \sqrt{q_u^2 - \mathrm{RHS}} \nonumber \\
+    \label{eq:sol_2nddeg_prad_upstream}
+    q_{rad} &= q_u - \sqrt{q_u^2 - \mathrm{RHS}}
+\end{align}
 
 \subsection{From Feng model to scaling}
 
@@ -62,27 +70,73 @@ which can be rewritten on the exact for as Eq.  \ref{eq:sol_2nddeg_prad} with:
     \mathrm{RHS} \equiv \int_{T_d}^{T_u} 2 \chi n^3 f_z  L_Z(T) dT
 \end{equation}
 
+and to solve Eq. \ref{eq:RHS_perp} the integration has to be done from the downstream to the upstream temperature. Assuming constant pressure along the integration path we choose, and we can choose any path we want in $T$-space where this assumption is valid the integral simplifies to:
+\begin{equation}
+\label{eq:RHS_perp_const_pressure}
+    \mathrm{RHS} \equiv 2 \chi n_u^3 T_u^3 f_z \int_{T_d}^{T_u}  T^{-3}  L_Z(T) dT
+\end{equation}
+where it is assumed that $f_z$ and $\chi$ does not change much along the path of integration.
+
 \subsection{Regression results}
 
-The regression was done for all possible combinations of the aforementioned data. This resulted in a lot of data produced so for simplicity of the discussion only the most important results will be included.
+The regression was done for all possible combinations of the aforementioned data. This resulted in a lot of data so for simplicity of the discussion only the most important results will be included.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Images/Results/Combinations/Prad_cbar_cis_intensity_aeq21_entireImage_nlls_model_corr_w_nbar_e_Zeff_png_cis_0.027_0.424_0.649_0.006_0.943.png}
+    \includegraphics[scale=0.5]{Images/Results/Combinations/Prad_cbar_cis_intensity_aeq21_entireImage_nlls_model_corr_w_nbar_e_Zeff_png_cis_0.027_0.424_0.649_0.006_0.943.png}
     \caption{The regression model radiated power $P_{rad}$ including all observables colored by the carbon 3 emissivity $I_{C^{2+}}$. $\Bar{e}$ is the mean of the residuals.}
     \label{fig:regr_prad_all}
 \end{figure}
 
-From Fig. \ref{fig:regr_prad_all} it is clear that there is a relation between the Carbon 3 emissivity and the radiated power. However, when it gets scaled by the input power as seen in Fig. \ref{fig:regr_frad_all} it si
+From Fig. \ref{fig:regr_prad_all} it is clear that there is a relation between the Carbon 3 emissivity and the radiated power. However, for $f_{rad}$ when it gets scaled by the input power as seen in Fig. \ref{fig:regr_frad_all} it seems to be rescaled where this relation is not longer evident.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{Images/Results/Combinations/frad_cbar_cis_intensity_aeq21_entireImage_nlls_model_corr_w_pheat_nbar_e_Zeff_png_cis_0.024_-0.925_0.409_0.777_0.001_0.928}
+    \includegraphics[scale=0.5]{Images/Results/Combinations/frad_cbar_cis_intensity_aeq21_entireImage_nlls_model_corr_w_pheat_nbar_e_Zeff_png_cis_0.024_-0.925_0.409_0.777_0.001_0.928}
     \caption{The regression model of the radiated power fraction $f_{rad}$ including all observables colored by the carbon 3 emissivity $I_{C^{2+}}$. $\Bar{e}$ is the mean of the residuals.}
     \label{fig:regr_frad_all}
 \end{figure}
 
 \subsection{Discharges of interest}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{Images/Results/Discharges/W7X20180814_023_and_W7X20180814_024_ofall.png}
+    \caption{The discharges \#20180814023 and \#20180814024 highlighted in the scatter plot of the data used in the regression model for the radiated power fraction $f_{rad}$.}
+    \label{fig:discharge_ofinterest_highlighted}
+\end{figure}
+
+\verb|t_in_shot| is the time after discharge initiation given in seconds.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{Images/Results/Discharges/W7X20180814_023_overview.png}
+    \caption{Overview of discharge \#20180814023.}
+    \label{fig:20180814023_overview}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{Images/Results/Discharges/W7X20180814_024_overview.png}
+    \caption{Overview of discharge \#20180814024.}
+    \label{fig:20180814023_overview}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{Images/Results/Discharges/W7X20180814_023_col_tinshot.png}
+    \caption{The discharge \#20180814023 for the regression model with lowest mean residuals where the time is highlighted by coloring. }
+    \label{fig:20180814023_regression_tcol}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{Images/Results/Discharges/W7X20180814_024_col_tinshot.png}
+    \caption{The discharge \#20180814024 for the regression model with lowest mean residuals where the time is highlighted by coloring. }
+    \label{fig:20180814024_regression_tcol}
+\end{figure}
+
+\subsubsection{Time evolution of the regression model}
 
 \begin{figure}[H]
     \centering
@@ -100,4 +154,18 @@ From Fig. \ref{fig:regr_prad_all} it is clear that there is a relation between t
 
 In Figs. \ref{fig:W7X20180814023_timeevo} and \ref{fig:W7X20180814024_timeevo} the red line is from the measure $P_{rad}$ from the Juice database used in the regression model and the orange line is another averaging scheme for shorter time steps. The blue region is regression $P_{rad} \pm e$ where $e$ is the residuals. The green dots is the prediction of the regression model with the lowest average of the residuals given in \ref{fig:regr_prad_all}.
 
-\subsubsection{Time evolution of the regression model}
+\subsection{Collinearity plots}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.15]{Images/Results/inlc_prad_AEA21_collinearity_plot_col_cis.png}
+    \caption{Collinearity of the observables used in the regression model for port AEA21.}
+    \label{fig:collinearity_AEA21_col_CIS}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.15]{Images/Results/ports/inlc_prad_AEI30_collinearity_plot_col_cis.png}
+    \caption{Collinearity of the observables used in the regression model for port AEI30 with $I_{C^{2+}}$ colored.}
+    \label{fig:collinearity_AEI30_col_CIS}
+\end{figure}

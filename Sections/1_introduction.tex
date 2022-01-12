@@ -4,9 +4,11 @@
 
 Ideas
 
-the double product: $n_e\tau$ says something about the total amount of collisions? (thought is that $n_e\tau \langle \sigma \nu \rangle$ is dimensionless)
+the double product: $n_e\tau$ says something about the total amount of collisions? (idea is that $n_e\tau \langle \sigma \nu \rangle$ is dimensionless)
 
 Introducing the collisional 
+
+
 
 \subsection{Symbols}
 \begin{enumerate}
@@ -25,14 +27,17 @@ Introducing the collisional
 
 \subsection{Terms}
 \begin{enumerate}
+    \item \textbf{MHD} - Magnetohydrodynamics
     \item \textbf{ECRH} - Electron Cyclotron Resonance Heating 
     \item \textbf{Connection length} - $L$ is called the connection length, and the distance along $\bm B$ in the SOL between two points of contact with the solid surface is $2L$
     \item \textbf{X-point} - the point where the open field lines bounding the separatrix overlaps.
     \item \textbf{MPS} - magnetic pre-sheath
     \item \textbf{PSI} - plasma surface interaction. Interaction between plasma and a solid (machine parts).
+    \item \textbf{ID} - Island Divertor
+    \item \textbf{PD} - Poloidal Divertor
     \item \textbf{Sputtering} - the process where plasma particles collides with the surface of the reactor dislodging atoms from the lattice. Can lead to erosion and eventually contamination of the plasma.
     \item \textbf{Debye sheath} - a thin net charge boundary layer at the interface between the solid and the plasma. Plays a central role in establishing the temperature, density and other properties of the plasma.
-    \item \textbf{Plasma wetted area} - the "small" area of the target where the power deposited by the electron and ion impact occurs. To small of an area can cause to overheating and melting of the target. In other words where the solid surface is in contact with significant plasma fluxes.
+    \item \textbf{Plasma wetted area} - the "small" area of the target where the power deposited by the electron and ion impact occurs. To small of an area can cause overheating and melting of the target. In other words where the solid surface is in contact with significant plasma fluxes.
     \item \textbf{Open/closed field lines} - In nuclear fusion one separates between open and closed field lines because some of the field lines intersects the machine structure before closing in a loop outside the fusion reactor/experiment. These field lines are called open. The field lines closing inside the physically bounded region of the machine are called closed field lines.
 \end{enumerate}
 \end{multicols}
@@ -55,7 +60,7 @@ There are three ways of confining nuclear fusion:
 \begin{enumerate}
     \item \textbf{Gravitational confinement} - Gravitational force overcomes the plasma pressure which allows for high density and long confinement times at intermediate temperatures. This is not suitable for fusion on earth and is primarily found in stars.
     \item \textbf{Inertial confinement} - Small high density pellets ($\sim 10^{31}\mathrm{m^{-3}}$) are compressed and heated before particles can escape. This happens by evaporating the surface resulting in a rocket effect (or inertia effect) where the particles from the surface pushes the particles from the core inwards - shock waves arises and compresses the fuel resulting in high enough pressure for fusion reactions. Typical short confinement times $\sim \mathrm{ns}$.
-    \item \textbf{Magnetic confinement} - Magnetic fields are induced to contain the particles exploiting that charged particles gyrate around magnetic field lines. Magnetic pressure exceeds the plasma pressure often expressed by the parameter $\beta$ representing the ration between the plasma pressure $nT$ and the magnetic field pressure $\frac{B^2}{2 \mu_0}$. Typical intermediate densities ($\sim 10^{20} \mathrm{m^{-3}}$) and confinement times ($\sim \mathrm{s}$).
+    \item \textbf{Magnetic confinement} - Magnetic fields are induced to contain the particles exploiting that charged particles gyrate around magnetic field lines. Magnetic pressure exceeds the plasma pressure often expressed by the parameter $\beta$ representing the ratio between the plasma pressure $nT$ and the magnetic field pressure $\frac{B^2}{2 \mu_0}$. Typical intermediate densities ($\sim 10^{20} \mathrm{m^{-3}}$) and confinement times ($\sim \mathrm{s}$).
 \end{enumerate}
 
 \subsection{Magnetic confinement}
@@ -66,7 +71,7 @@ The charged particles of the plasma are affected by electromagnetic fields. The 
     \bm F = q(\bm v \times \bm B  + \bm E)
 \end{equation}
 
-where $q$ is the charge of the particle, $\bm v$ is the velocity of the particle, $\bm B$ is the magnetic field and $\bm E$ is the electric field. The charged particles gyrates around magnetic field lines as a consequence of the Lorentz force. If field lines are closed meaning it does not intersect with a physical surface before joining together in a loop the particles stays in a orbit gyrating around this closed field line. Th8is is the concept of toroidal magnetic field configurations. In steady state where particle drifts - motion away from the field lines - are absent the particles will stay in orbits along field lines. Using the relation from Eq. \ref{eq:lorentz_force} the drifts can generally be expressed as:
+where $q$ is the charge of the particle, $\bm v$ is the velocity of the particle, $\bm B$ is the magnetic field and $\bm E$ is the electric field. The charged particles gyrates around magnetic field lines as a consequence of the Lorentz force. If field lines are closed meaning it does not intersect with a physical surface before joining together in a loop the particles stays in a orbit gyrating around this closed field line. This is the concept of toroidal magnetic field configurations. In steady state where particle drifts - motion away from the field lines - are absent and the particles will stay in orbits gyrating around the magnetic field lines. Using the relation from Eq. \ref{eq:lorentz_force} the drifts can generally be expressed as:
 \begin{equation}
 \label{eq:drifts}
     \bm v_d = \frac{\bm F_d \times \bm B}{q B^2}
@@ -110,22 +115,29 @@ A tokamak is a magnetic fusion reactor device that use planar coils around a tor
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.4]{Images/Theory_and_Figures/stellarator_figure.jpg}
-    \caption{The stellarator is depicted with its field generating components and the magnetic field itself. The field coils are depicted in copper where the red arrows indicate the direction of the current in the toroidal field coils and blue arrow indicate the direction of the current in the non-planar coils which generates a net helical magnetic field. The purple surface indicates a closed magnetic flux surface. Source: Christian Brandt, IPP 2011.}
+    \caption{The stellarator is depicted with its field generating components. The field coils are depicted in copper where the red arrows indicate the direction of the current in the toroidal field coils and blue arrow indicate the direction of the current in the non-planar coils. Together they generate a net helical magnetic field. The purple surface indicates a closed magnetic flux surface. Source: Christian Brandt, IPP 2011.}
     \label{fig:stellarator_figure}
 \end{figure}
 The difference from tokamaks is that the rotational transform (twisting of the magnetic field) is generated by external field coils - not plasma currents. This also means that the external field coils are non-planar. Since the helical field is not generated by any current the stellarators are made for steady state operation and does not have same weakness for MHD instabilities as tokamaks. However, this comes at the cost of giving up the axisymmetry making the modelling and construction much more complex.
 
 \subsection{Scrape-off Layer (SOL)}
 
-Plasma in magnetic confinement fusion devices can be separated into the core and the edge region. The core region is typically stable and it is here the fusion reactions and energy production is concentrated, whereas the edge is where the particles and the heat is exhausted. The scrape-off layer (SOL) defines the plasma region governed by open field lines which begins and ends at material surfaces. It is the region outside the LCFS in the divertor configuration this region is outside the separatrix. The fact that the scrape-off layer is governed by open magnetic field lines strongly differs the transport from that of the confined plasma region. A detailed description of the transport phenomena is needed because the physics of the SOL region does not belong to a limiting case. 
+Plasma in magnetic confinement fusion devices can be separated into two main regions; the core and the edge. The core region is typically stable and it is here the fusion reactions and energy production is concentrated, whereas the edge is where the particles and the heat is exhausted. The scrape-off layer (SOL) defines the plasma region governed by open field lines which begins and ends at material surfaces. It is the region outside the LCFS in the divertor configuration this region is outside the separatrix. The fact that the scrape-off layer is governed by open magnetic field lines strongly differs the transport properties from that of the confined plasma region. A detailed description of the transport phenomena is needed because the physics of the SOL region is highly non-linear. 
 
 \subsubsection{Divertor}
 
-A divertor configuration is a magnetic field configuration where the confined plasma is separated from the outside world by a separatrix. A separatrix is the boundary separating two modes of behaviour (phases) in a dynamical system. In the context of magnetically confined fusion it refers to the trajectories of the magnetic field lines. It is the boundary between the inside and outside of a magnetic island which is a closed magnetic flux tube with a toroidal topology which is bounded by a separatrix. So the separatrix effectively separates closed and open magnetic field lines in a divertor configuration.
+A divertor configuration is a magnetic field configuration where the confined plasma is separated from the outside world by a separatrix. A separatrix is the boundary separating two modes of behaviour (phases) in a dynamical system. In the context of magnetically confined fusion it refers to the trajectories of the magnetic field lines. It is the boundary between the inside and outside of a magnetic island. A magnetic island is a closed magnetic flux tube with a toroidal topology which is bounded by a separatrix. So the separatrix effectively separates closed and open magnetic field lines in a divertor configuration.
 
-The main purpose of introducing a divertor as a replacement for the limiter (physical walls to contain the plasma) is to reduce the amount of intrinsic impurities and to divert the plasma onto plasma facing components (PFC) specifically made for heat exhaust. There is a difference between the divertor configuration for the tokamaks which use a poloidal divertor configuration with one or two X-points and island divertors (ID) for stellarators like W7X which can have several X-points allowing more divertor plates for the particle and heat exhaust. One of the ideas behind ID's is to increase the area of the heat exhaust by increasing the number of targets.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{Images/Theory_and_Figures/Divertor_configurations.png}
+    \caption{The two divertors from the left is the tokamak single-null (1 X-point) and double-null (2 X-points) poloidal divertor. The divertor on the right is the island divertor where the number of poloidal turns per toroidal turn depicted $n = 9$. For W7-X $n\in \{4,6\}$, but the standard is $n=5$. The red arrows indicate the heat transport projected in the toroidal cross-section. The black lines indicate the separatrix and the blue lines indicate the targets where the particles and heat is exhausted.}
+    \label{fig:divertor_configurations}
+\end{figure}
 
-The input parameters of the SOL is defined as the parameters defined at the last closed flux surface (LCFS). The LCFS is the boundary between the confined plasma and the external part of the plasma that interacts with the wall which follows the open field lines. The LCFS is the frontier of the closed field lines - the next flux surface outside the LCFS is the first flux surface defined by open field lines. Thus, it is the power at the LCFS which is exhausted at the divertor plates. The rest of this paper focuses on the heat transport from the LCFS to the targets and how it can be dissipated due to radiation from ionization and recombination of impurities.
+The main purpose of introducing a divertor as a replacement for the limiter (physical walls to contain the plasma) is to reduce the amount of intrinsic impurities and to divert the plasma onto plasma facing components (PFC) specifically made for heat exhaust. Since this is a transport process this allows for losses along the transport path possibly reducing heat and particle exhaust on the PFCs. There are many different divertor configurations. The tokamaks normally use a poloidal divertor configuration with one or two X-points while the stellarator W7X use island divertors (ID) which can have several X-points allowing more divertor plates for the particle and heat exhaust. One of the main ideas behind IDs is to increase the area of the heat exhaust by increasing the number of targets.
+
+The input parameters of the SOL is defined as the parameters defined at the last closed flux surface (LCFS). The LCFS is the boundary between the confined plasma and the external part of the plasma that interacts with the wall which follows the open field lines. It is the frontier of the closed field lines - the next flux surface outside the LCFS is the first flux surface defined by open field lines. Thus, it is the power at the LCFS which is exhausted at the divertor plates. The rest of this paper focuses on the heat transport from the LCFS to the targets and how it can be dissipated due to radiation by trying to characterise the radiation with respect to global plasma parameters.
 
 \subsection{Wendelstein 7-X}
 Wendelstein 7-X (W7-X) is one of the largest superconducting stellarator in the world. The stellarator has a five-fold symmetry and is optimized  to have a low shift of the plasma with increasing plasma pressure, reduced neoclassical transport, low self-evolving plasma current (bootstrap current). W7-X is also optimised for reduction of drift effects to reduce the losses of trapped particles. ID's are used for heat and particle exhaust where the magnetic islands are located at the edge at a magnetic flux surface with a rotational transform $\iota = \frac{m}{n} = \frac{5}{5} = 1$. 
@@ -142,19 +154,19 @@ In some fusion experiments other gas species than the fuel are added to exploit 
 
 Physical sputtering is the term related to when the particles from the plasma collides with the reactor wall and breaks free a part of the wall thus introducing impurities to the plasma. Typically the impurities from sputtering is carbon atoms. 
 
-Carbon also participate in another kind of sputtering which is called chemical sputtering where the plasma chemically reacts with the wall - in hydrogen fueled fusion reactions it is natural that a chemical reaction will take place when the walls are made out of Carbon.
+Carbon also participate in another kind of sputtering which is called chemical sputtering where the plasma chemically reacts with the wall - in hydrogen fueled fusion reactions it is natural that a chemical reaction will take place when the walls are made out of Carbon. This can potentially happen for all impurities, but they have different reactivities.  
 
 \subsection{Motivation for characterising the radiated power}
 
-Future fusion reactors needs to be run for long discharges over several decades to be considered as an economically efficient way of generating energy. This means that the machine has to be durable enough to widthstand the extreme conditions which are needed for long fusion operations. To realise this the power exhaust of fusion reactors needs to be understood and controlled. The maximum target heat load is one of the limiting factors of a reactors life time - even for fusion fusion reactions to take place. Since the material of the divertor plates only tolerate a limited heat load the need for mechanisms to cool the plasma has become significant. The main cooling mechanism is radiation due to ionisation of impurities in the plasma. Exploiting the larger ionisation energy of species with a higher charge state the plasma can potentially be cooled enough for acceptable heat loads on the divertor plates. This is a process which would be beneficial to understand well enough to be able to control the power exhaust on the divertor plates. However, the physics and how the radiation from impurities scales with global plasma parameters is still unclear and needs to be investigated further. Understanding the physics of such a phenomena is not straight forward since it is governed by transport processes which makes the scaling inherently dependent on local parameters rather than global parameters. Unfortunately a scaling with local parameters is not easy as observables measured by the diagnostics of the W7X are mainly global parameters. 
+Future fusion reactors needs to be run for long discharges over several decades to be considered as an economically efficient way of generating energy. This means that the machine has to be durable enough to widthstand the extreme conditions which are needed for long fusion operations. To realise this the power exhaust of fusion reactors needs to be understood and controlled. The maximum target heat load is one of the limiting factors of a reactors life time - even for fusion reactions to take place. Since the material of the divertor plates only tolerate a limited heat load the need for mechanisms to cool the plasma has become significant. The main cooling mechanism is radiation due to ionisation of impurities in the plasma. Exploiting the larger ionisation energy of species with a higher charge state the plasma can potentially be cooled enough for acceptable heat loads on the divertor plates. This is a process which would be beneficial to understand well enough to be able to control the power exhaust on the divertor plates. However, the physics and how the total radiation scales with global plasma parameters is still unclear and needs to be investigated further. Understanding the physics of such phenomena is not straight forward since it is governed by transport processes and non-linear physics which makes the radiation processes inherently dependent on local parameters rather than global parameters. Unfortunately scaling the radiated power using a relation based on local parameters is unpractical as observables measured by the diagnostics of the W7X are mainly global parameters. 
 
-Ideally such a scaling law which is based on controllable parameters would not only help the understanding of the physics of the radiation loss in the SOL, but can also potentially be used as a base for a model for feedback or feed-forward systems. For tokamaks a feedback system for the radiation loss would mean steady state operation for energy, assuming the radiation loss to be the main power loss. In stellarators such as W7X which is built for steady state operation a feed-forward system with a proper scaling law would enable the experiment to infer a desired amount of radiation loss for a chosen set of global plasma parameters.
+Ideally a scaling law which is based on controllable parameters would not only help the understanding of the physics of the radiation loss in the SOL, but can also potentially be used as a base for a model for feedback or feed-forward systems. For tokamaks a feedback system for the radiation loss would mean steady state operation for energy, assuming the radiation loss to be the main power loss. In stellarators such as W7X which is built for steady state operation a feed-forward system with a proper scaling law would enable the experiment to infer a desired amount of radiation loss for a chosen set of global plasma parameters.
 
 \newpage
 
 \subsection{Fluid equations}
 
-Before introducing the two-point model the relevant equations should be derived from the general fluid equations to understand when the model is applicable. The fluid equations can be summed up from three basic physical principles for systems in stationary phase:
+Before introducing the simplified models the +relevant equations should be motivated from the general fluid equations to understand when the model is applicable. The fluid equations can be summed up from three basic physical principles for systems in stationary phase:
 \begin{enumerate}
     \item Continuity, also known as particle balance.
     \item Momentum balance. 
@@ -164,11 +176,11 @@ Before introducing the two-point model the relevant equations should be derived 
 For charged particles the general equations for continuity, momentum and energy conservation are:
 \begin{align}
    \frac{\partial n_{\alpha}}{\partial t} +  \nabla \cdot (n_{\alpha} v) = 0\\
-    n_{\alpha}(\frac{\partial \bm{u}}{\partial t} + \bm{u}\cdot \nabla\bm{u}) = \bm{F} - \nabla\bm{p}\\
+    n_{\alpha}\left(\frac{\partial \bm{u}}{\partial t} + \bm{u}\cdot \nabla\bm{u} \right) = \bm{F} - \nabla\bm{p}\\
     n_{\alpha}\frac{d \epsilon}{dt} = -\nabla \bm{q} - \bm{p}\nabla\bm{u}
 \end{align}
 
-where $n_p$ is the density of particle of species $p$, $\bm{p}$ is the second order pressure tensor, $\bm{u}$ is the bulk fluid velocity. Note that if $\bm{p} \equiv p\delta_{ij}$ where the off-diagonal elements are zero if the flow of the fluid is isotropic. However, this is normally not the case for plasma fluids for many reasons, one of them being that it consist of different species of charged and neutral particles. It is usual to separate between parallel and perpendicular flow of the plasma, where the parallel flow is along magnetic field lines, because plasma tends to follow these since it consists of charged particles. In addition the steady state in fusion reactors is modelled with sources due to ionisation, recombination and other transport phenomena. So for the plasma-friendly treatment of fluid equations we say that the differentiable operator is split in a parallel and perpendicular part as given in Eq. \ref{eq:def_nabla_operator}:
+where $n_p$ is the density of particle of species $p$, $\bm{p}$ is the second order pressure tensor, $\bm{u}$ is the bulk fluid velocity. Note that if $\bm{p} \equiv p\delta_{ij}$ where the off-diagonal elements are zero if the flow of the fluid is isotropic. However, this is normally not the case for plasma fluids for many reasons, one of them being that it consist of different species of charged and neutral particles which is inhomogeneously distributed. It is usual to separate between parallel and perpendicular flow of the plasma, where the parallel flow is along magnetic field lines, because plasma tends to follow these since it consists of charged particles. In addition the steady state in fusion reactors is modelled with sources due to ionisation, recombination and other transport phenomena. So for the plasma-friendly treatment of fluid equations we say that the differentiable operator is split in a parallel and perpendicular part as given in Eq. \ref{eq:def_nabla_operator}:
 \begin{equation}
     \nabla \equiv \nabla_{\parallel} + \nabla_{\perp}
 \label{eq:def_nabla_operator}
@@ -182,11 +194,11 @@ where $\nabla \cdot  \bm b = \nabla_{\parallel}$. This gives the following fluid
     \nabla \cdot (\frac{5}{2}n_iT_iV_{i,\parallel}\bm b - \kappa_i\nabla_{\parallel}T_i - \frac{5}{2}T_iD\nabla_{\perp}n_i-\chi_i n_i\nabla_{\perp}T_i) &= + k(T_e - T_i) + S_{ei}
 \end{align}
 
-where $D$ is the diffusion coefficient where a subscript refers to the direction of the diffusion, $S_p$ is the source/sink of particles, $S_m$ refers to momentum loss, $\kappa_e, \kappa_i$ is the classical heat conduction coefficients for electrons and ions, $\chi_e, \chi_i$ is the cross-field transport coefficients for electrons and ions, $S_{ee}$ is the energy loss due to electron-electron collisions, $S_{imp}$ is the energy loss due to collisions between electrons and impurities and $S_{ei}$ is the source due to electron-ion collisions. Note that $q_{\parallel} = -\kappa_e (T_e)\nabla_{\parallel}T$.
+where $D$ is the diffusion coefficient, $S_p$ is the source/sink of particles, $S_m$ refers to momentum source/sink, $\kappa_e, \kappa_i$ is the classical heat conduction coefficients for electrons and ions, $\chi_e, \chi_i$ is the cross-field transport coefficients for electrons and ions, $S_{ee}$ is the energy loss due to electron-electron collisions, $S_{imp}$ is the energy loss due to collisions between electrons and impurities and $S_{ei}$ is the source due to electron-ion collisions. Note that $q_{\parallel} = -\kappa_e (T_e)\nabla_{\parallel}T$ and that the collisions between impurities and ions are neglected.
 
-This continuous 3D model is a very complicated starting point for expressing the radiation loss with global plasma parameters. Therefore a simplified model called the two-point model has been invented comparing the conditions between two spatial positions. This enables a interpretable analysis of scaling between global plasma parameters. However, the simplicity of the model comes at the price of a lot of assumptions which potentially limits the validity of the model. It is still relevant for the purposes of this paper since the assumptions could be good enough for the system on which they are applied. Furthermore the a 1D heat transport model is discussed where the radiation losses are taken into account by integrating radiation terms along field lines.
+This continuous 3D model is a very complicated starting point for expressing the radiation loss with global plasma parameters. Therefore a simplified model called the two-point model has been invented comparing the conditions between two spatial positions. This enables a interpretable analysis of scaling between global plasma parameters. However, the simplicity of the model comes at the price of a lot of assumptions which potentially limits the validity of the model. It is still relevant for the purposes of this paper since the assumptions could be good enough for the system on which they are applied. Furthermore the a 1D heat transport model is discussed where both the radiation losses and the transport is taken into account and divided into two limiting regimes.
 
-\subsection{Two-point model}
+\subsection{The Two-point model}
 
 \begin{figure}[H]
     \centering
@@ -555,6 +567,8 @@ The potential of charge exchange is to transfer power from the divertor plasma t
 \subsubsection{Chemical Sputtering}
 
 Hydrogen is very reactive and if graphite walls are used to face the plasma it will produce a flux of hydrocarbons at the plasma edge (\cite{post1995review}). The result is that these hydrocarbons will eventually leave the walls and mix with the edge plasma.
+
+\newpage
 
 
 

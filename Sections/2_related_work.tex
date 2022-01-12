@@ -3,9 +3,66 @@
 
 \subsection{Alternative scaling approaches}
 
-Valeria Perseo's scaling with $I_{C^{2+}}$
+\subsubsection{G.F. Matthews et al. - Scaling radiative plasmas to ITER}
 
+The starting point of the scaling analysis done by \cite{matthews1997scaling} is the simple assumption that the radiation comes from a plasma volume $V_{rad}$ where the electron and impurity densities are $n_{e,rad}$ and $n_{Z, rad}$. The power can then be written on the form as shown in Eq. \ref{eq:matthews_prad_eq1}:
+\begin{equation}
+    P_{rad} = V_{rad}n_{e,rad}n_{Z,rad}L_z + P_{CX}
+\label{eq:matthews_prad_eq1}
+\end{equation}
 
+where $P_{CX}$ is the power loss due to charge exchange and $L_z$ is the average radiated power coefficient in the radiating volume. The database used by \cite{matthews1997scaling} uses total radiated power from the main chamber bolometer systems. These systems are screened from divertor charge exchange, thus $P_{CX}=0$ is assumed.
+
+For high $Z$ radiating impurities a reasonable assumption is that the radiated power is coming from a uniform shell of thickness $\Delta$ where $V_{rad} = \Delta S$ for a plasma surface $S$. Using this assumption an expression can be derived giving a relationship between the impurity and electron densities in the radiating zone and line averaged values. This is given in Eq. \ref{eq:matthews_zeff_deriv_1}:
+\begin{equation}
+    f_z = \frac{P_{rad}}{S \Delta C_n C_z \Bar{n_e}^2 L_z} = \frac{\Bar{n_Z}}{\Bar{n_e}}
+\label{eq:matthews_zeff_deriv_1}
+\end{equation}
+where $C_n = \frac{n_{e,rad}}{\Bar{n_{e}}}$, $C_Z = \frac{n_{Z,rad}}{\Bar{n_{e}}}$. This gives a corresponding equation for $Z_{eff}$ assuming one main radiator of charge state $Z$:
+\begin{equation}
+    Z_{eff}\approx 1 + Z(Z-1)f_z = 1 + \frac{Z(Z-1)P_{rad}}{S\Delta C_n C_Z \Bar{n_e}^2 L_z}.
+\label{eq:matthews_zeff_eq3}
+\end{equation}
+
+However, the database used by \cite{matthews1997scaling} does not contain any information about $\Delta, C_n, C_Z, L_Z$, so a non-linear regression was applied to the following functional form:
+\begin{equation}
+    Z_{eff} = 1 + \frac{\alpha P_{rad} Z^{\delta}}{S^{\beta}\Bar{n_e}^{\gamma}},
+\label{eq:matthews_zeff_regr_func_form}
+\end{equation}
+
+where $\alpha, \beta, \delta$ and $\gamma$ was determined giving rise to the following result:
+\begin{equation}
+    Z_{eff} = 1 + \frac{5.6(\pm 0.7)P_{rad}Z^{0.19\pm 0.05}}{S^{1.03 \pm 0.02}\Bar{n_e}^{1.95\pm 0.04}}
+\label{eq:matthews_zeff_regression_result}
+\end{equation}
+
+where $P_{rad}$ is in $\mathrm{MW}$, $S$ in $\mathrm{m^2}$ and $\Bar{n_e}$ in units of $10^{20}\mathrm{m^{-3}}$.
+
+Expressed for $P_{rad}$ the model is then:
+\begin{equation}
+    P_{rad} = \alpha\frac{ S^{\beta} \Bar{n}_e (Z_{eff}-1)}{Z^{\delta}}
+\end{equation}
+
+However interesting, this model is suitable for machines where the magnetic geometry allows for a reasonable calculation of the radiation surface area $S$ which is hard to compute for stellarators which have complex magnetic geometries. A crude assumption often made is that the radiation surface area is the same as the surface of the a torus with minor and major radius equal to that of the machine, i.e. $4\pi^2 r R$. As demonstrated by \cite{effenberg2019first} this is not necessarily a valid assumption.
+
+\subsubsection{Perseo et al. - 2D measurements of parallel counter-streaming
+flows in the W7-X scrape-off layer for attached and
+detached plasmas}
+
+\cite{perseo20212d} presents a linear scaling for the total radiated power with $I_{C^{2+}}$ as given in Eq. \ref{eq:scaling_perseo_ic2+}:
+\begin{equation}
+\label{eq:scaling_perseo_ic2+}
+    P_{rad} = a\cdot I_{C^{2+}} + b
+\end{equation}
+
+They plot the total radiated power measured by W7-X's bolometry system against the $I_{C^{2+}}$ measured by coherence imaging spectroscopy and observe a linear relationship. Furthermore they fit the $I_{C^{2+}}$ data with a linear least square model and get $a = 0.08, b = -0.43$ and a correlation coefficient $r = 0.98$ which strongly strengthens the observations made. Furthermore \cite{perseo20212d} also investigates a the regression model for the total radiated power given by Eq. \ref{eq:scaling_perseo_nbare}:
+
+\begin{equation}
+\label{eq:scaling_perseo_nbare}
+    P_{rad} = \frac{1}{7}(Z_{eff})S \Bar{n}_e^{\gamma}
+\end{equation}
+
+where the only regression parameter $\gamma$ is set for the line integrated density. The observation is that the fit shows a enough correlation to argue for a link between $I_{C^{2+}}$ and the line integrated density when considering their shared correlation to the total radiated power for $\gamma \geq 2$.
 
 \subsection{Post et al. - Analytic criteria for power exhaust in divertors}
 
@@ -137,51 +194,7 @@ Regarding $q_{\parallel}$, we have to assume that the power loss due to radiatio
 
 \subsection{P.H. Rebut, B.J. Green - Effect on impurity radiation on tokamak equilibrium}
 
-cite : \cite{rebut1977effect}
-
-Having energy balance limits the amount and type of impurity that can be present in the plasma. The presence of impurities leads to increase radiation and cooling of the discharge by bremsstrahlung in the core, line radiation and recombination radiation according to \cite{rebut1977effect}. High $Z$-materials will typically not be fully ionized, but radiates strongly and vice versa for low-$Z$ materials. The trade-off is the level of radiation against the level if ionization and the tolerance of contamination. For high-$Z$ materials the level of contamination is lower than for low-$Z$ materials.
-
-\subsection{G.F. Matthews et al. - Scaling radiative plasmas to ITER}
-
-The starting point of the scaling analysis done by \cite{matthews1997scaling} is the simple assumption that the radiation comes from a plasma volume $V_{rad}$ where the electron and impurity densities are $n_{e,rad}$ and $n_{Z, rad}$. The power can then be written on the form as shown in Eq. \ref{eq:matthews_prad_eq1}:
-\begin{equation}
-    P_{rad} = V_{rad}n_{e,rad}n_{Z,rad}L_z + P_{CX}
-\label{eq:matthews_prad_eq1}
-\end{equation}
-
-where $P_{CX}$ is the power loss due to charge exchange and $L_z$ is the average radiated power coefficient in the radiating volume. The database used by \cite{matthews1997scaling} uses total radiated power from the main chamber bolometer systems. These systems are screened from divertor charge exchange, thus $P_{CX}=0$ is assumed.
-
-For high $Z$ radiating impurities a reasonable assumption is that the radiated power is coming from a uniform shell of thickness $\Delta$ where $V_{rad} = \Delta S$ for a plasma surface $S$. Using this assumption an expression can be derived giving a relationship between the impurity and electron densities in the radiating zone and line averaged values. This is given in Eq. \ref{eq:matthews_zeff_deriv_1}:
-\begin{equation}
-    f_z = \frac{P_{rad}}{S \Delta C_n C_z \Bar{n_e}^2 L_z} = \frac{\Bar{n_Z}}{\Bar{n_e}}
-\label{eq:matthews_zeff_deriv_1}
-\end{equation}
-where $C_n = \frac{n_{e,rad}}{\Bar{n_{e}}}$, $C_Z = \frac{n_{Z,rad}}{\Bar{n_{e}}}$. This gives a corresponding equation for $Z_{eff}$ assuming one main radiator of charge state $Z$:
-\begin{equation}
-    Z_{eff}\approx 1 + Z(Z-1)f_z = 1 + \frac{Z(Z-1)P_{rad}}{S\Delta C_n C_Z \Bar{n_e}^2 L_z}.
-\label{eq:matthews_zeff_eq3}
-\end{equation}
-
-However, the database used by \cite{matthews1997scaling} does not contain any information about $\Delta, C_n, C_Z, L_Z$, so a non-linear regression was applied to the following functional form:
-\begin{equation}
-    Z_{eff} = 1 + \frac{\alpha P_{rad} Z^{\delta}}{S^{\beta}\Bar{n_e}^{\gamma}},
-\label{eq:matthews_zeff_regr_func_form}
-\end{equation}
-
-where $\alpha, \beta, \delta$ and $\gamma$ was determined giving rise to the following result:
-\begin{equation}
-    Z_{eff} = 1 + \frac{5.6(\pm 0.7)P_{rad}Z^{0.19\pm 0.05}}{S^{1.03 \pm 0.02}\Bar{n_e}^{1.95\pm 0.04}}
-\label{eq:matthews_zeff_regression_result}
-\end{equation}
-
-where $P_{rad}$ is in $\mathrm{MW}$, $S$ in $\mathrm{m^2}$ and $\Bar{n_e}$ in units of $10^{20}\mathrm{m^{-3}}$.
-
-Expressed for $P_{rad}$ the model is then:
-\begin{equation}
-    P_{rad} = \alpha\frac{ S^{\beta} \Bar{n}_e (Z_{eff}-1)}{Z^{\delta}}
-\end{equation}
-
-However interesting, this model is suitable for machines where the magnetic geometry allows for a reasonable calculation of the radiation surface area $S$ which in reality is hard to compute, especially for stellarators which have complex magnetic geometries. A crude assumption often made is that the radiation surface area covers the area of the sum of the divertor plates. In reality this is not the case as demonstrated by \cite{effenberg2019first}.
+According to \cite{rebut1977effect} energy balance limits the impurity fraction which further governs the choice of the most effective radiative species. The presence of impurities causes bremsstrahlung in the core, line radiation and recombination radiation according to \cite{rebut1977effect}. High $Z$-materials will typically not be fully ionized, but radiates strongly and vice versa for low-$Z$ materials. The trade-off is the level of radiation against the level if ionization and the tolerance of contamination. For high-$Z$ materials the level of contamination is lower than for low-$Z$ materials.
 
 \subsection{Goldston et al. - A new scaling for divertor detachment}
 
