@@ -22,11 +22,11 @@
 \subsection{From Post model to scaling}
 
 Starting from Eq. \ref{eq:post_rad_plus_transport}:
-\begin{align}
-     Q_{\parallel}^2 - Q_{\parallel,0}^2 &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e\\
-\end{align}
+\begin{equation}
+     Q_{\parallel}^2 - Q_{\parallel,0}^2 = n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e
+\end{equation}
 
-the integral can be calculated numerically because $L_Z(T)$ is atomic data and independent of the particular conditions of the fusion reactor. The atomic data can be retrieved from the ADAS database (\hyperlink{https://open.adas.ac.uk/about-open-adas}{ADAS}) described in (\cite{summers2011atomic}). This leaves $f_Z$ as the unknown parameter in the equation which is hard to measure in general (\cite{schneider2006plasma}). The upstream and downstream temperature $T_u, T_d$ can be either varied to investigate the dependency or estimated from the two point model for a given input heat flux $q_u$ and upstream density $n_u$. Therefore the LHS of Eq. \ref{eq:post_rad_plus_transport} can be computed as a function of upstream and downstream temperature. Assuming the upstream and downstream temperature is known or can easily be inferred it is possible to solve for the radiated power by solving the resulting second order equation using the relation given in equation \ref{eq:relation_prad_heatflux_diff}:
+the integral can be calculated numerically because $L_Z(T)$ can be calculated numerically from the atomic physics model which is independent of the particular conditions of the fusion reactor except the temperature profile which this paper considers to be known. The atomic data for doing this numerical calculation can be retrieved from the ADAS database (\url{https://open.adas.ac.uk/about-open-adas}) described by \cite{summers2011atomic}. This leaves $f_Z$ as the unknown parameter in the equation which is hard to measure in general (\cite{schneider2006plasma}). The upstream and downstream temperature $T_u, T_d$ can be either varied to investigate the dependency or estimated from the two point model for a given input heat flux $q_u$ and upstream density $n_u$. Therefore the LHS of Eq. \ref{eq:post_rad_plus_transport} can be computed as a function of upstream and downstream temperature. Assuming the upstream and downstream temperature is known or that it can be inferred it is possible to solve for the radiated power by solving the resulting second order equation using the relation given in equation \ref{eq:relation_prad_heatflux_diff}:
 \begin{align}
     q_{u}^2 - q_{d}^2 &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e \nonumber \\ 
     (q_{u} - q_{d})(q_{u} + q_{d}) &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e \nonumber \\
@@ -47,7 +47,7 @@ where $\mathrm{RHS}$ is the right hand side of Eq. \ref{eq:post_rad_plus_transpo
     \mathrm{RHS} \equiv n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e
 \end{equation}
 
-and the only unknown is $f_z$. The result is equal the detachment condition for $q_d$ as \cite{post1995analytic} uses in their analysis defining detachment for all the SOL input power being radiated. This makes it possible for analysing the Post model for given up- and downstream conditions. Since the downstream heat flux is hard to control Eq. \ref{eq:sol_2nddeg_prad} should be rewritten so that it is expressed by the upstream heat flux instead of the downstream. Substituting the results from the extended two-point model for the boundary condition for the heat flux at the target  where $q_u (1 - f_{power}) = q_d$ where $f_{power} = \frac{q_{rad}}{q_u}$, assuming that radiation is the only loss, into Eq. \ref{eq:sol_2nddeg_prad} gives the following equation:
+and the only unknown is $f_z$. The result is equal the detachment condition for $\lim_{q_d\to 0}$ as \cite{post1995analytic} uses in their analysis defining detachment for all the SOL input power being radiated. This makes it possible for analysing the Post model for given up- and downstream conditions. Since the downstream heat flux is hard to control Eq. \ref{eq:sol_2nddeg_prad} should be rewritten so that it is expressed by the upstream heat flux instead of the downstream. Substituting the results from the extended two-point model for the boundary condition for the heat flux at the target  where $q_u (1 - f_{power}) = q_d$ where $f_{power} = \frac{q_{rad}}{q_u}$, assuming that radiation is the only loss, into Eq. \ref{eq:sol_2nddeg_prad} gives the following equation:
 \begin{align}
     q_{rad} &= \sqrt{(q_u - q_{rad})^2 + \mathrm{RHS} } - (q_u - q_{rad}) \nonumber\\
     0 &=  \sqrt{(q_u - q_{rad})^2 + \mathrm{RHS} } - q_u \nonumber\\
@@ -56,6 +56,31 @@ and the only unknown is $f_z$. The result is equal the detachment condition for 
     \label{eq:sol_2nddeg_prad_upstream}
     q_{rad} &= q_u - \sqrt{q_u^2 - \mathrm{RHS}}
 \end{align}
+
+To eliminate the issue of defining the non-trivial $q_{rad}$, we substitute the expression $q_{rad} = q_u f_{power}$ into Eq. \ref{eq:sol_2nddeg_prad_upstream}:
+\begin{align}
+    q_u f_{power} &= q_u - \sqrt{q_u^2 - \mathrm{RHS}} \nonumber\\
+    \label{eq:sol_2nddeg_frad_upstream}
+    f_{power} &= 1 - \sqrt{1 - \frac{\mathrm{RHS}}{q_u^2}}
+\end{align}
+
+where $\sqrt{\mathrm{RHS}}$ represents the radiation loss at detachment when $q_d\to 0$. This gives an equation for how to approach the scaling. Furthermore it is possible to look at limits such as $\frac{\mathrm{RHS}}{q_u^2} \to 0$ which applies to a broader set of scenarios than just for detachment as defined by \cite{post1995analytic} and \cite{goldston2017new} - it represents low radiation loss scenarios. If this is assumed the square root can be expanded and the equation you are left with is directly proportional to $\frac{RHS}{q_u^2}$:
+\begin{align*}
+    \lim_{x\to 0} f_{power}(x) &= 1 - (1 - \frac{1}{2}x + \mathcal{O}(x^2))\\
+    &= \frac{1}{2}x - \mathcal{O}(x^2)
+\end{align*}
+
+for $x \equiv \frac{RHS}{q_u^2}$. This means that the radiated power fraction can be express as:
+\begin{equation}
+    f_{power} = \frac{n_u^2T_u^2\kappa_0 \int_{T_d}^{T_u}\sqrt{T}L_Z(T)dT }{q_u^2}
+\end{equation}
+
+where the upstream heat flux and temperature is determined by the input power $P_{Heat}$. This gives the heuristic proportionality relation between the radiated power fraction and global plasma parameters:
+\begin{equation}
+    f_{power} \propto P_{Heat}^{\beta_1}\Bar{n}_e^{\beta_2}Z_{eff}^{\beta_3}I_{Z}^{\beta_4}
+\end{equation}
+
+where $Z_{eff}^{\beta_3}I_{Z}^{\beta_4}$ represents a proxy for the emission from the sum of all impurities of species $Z$ that takes into account the impurity fraction $f_Z$, the temperature weighted impurity radiation from the atomic physics model and transport along a field line. The picture how 
 
 \subsection{From Feng model to scaling}
 
@@ -79,7 +104,19 @@ where it is assumed that $f_z$ and $\chi$ does not change much along the path of
 
 \subsection{Regression results}
 
-The regression was done for all possible combinations of the aforementioned data. This resulted in a lot of data so for simplicity of the discussion only the most important results will be included.
+The regression was done for all possible combinations of the aforementioned data by using the general expression:
+\begin{equation}
+    f(\bm x; \bm \beta)  = \beta_0 P_{Heat}^{\beta_1}\Bar{n}_e^{\beta_2}Z_{eff}^{\beta_3}p_{neutral}^{\beta_4}I_{C^{2+}}^{\beta_5}
+\end{equation}
+
+where $\bm x$ represents the datavector which corresponds to a linearisation:
+\begin{equation}
+    \Tilde{f}(\bm x; \bm \beta) = \log f(\bm x; \bm \beta) =  \sum_i \beta_{i=0}^{N_{observables}} \log x_i = \beta_i x_i + \mathcal{O}(x_i^2)
+\end{equation}
+
+where the logarithm of the regression expression is taken as one often does to simplify the computation of the linearisation expansion.
+
+The different combinations are done by setting the parameters of the observable to be excluded from the model to zero. This resulted in a lot of data so for simplicity of the discussion only the most important results will be included.
 
 \begin{figure}[H]
     \centering

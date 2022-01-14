@@ -1,11 +1,9 @@
 \section{Data}
 \label{sec:data}
 
-\subsection{Experimental data}
+\subsection{Experimental database Juice}
 
-Experimental data from IPP's Juice database has been used for the radiated power scaling. It is a database of global plasma parameters for every discharge in the first campaign where every observable have been averaged over $200 \mathrm{ms}$ of the discharge for denoising purposes. The observables in the database comes from the W7X archive which is a web based service for accessing data measured by the diagnostics.
-
-\subsection{Motivation for observables used in the regression model}
+Experimental data from IPP's Juice database has been used in this paper for the radiated power scaling. It is a database of global plasma parameters throughout the first operational campaign of W7-X where every observable have been averaged over a time interval of $200 \mathrm{ ms}$ for denoising purposes. The observables in the database comes from the W7X archive which is a web based service for accessing data measured by the diagnostics.
 
 \subsection{Dimension analysis for data used in regression model}
 
@@ -19,7 +17,7 @@ Experimental data from IPP's Juice database has been used for the radiated power
         $P_{Heat}$ & $\mathrm{W}$ & $\mathrm{MW}$ \\ \hline
         $\Bar{n}_e$ & $\mathrm{m^{-3}}$ & $\mathrm{m^{-3}}$ \\\hline
         $Z_{eff}$ & Dimensionless & Dimensionless  \\\hline
-        $p_{neutral}$ & $\mathrm{mBar}$ & $\mathrm{mBar}$ \\\hline
+        $p_{neutral}$ & $\mathrm{Pa}$ & $\mathrm{mBar}$ \\\hline
         $I_{C^{2+}}$ & $\mathrm{W m^{-3}}$ & $\mathrm{pixel count/ms}$  \\
         \hline
     \end{tabular}
@@ -29,7 +27,7 @@ Experimental data from IPP's Juice database has been used for the radiated power
 
 \subsection{\texorpdfstring{$P_{rad}$}{TEXT}}
 
-The radiated power loss $P_{rad}$ has been measure by the bolometer system which consists of one horizontally and one vertically viewing cameras by 32 and 43 collimated blackened detectors. The triangular cross-section of the reactor is covered with the lines of sight for various magnetic configurations. Having measurements along a line of sight enables you to integrate along the line of sight to acquire line-integrated signals such as radiate power loss $P_{rad}$ from the plasma.
+The radiated power loss $P_{rad}$ has been measure by the bolometer system which consists of one horizontally and one vertically viewing cameras by 32 and 43 collimated blackened detectors. The triangular cross-section of the reactor is covered with the lines of sight for various magnetic configurations. Having measurements along a line of sight enables you to acquire line-integrated signals such as radiate power loss $P_{rad}$ from the plasma.
 
 \begin{table}[H]
     \centering
@@ -48,7 +46,7 @@ The radiated power loss $P_{rad}$ has been measure by the bolometer system which
 
 \subsubsection{$P_{ECRH}$}
 
-To get the radiated power fraction the radiated power needs to be divided by the power entering the SOL $P_{SOL}$. Assuming that the losses from the main plasma is small the power entering the SOL can be approximated to be the input power of the machine $P_{in}$. In W7X this is mainly $P_{ECRH}$ - the electron cyclotron heating, but Neutral Beam injection (NBI) is included for the relevant campaign in the approximation of the input power of the SOL.
+To get the radiated power fraction the radiated power needs to be divided by the power entering the SOL $P_{SOL}$. Assuming that the losses from the main plasma is small the power entering the SOL can be approximated to be the input power of the machine $P_{in}$. In W7X this is mainly $P_{ECRH}$ - the electron cyclotron heating, but Neutral Beam injection (NBI) is included whenever used for the in the approximation of the input power of the SOL.
 
 \subsubsection{$\Bar{n}_e$}
 
@@ -79,7 +77,13 @@ The detected phase difference of the signal measured can be shown to be independ
 
 \subsubsection{$Z_{eff}$}
 
-The line-averaged effective ion charge number is inferred from bremsstrahlung spectrometer data using a Bayesian model based on the Minerva framework which infers profiles with Gaussian processes [\cite{pavone2019measurements}].
+The line-averaged effective ion charge number is inferred from bremsstrahlung spectrometer data using a Bayesian model based on the Minerva framework which infers profiles with Gaussian processes [\cite{pavone2019measurements}]. The equation which is solved to obtain the line-averaged effective ion charge is given by:
+\begin{equation}
+\label{eq:minerva_zeff}
+    S(\lambda) = C(\lambda)V(\lambda) = C(\lambda) \int g_{ff}(Z_{eff}, T_e, \lambda) \frac{n_e^2 Z_{eff}}{\sqrt{k_b T_e}\exp{\left( \frac{hc}{\lambda k_b T_e}\frac{1}{\lambda^2}dl \right)}}
+\end{equation}
+
+where the expected measured signal $S(\lambda)$ can be calculated from the bremsstrahlung emission $V(\lambda)$ at a given wavelength $\lambda$. The electron temperature $T_e$ and density $n_e$ is gathered from Thomson Scattering data. The line of sight path $g_{ff}(Z_{eff}, T_e, \lambda)$ is the Gaunt factor measure in the Minerva system with $C(\lambda)$ as a calibration factor. To solve for the line-averaged value of $Z_{eff}$ it is assumed constant and the expected measured signal is divided by the integral on the right hand side of Eq. \ref{eq:minerva_zeff}.
 
 \subsubsection{$p_{neutral}$}
 
@@ -93,9 +97,6 @@ The neutral pressure gauges  measures the neutral gas pressure in $\sim 18$ toro
     Operational limits and availability     & Routine operation\\ \hline
     Mode of operation & Single-shot, continuous, scanning\\ \hline
     Spatial resolution & Real or k-space, range or single value\\ \hline
-    Frequency resolution & \\ \hline
-    radial coverage & \\ \hline
-    Frequency resolution & \\ \hline
     Calibration & Absolutely calibrated neutral gas pressure\\ \hline
     Data availability & Data available in the archive\\ 
     \hline
@@ -106,7 +107,7 @@ The neutral pressure gauges  measures the neutral gas pressure in $\sim 18$ toro
 
 \subsubsection{$I_{C^{2+}}$}
 
-The intensity of the emission from impurity and neutral radiation is measure by the Coherence Imaging Spectroscopy (CIS). It is a camera-based interferometric system which measures the Doppler particle flow velocities and temperature associated with a selection of visible emission lines form the plasma. The interference pattern is generated by birefringent crystals and overlaid on camera images of the plasma visible radiation, allowing 2D LOS integrated measurements. The choice of impurities and neutral is selected by narrowband filters. It is also possible to select single charged state of single particle species.
+The intensity of the emission from impurity and neutral radiation is measure by the Coherence Imaging Spectroscopy (CIS). It is a camera-based interferometric system which measures the Doppler particle flow velocities and temperature associated with a selection of visible emission lines form the plasma (\cite{perseo2020coherence}). The interference pattern is generated by birefringent crystals and overlaid on camera images of the plasma visible radiation, allowing 2D LOS integrated measurements. The choice of impurities and neutral is selected by narrowband filters. It is also possible to select single charged state of single particle species which depend on the installed filter.
 
 \begin{table}[H]
     \centering

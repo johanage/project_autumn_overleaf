@@ -2,14 +2,6 @@
 \label{sec:introduction}
 \begin{multicols}{2}
 
-Ideas
-
-the double product: $n_e\tau$ says something about the total amount of collisions? (idea is that $n_e\tau \langle \sigma \nu \rangle$ is dimensionless)
-
-Introducing the collisional 
-
-
-
 \subsection{Symbols}
 \begin{enumerate}
     \item $n_s, n_{sep}$ - separatrix density
@@ -37,7 +29,7 @@ Introducing the collisional
     \item \textbf{PD} - Poloidal Divertor
     \item \textbf{Sputtering} - the process where plasma particles collides with the surface of the reactor dislodging atoms from the lattice. Can lead to erosion and eventually contamination of the plasma.
     \item \textbf{Debye sheath} - a thin net charge boundary layer at the interface between the solid and the plasma. Plays a central role in establishing the temperature, density and other properties of the plasma.
-    \item \textbf{Plasma wetted area} - the "small" area of the target where the power deposited by the electron and ion impact occurs. To small of an area can cause overheating and melting of the target. In other words where the solid surface is in contact with significant plasma fluxes.
+    \item \textbf{Plasma wetted area} - the "small" area of the target where the power deposited by the electron and ion impact occurs. In other words where the solid surface is in contact with significant plasma fluxes. To small of an area can cause overheating and melting of the target. 
     \item \textbf{Open/closed field lines} - In nuclear fusion one separates between open and closed field lines because some of the field lines intersects the machine structure before closing in a loop outside the fusion reactor/experiment. These field lines are called open. The field lines closing inside the physically bounded region of the machine are called closed field lines.
 \end{enumerate}
 \end{multicols}
@@ -46,7 +38,7 @@ Introducing the collisional
 
 \subsection{Nuclear fusion}
 
-Nuclear fusion is a process where particles fuse together by coming close enough for the strong nuclear force to overcome the repulsive Coulomb force. The particles needs then to collide with high enough energy indicating that high particle velocities are needed which implies high temperatures. Luckily, tunneling contributes to overcome the Coulomb barrier resulting in lower temperature requirement than predicted assuming you need higher energies than the Coulomb barrier. 
+Nuclear fusion is a process where particles fuse together by coming close enough for the strong nuclear force to overcome the repulsive Coulomb force. The particles needs then to collide with high enough energies implying that particle velocities which is synonymous with high temperatures. Luckily, due to tunneling the Coulomb barrier can be overcome for a lower temperature requirement than the naïve model where energies have to be larger than the Coulomb barrier. 
 
 The energy gain can be calculated by Einstein's famous formula stating that mass and energy is equivalent:
 \begin{equation}
@@ -54,12 +46,12 @@ The energy gain can be calculated by Einstein's famous formula stating that mass
     E = \Delta mc^2
 \end{equation}
 
-where $E$ is the required or released energy depending on the mass difference $\Delta m$ of the educts and products of the fusion reaction. $c$ is the vacuum velocity of light.
+where $c$ is the vacuum velocity of light and $E$ is the required or released energy depending on the mass difference $\Delta m$ of the educts and products of the fusion reaction.
 
 There are three ways of confining nuclear fusion:
 \begin{enumerate}
     \item \textbf{Gravitational confinement} - Gravitational force overcomes the plasma pressure which allows for high density and long confinement times at intermediate temperatures. This is not suitable for fusion on earth and is primarily found in stars.
-    \item \textbf{Inertial confinement} - Small high density pellets ($\sim 10^{31}\mathrm{m^{-3}}$) are compressed and heated before particles can escape. This happens by evaporating the surface resulting in a rocket effect (or inertia effect) where the particles from the surface pushes the particles from the core inwards - shock waves arises and compresses the fuel resulting in high enough pressure for fusion reactions. Typical short confinement times $\sim \mathrm{ns}$.
+    \item \textbf{Inertial confinement} - Small high density pellets ($\sim 10^{31}\mathrm{m^{-3}}$) are compressed and heated before particles can escape. This happens by evaporating the pellet surface resulting in a rocket effect (inertia effect) where the particles from the surface pushes the particles from the core inwards - shock waves arises and compresses the fuel resulting in high enough pressure for fusion reactions. Typical short confinement times $\sim \mathrm{ns}$.
     \item \textbf{Magnetic confinement} - Magnetic fields are induced to contain the particles exploiting that charged particles gyrate around magnetic field lines. Magnetic pressure exceeds the plasma pressure often expressed by the parameter $\beta$ representing the ratio between the plasma pressure $nT$ and the magnetic field pressure $\frac{B^2}{2 \mu_0}$. Typical intermediate densities ($\sim 10^{20} \mathrm{m^{-3}}$) and confinement times ($\sim \mathrm{s}$).
 \end{enumerate}
 
@@ -71,7 +63,7 @@ The charged particles of the plasma are affected by electromagnetic fields. The 
     \bm F = q(\bm v \times \bm B  + \bm E)
 \end{equation}
 
-where $q$ is the charge of the particle, $\bm v$ is the velocity of the particle, $\bm B$ is the magnetic field and $\bm E$ is the electric field. The charged particles gyrates around magnetic field lines as a consequence of the Lorentz force. If field lines are closed meaning it does not intersect with a physical surface before joining together in a loop the particles stays in a orbit gyrating around this closed field line. This is the concept of toroidal magnetic field configurations. In steady state where particle drifts - motion away from the field lines - are absent and the particles will stay in orbits gyrating around the magnetic field lines. Using the relation from Eq. \ref{eq:lorentz_force} the drifts can generally be expressed as:
+where $q$ is the charge of the particle, $\bm v$ is the velocity of the particle, $\bm B$ is the magnetic field and $\bm E$ is the electric field. The charged particles gyrates around magnetic field lines as a consequence of the Lorentz force. If field lines are closed, meaning it does not intersect with a physical surface before joining together in a loop, the particles stays in a orbit gyrating around this closed field line. This is the concept of toroidal magnetic field configurations. In steady state where particle drifts - motion away from the field lines - are absent and the particles will stay in orbits gyrating around the magnetic field lines. Using the relation from Eq. \ref{eq:lorentz_force} the drifts can generally be expressed as:
 \begin{equation}
 \label{eq:drifts}
     \bm v_d = \frac{\bm F_d \times \bm B}{q B^2}
@@ -97,7 +89,7 @@ The gradient drift created by the magnetic field gradient $\nabla B$ is the forc
 F_{\nabla B} = -\mu\nabla B.
 \end{equation}
 
-The gravitational drift is created by the gravitational force. The result of the drifts is loss of particles in the toroidal magnetic field. These can be minimized by twisting the field in a helical shape adding poloidal and toroidal components such that the particles follow the field lines. This motion is then said to be lying on closed magnetic flux surfaces. To generate the helical field two major concepts are governing fusion research; namely the tokamak and the stellarator.
+The gravitational drift is created by the gravitational force. The result of the drifts is loss of particles in the toroidal magnetic field. Canceling this effect is crucial for magnetic confinement - the plasma pressure $nT$ and the magnetic pressure $\frac{B^2}{2\mu_0}$ needs to be in equilibrium. These can be minimized by twisting the field in a helical shape adding poloidal and toroidal components such that the particles follow the field lines which is called a rotational transform (\cite{mercier1964equilibrium}, \cite{spitzer1958stellarator}). This motion is then said to be lying on closed magnetic flux surfaces. To generate the helical field two major concepts are governing fusion research; namely the tokamak and the stellarator.
 
 \subsubsection{Tokamak}
 
@@ -108,7 +100,7 @@ The gravitational drift is created by the gravitational force. The result of the
     \label{fig:tokamak_figure}
 \end{figure}
 
-A tokamak is a magnetic fusion reactor device that use planar coils around a toroidal chamber as well as poloidal coils. The poloidal component of the magnetic field is induced by a current in the plasma resulting in a net helical field. Tokamaks are axisymmetric which means a the models can be simplified due to symmetry. The disadvantage of the driving the current to generate the poloidal component is that it is governed by MHD instabilities.
+A tokamak is a magnetic fusion reactor device that use planar coils around a toroidal chamber as well as poloidal coils. The poloidal component of the magnetic field is induced by a current in the plasma resulting in a net helical field. Tokamaks are axisymmetric which means a the models can be simplified due to symmetry. The disadvantage of the driving the current to generate the poloidal component is that it is governed by MHD instabilities (\cite{xu2016general}).
 
 \subsubsection{Stellarator}
 
@@ -118,15 +110,16 @@ A tokamak is a magnetic fusion reactor device that use planar coils around a tor
     \caption{The stellarator is depicted with its field generating components. The field coils are depicted in copper where the red arrows indicate the direction of the current in the toroidal field coils and blue arrow indicate the direction of the current in the non-planar coils. Together they generate a net helical magnetic field. The purple surface indicates a closed magnetic flux surface. Source: Christian Brandt, IPP 2011.}
     \label{fig:stellarator_figure}
 \end{figure}
-The difference from tokamaks is that the rotational transform (twisting of the magnetic field) is generated by external field coils - not plasma currents. This also means that the external field coils are non-planar. Since the helical field is not generated by any current the stellarators are made for steady state operation and does not have same weakness for MHD instabilities as tokamaks. However, this comes at the cost of giving up the axisymmetry making the modelling and construction much more complex.
+
+The difference from tokamaks is that the rotational transform (twisting of the magnetic field) is generated by external field coils - not plasma currents. This also means that the external field coils are non-planar. Since the helical field is not generated by any current the stellarators are made for steady state operation and does not have same weakness for MHD instabilities as tokamaks (\cite{xu2016general}). However, this comes at the cost of giving up the axisymmetry making the modelling and construction much more complex.
 
 \subsection{Scrape-off Layer (SOL)}
 
-Plasma in magnetic confinement fusion devices can be separated into two main regions; the core and the edge. The core region is typically stable and it is here the fusion reactions and energy production is concentrated, whereas the edge is where the particles and the heat is exhausted. The scrape-off layer (SOL) defines the plasma region governed by open field lines which begins and ends at material surfaces. It is the region outside the LCFS in the divertor configuration this region is outside the separatrix. The fact that the scrape-off layer is governed by open magnetic field lines strongly differs the transport properties from that of the confined plasma region. A detailed description of the transport phenomena is needed because the physics of the SOL region is highly non-linear. 
+Plasma in magnetic confinement fusion devices can be separated into two main regions; the core and the edge. The core region is typically stable and it is here the fusion reactions and energy production is concentrated, whereas the edge is where the particles and the heat is exhausted. The scrape-off layer (SOL) which is located in the edge defines the plasma region governed by open field lines which begins and ends at material surfaces. It is the region outside the LCFS which in a divertor configuration, which is discussed in the next subsection, this region is outside the separatrix. The fact that the scrape-off layer is governed by open magnetic field lines strongly differs the transport properties from that of the confined plasma region. A detailed description of the transport phenomena is needed because the dynamics of the SOL region is highly non-linear. 
 
 \subsubsection{Divertor}
 
-A divertor configuration is a magnetic field configuration where the confined plasma is separated from the outside world by a separatrix. A separatrix is the boundary separating two modes of behaviour (phases) in a dynamical system. In the context of magnetically confined fusion it refers to the trajectories of the magnetic field lines. It is the boundary between the inside and outside of a magnetic island. A magnetic island is a closed magnetic flux tube with a toroidal topology which is bounded by a separatrix. So the separatrix effectively separates closed and open magnetic field lines in a divertor configuration.
+A divertor configuration is a magnetic field configuration where the confined plasma is separated from the surroundings by a separatrix. A separatrix is the boundary separating two modes of behaviour (phases) in a dynamical system. In the context of magnetically confined fusion it refers to the trajectories of the magnetic field lines. It is the boundary between the inside and outside of a magnetic island. A magnetic island is a closed magnetic flux tube with a toroidal topology which is bounded by a separatrix. So the separatrix effectively separates closed and open magnetic field lines in a divertor configuration.
 
 \begin{figure}[H]
     \centering
@@ -135,12 +128,14 @@ A divertor configuration is a magnetic field configuration where the confined pl
     \label{fig:divertor_configurations}
 \end{figure}
 
-The main purpose of introducing a divertor as a replacement for the limiter (physical walls to contain the plasma) is to reduce the amount of intrinsic impurities and to divert the plasma onto plasma facing components (PFC) specifically made for heat exhaust. Since this is a transport process this allows for losses along the transport path possibly reducing heat and particle exhaust on the PFCs. There are many different divertor configurations. The tokamaks normally use a poloidal divertor configuration with one or two X-points while the stellarator W7X use island divertors (ID) which can have several X-points allowing more divertor plates for the particle and heat exhaust. One of the main ideas behind IDs is to increase the area of the heat exhaust by increasing the number of targets.
+The main purpose of introducing a divertor as a replacement for the limiter which is physical walls to contain the plasma is to reduce the amount of intrinsic impurities and to divert the plasma onto plasma facing components (PFC) specifically made for heat exhaust (\cite{stangeby2000plasma}). Since this is a transport process this allows for losses along the transport path possibly reducing heat and particle exhaust on the PFCs. 
+
+There are many different divertor configurations. The tokamaks normally use a poloidal divertor configuration with one or two X-points while the stellarator W7X use island divertors (ID) which can have several X-points allowing more divertor plates for the particle and heat exhaust as depicted in Fig. \ref{fig:divertor_configurations}. The main idea behind IDs is to use the islands for power exhaust (\cite{konig2002divertor}). This could effectively increase the area of the heat exhaust by increasing the number of targets.
 
 The input parameters of the SOL is defined as the parameters defined at the last closed flux surface (LCFS). The LCFS is the boundary between the confined plasma and the external part of the plasma that interacts with the wall which follows the open field lines. It is the frontier of the closed field lines - the next flux surface outside the LCFS is the first flux surface defined by open field lines. Thus, it is the power at the LCFS which is exhausted at the divertor plates. The rest of this paper focuses on the heat transport from the LCFS to the targets and how it can be dissipated due to radiation by trying to characterise the radiation with respect to global plasma parameters.
 
 \subsection{Wendelstein 7-X}
-Wendelstein 7-X (W7-X) is one of the largest superconducting stellarator in the world. The stellarator has a five-fold symmetry and is optimized  to have a low shift of the plasma with increasing plasma pressure, reduced neoclassical transport, low self-evolving plasma current (bootstrap current). W7-X is also optimised for reduction of drift effects to reduce the losses of trapped particles. ID's are used for heat and particle exhaust where the magnetic islands are located at the edge at a magnetic flux surface with a rotational transform $\iota = \frac{m}{n} = \frac{5}{5} = 1$. 
+Wendelstein 7-X (W7-X) is one of the largest superconducting stellarator in the world. The stellarator has a five-fold symmetry and is optimized  to have a low shift of the plasma with increasing plasma pressure, reduced neoclassical transport, low self-evolving plasma current (bootstrap current). W7-X is also optimised for reduction of drift effects to reduce the losses of trapped particles. ID's are used for heat and particle exhaust where the magnetic islands are located at the edge at a magnetic flux surface with a rotational transform $\iota = \frac{m}{n} = \frac{5}{5} = 1$ (\cite{klinger2019overview}, \cite{renner2002divertor}). 
 
 W7-X has a major radius of $5.5 \mathrm{m}$ and and an average minor radius $\Bar{r} = 0.53$ which results in a surface area of the plasma vessel of approximately $200 \mathrm{m}$ and a plasma volume of approximately $30 \mathrm{m}$. The water-cooled divertor plates of carbon fiber enhanced carbon are planned to widthstand a heat flux of $10\mathrm{MW m^{-2}}$ in steady state (\cite{renner2004physical}).
  
@@ -148,15 +143,15 @@ W7-X has a major radius of $5.5 \mathrm{m}$ and and an average minor radius $\Ba
 
 \subsubsection{Seeding}
 
-In some fusion experiments other gas species than the fuel are added to exploit its potential to radiate and dissipate the heat. This is called a seeding. Gases like Neon or Nitrogen are added to the plasma from a gas valve in small amounts in the purpose of controlling the power exhaust on the divertor plates.
+In fusion experiments seeding is when gas species different from the main fuel are added to exploit its potential to ionise and recombine leading to radiation which can dissipate the heat. Gas species like Neon, Argon or Nitrogen are added to the plasma from a gas valve in small amounts in the purpose of controlling the power exhaust on the divertor plates.
 
 \subsubsection{Sputtering}
 
-Physical sputtering is the term related to when the particles from the plasma collides with the reactor wall and breaks free a part of the wall thus introducing impurities to the plasma. Typically the impurities from sputtering is carbon atoms. 
+Physical sputtering is the term related to when the particles from the plasma collides with the reactor wall and breaks free a part of the wall thus introducing impurities to the plasma. Typically the impurities from sputtering is carbon atoms because the PFC are usually made out of graphite. 
 
-Carbon also participate in another kind of sputtering which is called chemical sputtering where the plasma chemically reacts with the wall - in hydrogen fueled fusion reactions it is natural that a chemical reaction will take place when the walls are made out of Carbon. This can potentially happen for all impurities, but they have different reactivities.  
+Carbon also participate in another kind of sputtering which is called chemical sputtering where the plasma chemically reacts with the wall - in hydrogen fueled fusion reactions it is natural that a chemical reaction will take place since the walls are made out of Carbon because together they react giving hydrocarbons as a product. This can potentially happen for all impurities, but they have different reactivities. However for simplicity of the discussion the paper does not consider the contribution of chemical sputtering to the radiation loss.  
 
-\subsection{Motivation for characterising the radiated power}
+\subsection{Characterisation of the dominant contribution to power dissipation - radiation loss}
 
 Future fusion reactors needs to be run for long discharges over several decades to be considered as an economically efficient way of generating energy. This means that the machine has to be durable enough to widthstand the extreme conditions which are needed for long fusion operations. To realise this the power exhaust of fusion reactors needs to be understood and controlled. The maximum target heat load is one of the limiting factors of a reactors life time - even for fusion reactions to take place. Since the material of the divertor plates only tolerate a limited heat load the need for mechanisms to cool the plasma has become significant. The main cooling mechanism is radiation due to ionisation of impurities in the plasma. Exploiting the larger ionisation energy of species with a higher charge state the plasma can potentially be cooled enough for acceptable heat loads on the divertor plates. This is a process which would be beneficial to understand well enough to be able to control the power exhaust on the divertor plates. However, the physics and how the total radiation scales with global plasma parameters is still unclear and needs to be investigated further. Understanding the physics of such phenomena is not straight forward since it is governed by transport processes and non-linear physics which makes the radiation processes inherently dependent on local parameters rather than global parameters. Unfortunately scaling the radiated power using a relation based on local parameters is unpractical as observables measured by the diagnostics of the W7X are mainly global parameters. 
 
@@ -166,7 +161,7 @@ Ideally a scaling law which is based on controllable parameters would not only h
 
 \subsection{Fluid equations}
 
-Before introducing the simplified models the +relevant equations should be motivated from the general fluid equations to understand when the model is applicable. The fluid equations can be summed up from three basic physical principles for systems in stationary phase:
+Before introducing the simplified models the relevant equations should be motivated from the general fluid equations to understand when the model is applicable. The fluid equations can be summed up from three basic physical principles for systems in stationary phase:
 \begin{enumerate}
     \item Continuity, also known as particle balance.
     \item Momentum balance. 
@@ -180,13 +175,13 @@ For charged particles the general equations for continuity, momentum and energy 
     n_{\alpha}\frac{d \epsilon}{dt} = -\nabla \bm{q} - \bm{p}\nabla\bm{u}
 \end{align}
 
-where $n_p$ is the density of particle of species $p$, $\bm{p}$ is the second order pressure tensor, $\bm{u}$ is the bulk fluid velocity. Note that if $\bm{p} \equiv p\delta_{ij}$ where the off-diagonal elements are zero if the flow of the fluid is isotropic. However, this is normally not the case for plasma fluids for many reasons, one of them being that it consist of different species of charged and neutral particles which is inhomogeneously distributed. It is usual to separate between parallel and perpendicular flow of the plasma, where the parallel flow is along magnetic field lines, because plasma tends to follow these since it consists of charged particles. In addition the steady state in fusion reactors is modelled with sources due to ionisation, recombination and other transport phenomena. So for the plasma-friendly treatment of fluid equations we say that the differentiable operator is split in a parallel and perpendicular part as given in Eq. \ref{eq:def_nabla_operator}:
+where $n_p$ is the density of particle of species $p$, $\bm{p}$ is the second order pressure tensor, $\bm{u}$ is the bulk fluid velocity. Note that if $\bm{p} \equiv p\delta_{ij}$ where the off-diagonal elements are zero if the flow of the fluid is isotropic. However, this is normally not the case for plasma fluids for many reasons, one of them being that it consist of different species of charged and neutral particles which is inhomogeneously distributed. It is usual to separate between parallel and perpendicular flow of the plasma, where the parallel flow is along magnetic field lines. Plasma tends to follow the field lines because it consists of charged particles. In addition the steady state in fusion reactors is modelled with sources due to ionisation, recombination and other transport phenomena. So for the plasma-friendly treatment of fluid equations we say that the differentiable operator is split in a parallel and perpendicular part as given in Eq. \ref{eq:def_nabla_operator}:
 \begin{equation}
     \nabla \equiv \nabla_{\parallel} + \nabla_{\perp}
 \label{eq:def_nabla_operator}
 \end{equation}
 
-where $\nabla \cdot  \bm b = \nabla_{\parallel}$. This gives the following fluid equations for continuity, momentum and energy conservation:
+where $\nabla \cdot  \bm b = \nabla_{\parallel}$. This gives the following fluid equations for continuity, momentum and energy conservation (\cite{feng19993d}):
 \begin{align}
     \nabla \cdot (n_i V_{i,\parallel}\bm b - D \nabla_{\perp}n_i) &= S_p\\
     \nabla \cdot (m_i n_i V_{i,\parallel}^2 \bm b - \eta_{\parallel}\nabla_{\parallel}V_{i,\parallel} - m_iV_{i,\parallel}D\nabla_{\perp}n_i - \eta_{\perp}\nabla_{\perp}V_{i,\parallel}) &= -\nabla_{\parallel} p + S_m\\
@@ -194,11 +189,13 @@ where $\nabla \cdot  \bm b = \nabla_{\parallel}$. This gives the following fluid
     \nabla \cdot (\frac{5}{2}n_iT_iV_{i,\parallel}\bm b - \kappa_i\nabla_{\parallel}T_i - \frac{5}{2}T_iD\nabla_{\perp}n_i-\chi_i n_i\nabla_{\perp}T_i) &= + k(T_e - T_i) + S_{ei}
 \end{align}
 
-where $D$ is the diffusion coefficient, $S_p$ is the source/sink of particles, $S_m$ refers to momentum source/sink, $\kappa_e, \kappa_i$ is the classical heat conduction coefficients for electrons and ions, $\chi_e, \chi_i$ is the cross-field transport coefficients for electrons and ions, $S_{ee}$ is the energy loss due to electron-electron collisions, $S_{imp}$ is the energy loss due to collisions between electrons and impurities and $S_{ei}$ is the source due to electron-ion collisions. Note that $q_{\parallel} = -\kappa_e (T_e)\nabla_{\parallel}T$ and that the collisions between impurities and ions are neglected.
+where $D$ is the diffusion coefficient, $S_p$ is the source/sink of particles, $S_m$ refers to momentum source/sink, $\kappa_e, \kappa_i$ is the classical heat conduction coefficients for electrons and ions, $\chi_e, \chi_i$ is the cross-field transport coefficients for electrons and ions, $S_{ee}$ is the energy source/sink due to electron-electron collisions, $S_{imp}$ is the energy source/sink due to collisions between electrons and impurities and $S_{ei}$ is the source/sink due to electron-ion collisions. Note that $q_{\parallel} = -\kappa_e (T_e)\nabla_{\parallel}T$ and that the collisions between impurities and ions are neglected.
 
-This continuous 3D model is a very complicated starting point for expressing the radiation loss with global plasma parameters. Therefore a simplified model called the two-point model has been invented comparing the conditions between two spatial positions. This enables a interpretable analysis of scaling between global plasma parameters. However, the simplicity of the model comes at the price of a lot of assumptions which potentially limits the validity of the model. It is still relevant for the purposes of this paper since the assumptions could be good enough for the system on which they are applied. Furthermore the a 1D heat transport model is discussed where both the radiation losses and the transport is taken into account and divided into two limiting regimes.
+This continuous 3D model is a very complicated starting point for expressing the radiation loss with global plasma parameters including transport effects. Therefore a simplified model called the two-point model (\cite{stangeby2000plasma}) has been derived for reducing the dimensionality of the problem by comparing the conditions between two spatial positions. This enables a interpretable analysis of scaling between global plasma parameters. However, the simplicity of the model comes at the price of assumptions which limits the range of validity of the model. It is still relevant for the purposes of this paper since the assumptions can be arguably valid enough for the system on which they are applied. Furthermore a 1D heat transport model is discussed where both the radiation losses and the transport is taken into account and divided into two limiting transport regimes.
 
 \subsection{The Two-point model}
+
+The following description of the two-point model is described following the derivation by \cite{stangeby2000plasma} in The Plasma Boundary in Magnetic Fusion devices.
 
 \begin{figure}[H]
     \centering
@@ -208,7 +205,7 @@ This continuous 3D model is a very complicated starting point for expressing the
 \end{figure}
 
 \begin{tcolorbox}
-\textbf{2 points referred to:}
+\textbf{The two points referred to:}
 \begin{enumerate}
     \item u - upstream. Location halfway to targets.
     \item t - target. Location at the divertor plate.
@@ -260,7 +257,7 @@ The simple two point model describes:
         q_{\parallel} = q_t = \gamma n_t k T_t c_{st},
         \label{eq:stangeby_5.6}    
         \end{equation}
-        where the $q_t$ is the heat flux density entering the sheath, $\gamma$ is the sheath heat transmission coefficient and $\gamma \approx 7$
+        where the $q_t$ is the heat flux density entering the sheath, $\gamma$ is the sheath heat transmission coefficient where in this model $\gamma \approx 7$.
     \end{enumerate}
 \end{enumerate}
 
@@ -282,17 +279,11 @@ where it seems natural to treat the following parameters as the controlled param
     \item $q_{\parallel}$
 \end{enumerate}
 
-and the independent variables specified as constants: $L, \gamma, \kappa_{0e}$.
-
-These quantities can be related to the two principal control parameters for tokamak operators which is the input power $P_{in} [\mathrm{W}]$ and the main plasma density $\Bar{n_e}$. 
-
-The power entering the SOL is expressed as the difference between input power and the power loss in the main plasma. Assuming negligible power loss in the main plasma $P_{in} \approx P_{SOL}$. The assumption is valid for the purpose of our analysis where the fraction of the input power lost due to radiation in the core is very small compared to the radiative loss in the SOL. The loss in the core consists mostly of bremsstrahlung for the experiments run for W7-X where alpha heating is absent.
-
-As the temperature only changes close to the target and constant pressure along field lines is assumed it is justifiable to state $n_{LCFS} = n_u^{sep}$ where the RHS is the density at the first flux tube outside the separatrix, the inner flux tube of the SOL. Thus we may treat $n_{LCFS}$ as being directly controlled by $\Bar{n_e}$ for the purposes of edge analysis.  
+and the independent variables specified as constants: $L, \gamma, \kappa_{0e}$. These quantities can be related to the two principal control parameters for tokamak operators which is the input power $P_{in} [\mathrm{W}]$ and the main plasma density $\Bar{n_e}$. The power entering the SOL is expressed as the difference between input power and the power loss in the main plasma. Assuming negligible power loss in the main plasma $P_{in} \approx P_{SOL}$. The assumption is valid for the purpose of our analysis where the fraction of the input power lost due to radiation in the core is very small compared to the radiative loss in the SOL. The loss in the core consists mostly of bremsstrahlung for the experiments run for W7-X where alpha heating is absent. As the temperature only changes close to the target and constant pressure along field lines is assumed it is justifiable to state $n_{LCFS} = n_u^{sep}$ where the RHS is the density at the first flux tube outside the separatrix, the inner flux tube of the SOL. Thus we may treat $n_{LCFS}$ as being directly controlled by $\Bar{n_e}$ as a simplification for the purposes of edge analysis.  
 
 \subsubsection{The upstream temperature}
 
-If the temperature is sufficient to assume $T_u^{7/2} \gg T_t^{7/2}$ Eqs. \ref{eq:two_point_model_stangeby} can be used to reduce the expression for the upstream temperature to Eq. \ref{eq:upstream_small_T_t}
+If the temperature is sufficient to assume $T_u^{7/2} \gg T_t^{7/2}$ Eqs. \ref{eq:two_point_model_stangeby} can be used to reduce the expression for the upstream temperature to Eq. \ref{eq:upstream_small_T_t}:
 \begin{equation}
     T_u \simeq \left( \frac{7}{2}\frac{q_{\parallel}L}{\kappa_{0e}} \right)^{(2/7)}
 \label{eq:upstream_small_T_t}
@@ -323,13 +314,13 @@ and when expressing the temperature in $\mathrm{eV}$ this is the same as the tar
     T_t = \frac{m_i}{2e}\frac{4q_{\parallel}^2}{\gamma^2e^2n_u^2T_u^2}.
 \label{eq:T_t_two_point_model}
 \end{equation}
-where the units are $T[\mathrm{eV}, m_i[kg], q_{\parallel}[Wm^{2}], n[\mathrm{m^{-3}}]$ and $e$ the elementary charge.  In fact Eq. \ref{eq:T_t_two_point_model} holds whether the parallel heat convection is present or not. This follows from the sole assumption of pressure and power conservation. However, the target temperature still a function of $T_u$ and so Eq. \ref{eq:T_t_two_point_model} should be expressed as a function independent of the upstream temperature. This results in Eq. \ref{eq:T_t_two_point_model_indep_Tu} using the result from \ref{eq:upstream_small_T_t}:
+where the units are $T[\mathrm{eV}], m_i[kg], q_{\parallel}[Wm^{2}], n[\mathrm{m^{-3}}]$ and $e$ the elementary charge.  In fact Eq. \ref{eq:T_t_two_point_model} holds whether the parallel heat convection is present or not. This follows from the sole assumption of pressure and power conservation. However, the target temperature still a function of $T_u$ and so Eq. \ref{eq:T_t_two_point_model} should be expressed as a function independent of the upstream temperature. This results in Eq. \ref{eq:T_t_two_point_model_indep_Tu} using the result from \ref{eq:upstream_small_T_t}:
 \begin{equation}
      T_t \simeq \frac{m_i}{2e}\frac{4q_{\parallel}^2}{\gamma^2e^2n_u^2\left( \frac{7}{2}\frac{q_{\parallel}L}{\kappa_{0e}} \right)^{(4/7)}} \propto \frac{q_{\parallel}^{10/7}}{L^{4/7}n_u^2}.
 \label{eq:T_t_two_point_model_indep_Tu}
 \end{equation}
 
-From Eq. \ref{eq:T_t_two_point_model_indep_Tu} it is clear that the target temperature is strongly dependent on the upstream density and the heat entering the SOL. The optimal scenario would be to have a relation to the input power $q_{\parallel}$ as weak as possible and the dependence on $n_u$ as strong as possible. The argument is that high input power is needed for fusion reactions, but it cannot exceed the tolerance of the material at the divertor plates. Since the target temperature is a strong function of the heat flux density entering the SOL which is closely related to the input power limits the input power. Since the target temperature is a strong function of upstream density, which can be approximated by the measurable $\Bar{n}_e$, it is favorable to operate fusion reactors at high densities which is also a requirement for high fusion power. Thus it is necessary to operate on high enough densities to avoid exceeding allowed target temperatures with respect to the material heat tolerance. The connection length of the SOL also affects the target temperature, but it is a weaker than linear relation thus making it a non practical way of reducing target temperature, sputtering, etc. 
+From Eq. \ref{eq:T_t_two_point_model_indep_Tu} it is clear that the target temperature is strongly dependent on the upstream density and the heat entering the SOL. The optimal scenario would be to have a relation to the input power $q_{\parallel}$ as weak as possible and the dependence on $n_u$ as strong as possible. The argument is that high input power is needed for fusion reactions, but it cannot exceed the tolerance of the material at the divertor plates. Since the target temperature is a strong function of the heat flux density entering the SOL which is closely related to the input power limits the input power. Since the target temperature is a strong function of upstream density, which can be approximated by the line averaged (along the line of sight fo the diagnostic) density $\Bar{n}_e$, it is favorable to operate fusion reactors at high densities which is also a requirement for high fusion power. It is also necessary to operate on high enough densities to avoid exceeding the target temperature tolerance with respect to the material heat tolerance. The connection length of the SOL also affects the target temperature, but it is a weaker than linear relation thus making it a non practical way of reducing target temperature. 
 
 \subsubsection{Target density}
 
@@ -368,11 +359,9 @@ The sputtering can be related to the particle flux onto the target by a linear r
 
 where the function $Y$ is called the sputtering yield and usually depends on the impact energy, i.e. the target temperature $T_t$. We have both physical sputtering, sputtering due to collisions with the walls/divertor plates, and chemical sputtering, sputtering due to chemical reactions with the walls. Usually chemical sputtering originates from the chemical reactions involving hydrocarbons since the material of the wall are made out of graphite.
 
-For physical sputtering $Y$ can be a strong function of the impact energy, typically $Y \propto T_t^{m} \implies Y \propto n_t^{-m}, m \geq 2$. Thus the sputtering increases with decrease in measurable $\Bar{n}_e$ and vice versa.
+For physical sputtering $Y$ can be a strong function of the impact energy, typically $Y \propto T_t^{m} \implies Y \propto n_t^{-m}, m \geq 2$. Thus the sputtering increases with decrease in measurable $\Bar{n}_e$ and vice versa. However, for chemical, sputtering $Y$ can be a weak function of the impact energy. If the sputtering yield as a function of target temperature $Y(T_t)$ varies less than linearly it results in the opposite effect - increasing $\Bar{n}_e$ will increase the sputtering. For the regime where the sputtering yield function has this property, chemical sputtering might be significant and which leads to a complicated picture when it comes to the dilution of the plasma. In general sputtering is not wanted.
 
-For chemical sputtering $Y$ can be a weak function of the impact energy. If the sputtering yield as a function of target temperature $Y(T_t)$ varies less than linearly it results in the opposite effect - increasing $\Bar{n}_e$ will increase the sputtering. For the regime where the sputtering yield function has this property, chemical sputtering might introduce problems. In general sputtering is not wanted.
-
-The strong dependence on the upstream is notable and this should justify expecting a recycling rate $\phi_{recyc} \propto \Bar{n}_e$. Since the particle confinement time is defined as:
+The strong dependence on the upstream conditions is notable and this should justify expecting a recycling rate $\phi_{recyc} \propto \Bar{n}_e$. Since the particle confinement time is defined as:
 \begin{align}
     \tau_p = \frac{\Bar{n}_e \times \textit{volume}}{\phi_{recyc}}\\
     \tau_p \propto \Bar{n}_e^{-1}
@@ -383,19 +372,20 @@ The strong dependence on the upstream is notable and this should justify expecti
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{Images/Introduction/n_u_n_LCFS_n_t.png}
-    \caption{Relating the upstream density, $n_u$, of 1D parallel-to-$\bm B$ analysis, and the $n_{LCFS}$ of 1D radial analysis. The separatrix constitutes the last closed flux surface, LCFS}
+    \caption{Relating the upstream density, $n_u$, of 1D parallel-to-$\bm B$ analysis, and the $n_{LCFS}$ of 1D radial analysis. The separatrix constitutes the last closed flux surface (LCFS).}
     \label{fig:n_u.n_LCFS.n_u}
 \end{figure}
 
+To make the model more realistic the following is introduced in the extension of the two-point model:
 \begin{enumerate}
-    \item Volumetric power losses and losses due to radiation; Introduced by introducing a power loss factor
-    \item Volumetric power losses assumed to occur below the X-point
+    \item Volumetric power losses and losses due to radiation.
+    \item Volumetric power losses assumed to occur below the X-point.
     \item As long as the ionization zone does not occupy a large fraction of the SOL, the effect on the density and temperature at the target etc. is small.
-    \item Similar argument for the spatial radiation distribution and radiation-charge exchange loss
-    \item The plasma flow can experience momentum loss by: Friction collisions with neutrals, Viscous forces, Volume recombination
+    \item Similar argument for the spatial radiation distribution and radiation-charge exchange loss.
+    \item The plasma flow can experience momentum loss by: Friction collisions with neutrals, viscous forces, Volume recombination.
 \end{enumerate}
 
-The two-point model is extended by introduction loss factors which represents corrections due to losses:
+which is expressed by the following loss factors:
 \begin{enumerate}
     \item $f_{power}$ is the power loss factor. Here it is assumed that the power loss in the SOL can be summed up into two terms; the radiation loss and loss due to charge exchange. Normally the former is larger than the latter.
     \item $f_{mom}$ is the momentum loss factor due to frictional collisions with neutrals, viscous effects and volume recombination.
@@ -506,9 +496,26 @@ The flux of ions along field lines is determined by ionization and recombination
 \label{eq:cont_eq_Post-1995}
 \end{equation}
 
-\subsubsection{Fractional abundance}
 
-Example from cherab, use carbon as an example since it is relevant for the data used in the regression model.
+\subsubsection{Impurity sources}
+
+\subsubsection{Fractional abundance and Impurity Radiation}
+
+The fractional abundance represents the charge state fractions of an atomic species and is based on collisional radiative modelling (CRM). Including the effect of neutrals in this model 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{Images/Introduction/fz_C.png}
+    \caption{The fractional abundance of the charge states of Carbon is plotted for varying temperature. Lines represent coronal equilibrium and the dashed lines includes the transport in the calculation of the fractional abundance.}
+    \label{fig:fz_C_Te}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{Images/Introduction/Lz_C.png}
+    \caption{The radiation cooling rate for Carbon is plotted for each fractional abundance and the sum of contributions for each charges state. The dashed line represents the coronal equilibrium with transport effects taken into consideration and the lines just the former.}
+    \label{fig:Lz_C_Te}
+\end{figure}
 
 According to \cite{schneider2006plasma} the radiation losses for the low Z elements are dominated for temperatures below 100 eV by line radiation losses
 and above several keV by bremsstrahlung. Due to their radiation characteristics, low Z elements will contribute
@@ -516,14 +523,6 @@ more to SOL and divertor radiation (temperatures below 100 eV), whereas with hig
 will move to the confinement region of closed field-lines. For tungsten, the radiation losses are three
 orders of magnitude larger than for carbon or beryllium. Therefore, one needs nearly perfect divertor retention
 for tungsten in contrast to carbon.
-
-Argue why C2+ radiation is interesting
-
-\subsubsection{Impurity sources}
-
-
-
-\subsubsection{Impurity Radiation}
 
 Impurity radiation are due to the emission of photons during the radiative decay of excited states of the various charge states of impurity ions. The distribution of charge states are determined by transport, ionization and recombination (\cite{post1995review}) can by modeled by Eq. \ref{eq:cont_eq_charge_states_post-1995}:
 \begin{align}
@@ -542,33 +541,203 @@ The steady state with no transport, called coronal equilibrium, the charge state
 
 \subsubsection{Hydrogen radiation}
 
-For densities $n_e \geq 10^{19}\mathrm{m^{-3}}$, the time between excitation of electrons, de-excitation and ionization collisions are comparable to the radiative decay time of the excited states of hydrogen. This could make "multi-step" processes important where the rate is density dependent. For low temperatures $T_e \leq 3 \mathrm{eV}$ it could be important as well. Sputtering can be severely reduced when the temperature is reduced by ionization losses. However, this does not necessarily reduce the peak heat flux since the plasma deposits the ionization energy, $13.6 \mathrm{eV}$ per electron-ion pair for hydrogen, on the divertor plate as it recombines. 
+For densities $n_e \geq 10^{19}\mathrm{m^{-3}}$, the time between excitation of electrons, de-excitation and ionization collisions are comparable to the radiative decay time of the excited states of hydrogen. This could make "multi-step" processes important where the rate is density dependent. For low temperatures $T_e \leq 3 \mathrm{eV}$ it could be important as well.
 
 \subsubsection{Recycling}
 
 The recycling of hydrogen atoms and molecules can play a substantial role in the energy transport. The flux of ions along field lines is determined by ionization and recombination as given in Eq. \ref{eq:cont_eq_Post-1995}. Recycling is essentially that the same atoms get ionised as it gets closer to the main plasma and recombined when it gets transported in the SOL towards the target. This process repeats itself which is beneficial because the same species can be used to radiate without introducing more increasing the amount of radiation per radiating species. The ideal case is that the decay of the lifetime of the recycling impurities is so slow that the amount of impurity radiation can easily be regulated to control the power exhaust to the target. For an efficient power loss due to radiation recycling is therefore essential. \cite{effenberg2019first} shows that impurities like Nitrogen and Neon have shown promising results where the radiative loss due to impurity radiation decays slowly $\sim 10^1\mathrm{s}$ which indicates high recycling regimes. 
 
-\subsubsection{Removal of the $\mathrm{H}$  and $\mathrm{He}$ impurity - pumping}
-
-To avoid fuel dilution the unavoidable $\mathrm{He}$ production from $\mathrm{D}$-$\mathrm{T}$ fusion must be pumped very efficiently as it recycles. According to \cite{stangeby2000plasma} it is probable that helium recycling will exceed the primary ($\mathrm{D}$-$\mathrm{T}$) fusion source. Thus, the pumping of a high fraction $\mathrm{He}$ source is necessary before it re-ionises. 
-
 \subsubsection{Charge exchange}
 
-The charge exchange can happen when a plasma ion collides with a neutral and a transfers the kinetic energy from the fast plasma ion to the neutral. An example is given in Eq. \ref{eq:example_charge_exchange}:
+A charge exchange can happen when a plasma ion collides with a neutral and a transfers the kinetic energy from the fast plasma ion to the neutral. An example is given in Eq. \ref{eq:example_charge_exchange}:
 \begin{equation}
     H^{+} + H \Longleftrightarrow H + H^{+}.
 \label{eq:example_charge_exchange}
 \end{equation}
 
-The net effect is that the hydrogen atom will be fast and the hydrogen ion will be slowed. If the resulting fast hydrogen atom is incident on the plasma the neutral introduces another particle to the plasma. Otherwise it could transfer heat either to the side walls of the reactor or the divertor plate.
+The net effect is that the hydrogen atom will be fast and the hydrogen ion will be slowed. If the resulting fast hydrogen atom is incident on the plasma the neutral introduces another particle to the plasma. Otherwise it transfers heat either to the side walls of the reactor or the divertor plate.
 
-The potential of charge exchange is to transfer power from the divertor plasma to the side walls (\cite{post1995calculations}). However, there are many factors at play that affects the effectiveness of this process. Except for temperatures $T_e \leq 3-4 \mathbf{eV}$, the ionization rate is comparable  to the charge exchange rates. 
+The potential of charge exchange is to transfer power from the divertor plasma to the side walls and could give a significant contribution to the power loss. However, there are many factors at play that affects the effectiveness of this process. Except for temperatures $T_e \leq 3-4 \mathbf{eV}$, the ionization rate is comparable  to the charge exchange rates (\cite{post1995calculations}). 
 
 \subsubsection{Chemical Sputtering}
 
-Hydrogen is very reactive and if graphite walls are used to face the plasma it will produce a flux of hydrocarbons at the plasma edge (\cite{post1995review}). The result is that these hydrocarbons will eventually leave the walls and mix with the edge plasma.
+Hydrogen is very reactive and if graphite walls are used to face the plasma it will produce a flux of hydrocarbons at the plasma edge (\cite{post1995review}). The result is that these hydrocarbons will eventually leave the walls and mix with the edge plasma which results in a more severe dilution of the plasma compared to the introduction of single species impurities.
 
 \newpage
+
+\subsection{Analytic criteria for power exhaust in divertors (\cite{post1995analytic})}
+
+Impurity radiation is a key mechanism for exhausting power from the edge plasma to the divertor targets and walls, and the main chamber. \cite{post1995calculations} has used ADPAK impurity radiation rates to develop criteria for the required impurity fraction, -species, connection length and mid-plane (half the distance from target to target) electron temperature for reaching detachment. They have also developed criteria for the required enhancement over coronal equilibrium due to charge exchange recombination and impurity recycling rate to radiate a given power for Be, C, Ne and Ar. 
+
+The essence of the analysis is to identify analytical criteria for detachment of the plasma with respect to relevant quantities. By integrating the heat flux equation along magnetic field lines in the SOL including impurity radiation losses enhanced by impurity recycling (ionisation and recombination) and charge exchange recombination. The criteria is for the quantities to achieve enough radiative losses for the plasma to detach from the divertor targets. 
+
+The heat conduction along field lines can be cast into Eqs. \ref{eq:post1995_heat_cond_eq1} \& \ref{eq:post1995_heat_cond_eq2}:
+\begin{align}
+    \label{eq:post1995_heat_cond_eq1}
+    \frac{\partial Q_{\parallel}}{\partial x} = -n_e n_z L_Z(T_e) \\
+    \label{eq:post1995_heat_cond_eq2}
+    Q_{\parallel} = -\kappa_0 T_e^{2.5}\frac{\partial T_e}{\partial x}
+\end{align}
+
+where $x$ is the direction along magnetic field lines, $n_{\alpha}$ is the density of species $\alpha$, $L_Z(T_e)$ is the temperature dependent radiation cooling rate function and $\kappa_0$ the heat conduction coefficient where the strong temperature dependence originates from the Spitzer conductance (\cite{spitzer2006physics}) - which is assumed for this model. Coronal equilibrium is assumed, and since there is no transport the charge state distribution and radiation rate coefficient are only dependent on electron temperature.
+
+Assuming pressure balance along field lines setting $p_e = n_e T_e = const$, defining the impurity fraction $f_z = \frac{n_Z}{n_e}$ and combining Eqs. \ref{eq:post1995_heat_cond_eq1} \& \ref{eq:post1995_heat_cond_eq2} a new equation for the parallel heat conduction flux can be derived:
+\begin{align}
+    \frac{\partial Q_{\parallel}}{\partial x}Q_{\parallel} = n_e n_z L_Z(T_e)\kappa_0 T_e^{2.5}\frac{\partial T_e}{\partial x}\\
+    \frac{\partial Q_{\parallel}^2}{\partial x} = 2n_e^2 f_z L_Z(T_e)\kappa_0 T_e^{2.5}\frac{\partial T_e}{\partial x}\\
+    \frac{\partial Q_{\parallel}^2}{\partial T_e}\frac{\partial T_e}{\partial x} = 2p_e^2f_z L_Z(T_e)\kappa_0 T_e^{0.5}\frac{\partial T_e}{\partial x}
+\label{eq:post1995_derivation_dq^2dTe}
+\end{align}
+
+which simplifies to:
+\begin{equation}
+    \frac{\partial Q_{\parallel}^2}{\partial T_e} = 2p_e^2 f_z L_Z(T_e)\kappa_0 T_e^{0.5}.
+\label{eq:post1995_dq^2dTe}
+\end{equation}
+
+Eqs. \ref{eq:post1995_heat_cond_eq1} and \ref{eq:post1995_heat_cond_eq2} can then be rewritten as:
+\begin{align}
+\label{eq:post1995_d/dTe_eq1}
+   \frac{\partial Q_{\parallel}^2}{\partial T_e} &= 2p_e^2 f_z L_Z(T_e)\kappa_0 T_e^{0.5}\\
+\label{eq:post1995_d/dTe_eq2}
+   \frac{\partial x}{\partial T_e} &= -\frac{\kappa_0T_e^{2.5}}{Q_{\parallel}}
+\end{align}
+
+\subsubsection{Natural variables}
+
+Eqs. \ref{eq:post1995_d/dTe_eq1} and \ref{eq:post1995_d/dTe_eq2} have a natural set of variables on the form:
+\begin{align}
+\label{eq:post1995_nat_var1}
+    \Tilde{q} & = \frac{Q_{\parallel}}{n_s}\sqrt{\frac{Z_{eff} \ln \Lambda}{f_z}}\\
+\label{eq:post1995_nat_var2}
+    \xi &= n_s x \sqrt{Z_{eff}\ln \Lambda f_z}
+\end{align}
+
+In table \ref{tab:post1995_practunits} the variables is expressed in their practical units:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+       \hline
+        $Q_{\parallel}$ &     $\mathrm{GW/m^2}$ \\
+        $n_s$ & $\mathrm{m}^{-3}$ \\
+        $T_e$& $100\mathrm{eV}$ \\
+        $f_Z$ & $\%$\\
+        $\Omega_Z = \frac{L(T)}{10^{-25}}$ & $\mathrm{Wcm^3}$\\
+        $x$& $100\mathrm{m}$\\
+        \hline
+    \end{tabular}
+    \caption{Practical units for Eqs. \ref{eq:post1995_d/dTe_eq1} \& \ref{eq:post1995_d/dTe_eq2} using the natural variables in Eqs. \ref{eq:post1995_nat_var1} \& \ref{eq:post1995_nat_var2}}
+    \label{tab:post1995_practunits}
+\end{table}
+
+Inserting the natural variables into the equation for the heat flux gradient:
+\begin{align}
+    \frac{\partial Q_{\parallel}}{\partial x} &= \frac{n_s \sqrt{\frac{f_z}{Z_{eff} \ln \Lambda}}}{\frac{1}{n_s \sqrt{Z_{eff}\ln \Lambda f_z}}}\frac{\partial \Tilde{q}}{\partial \xi}\\
+    &= n_s^2f_z \frac{\partial \Tilde{q}}{\partial \xi}\\
+    & = -n_e^2f_z L_Z(T_e)\\
+    \implies \frac{\partial \Tilde{q}}{\partial \xi} &= -\frac{n_e^2 f_z L_Z(T_e)}{n_s^2 f_z}\\
+    &\overset{p_s = p_e}{=} -\frac{T_s^2}{T_e^2}L_Z(T_e)
+\end{align}
+
+and the heat flux:
+\begin{align}
+    Q_{\parallel} &= -\kappa_0 T_e^{2.5}\frac{\partial T_e}{\partial x}\\
+    n_s\sqrt{\frac{f_z}{Z_{eff}\ln\Lambda }} \Tilde{q} &= -\kappa_0 T_e^{2.5}n_s\sqrt{Z_{eff}\ln \Lambda f_z}\frac{\partial T_e}{\partial \xi}\\
+   \Tilde{q} &= -\kappa_0 T_e^{2.5}Z_{eff}\ln \Lambda\frac{\partial T_e}{\partial \xi}
+\end{align}
+
+and combining them:
+\begin{align}
+    \Tilde{q}\frac{\partial \Tilde{q}}{\partial \xi} &= \kappa_0 T_e^{2.5}Z_{eff}\ln \Lambda L_Z(T_e) \frac{T_s^2}{T_e^2}\frac{\partial T_e}{\partial \xi}\\
+    \frac{\partial \Tilde{q}^2}{\partial \xi} &= 2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda L_Z(T_e) T_s^2\frac{\partial T_e}{\partial \xi}
+\end{align}
+
+solving for the normalised heat flux we get the following:
+\begin{align}
+    \frac{\partial \Tilde{q}^2}{\partial \xi} &= 2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda T_s^2L_Z(T_e)\frac{\partial T_e}{\partial \xi}\\
+    \frac{\partial \Tilde{q}^2}{\partial T_e}\frac{\partial T_e}{\partial \xi}&= 2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda T_s^2L_Z(T_e)\frac{\partial T_e}{\partial \xi}\\
+    \Tilde{q}^2 - \Tilde{q}^2_{0} &= \int_{0}^{T_s}2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda T_s^2 L_Z(T_e)
+\end{align}
+
+where the normalized radiation loss flux is:
+\begin{equation}
+    \frac{\Tilde{P}_{rad}}{\Tilde{A}_{rad}} = \Tilde{q} - \Tilde{q}_{0}
+\end{equation}
+
+and the solution for the heat flux is:
+\begin{align}
+\label{eq:post_rad_plus_transport}
+     Q_{\parallel}^2 - Q_{\parallel,0}^2 &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e\\
+\end{align}
+
+where the radiation loss flux is given by:
+\begin{equation}
+\label{eq:relation_prad_heatflux_diff}
+    \frac{P_{rad}}{A_{rad}} = Q_{\parallel} - Q_{\parallel,0}
+\end{equation}
+
+\textbf{Detachment condition}
+
+Detachment is defined as $\Tilde{q}_0 = 0$ which means that all the SOL input power gets radiated. This results in the equation:
+\begin{align}
+    \Tilde{q}^2  &= \int_{0}^{T_s}2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda T_s^2 L_Z(T_e) \nonumber \\
+    \left( \frac{Q_{\parallel}}{n_s}\sqrt{\frac{Z_{eff} \ln \Lambda}{f_z}} \right)^2 &= \int_{0}^{T_s}2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda T_s^2 L_Z(T_e) \nonumber \\
+    Q_{\parallel}^2 &= n_s^2 \frac{f_Z}{Z_{eff}\ln\Lambda} \int_{0}^{T_s}2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda T_s^2 L_Z(T_e) dT_e \nonumber \\
+    \label{eq:post_detachment_radiatoin_loss_eq}
+    Q_{\parallel} &= n_s T_s\sqrt{2\kappa_0  f_Z \int_{0}^{T_s} T_e^{0.5}  L_Z(T_e)} dT_e\\
+\end{align}
+
+\subsubsection{Relation to two-point model}
+
+The desired state regime for fusion reactor puts a limit on the upstream temperature and the temperature at the target. It is favorable to have a high upstream temperature for more fusion reactions and low target temperature for the divertor plate to not melt. More specifically we want the plasma to detach from the targets so that the peak heat loads on the target is tolerable for the material the target consists of. It also has implications on sputtering from the target - when target temperature increases so does the sputtering. This leads to a net flux of impurities and the plasma will be diluted. This dilution needs to be kept at a tolerable level. The effects are many, but the overall picture is what the two-point model describes connecting the upstream temperature and density, target temperature, the heat flux density, recycling rate and particle flux density and sputtering production. The purpose of the simplified model is to formulate conditions on controllable quantities. It is not evident which of the quantities that are controllable, and in the two-point model they come with a series of assumptions. The three unknowns of the two-point model are $n_u, T_u, T_t$. $n_u$ is assumed to have little change above the x-point since the temperature is rather constant and the pressure along field lines is a preserved quantity. Therefore the upstream density is related to the density upstream at the LCFS which again is related to the first flux tube outside the separatrix using the same argument as for the validity of setting the upstream density as constant. This density is called $n_u^{sep}$ by \cite{stangeby2000plasma} and is related to the line integrated electron density $\Bar{n}_e$ which is measurable quantity. 
+
+Regarding $q_{\parallel}$, we have to assume that the power loss due to radiation in the main plasma is much smaller compared to the SOL. The power entering the SOL can simply be expressed as $P_{SOL} = P_{in} - P_{main,rad}$, where $P_{main,rad}$ is the radiated power of the main plasma. For simplicity the $q_{\parallel}$ is assumed to be a controllable quantity where the loss in the main plasma is taken care of by correction factors in the extension of the two-point model.
+
+\subsection{Physics of island divertors \cite{feng2002transport}}
+
+Because of two orders of magnitude lower field line pitch $\Theta \sim 10^{-3}$ for stellarators compared to tokamaks $\Theta \sim 10^{-1}$, the cross-field transport competes with the parallel transport. It could potentially be dominant. If cross-field transport is included the heat transport equations becomes:
+\begin{align}
+    q_{\parallel} &= D_{eff}\frac{\partial T_
+    e}{\partial l_{\parallel}}\\
+    D_{eff} &\equiv \kappa_0 T_e^{2.5} + \chi n \Theta^{-2}\\
+    \Theta &\equiv \frac{dx}{d l_{\parallel}}\\
+    & = \frac{\iota_i r}{R}\\
+    \iota_i &\equiv r_i \iota'\\
+    \iota' &\equiv \frac{\iota - m/n}{r_i}\\
+    \iota &\equiv 2\pi \frac{R B_p}{r B_t}
+\end{align}
+
+where $\iota$ is the rotational transform for poloidal divertors for tokamaks, $x$ is the distance to the target (shown in Fig. ), $r$ the minor radius, $R$ the major radius, $m$ represents the toroidal mode number, $n$ represents the poloidal mode number, $r_i$ represents the internal radius of the island. $\iota'$ is then the shear at the  $\frac{m}{n}$-resonance and $\chi$ is the cross-field heat conductivity (diffusion coefficient). Note that the field line pitch $\Theta$ for poloidal divertors in tokamaks can be simplified to $\Theta = \frac{\iota r}{R} = \frac{B_p}{B(r)}$.
+
+In the limit where cross-field transport is dominant the heat flux equations reduce to:
+\begin{align}
+    q = \chi n \frac{\partial T_e}{\partial x}\\
+    \label{eq:cross_field_1}
+    \frac{\partial q}{\partial x} = - n^2f_Z L_Z(T)
+\end{align}
+
+Repeating the combination of both equations the heat flux can be expressed as an integral over temperature:
+\begin{equation}
+\label{eq:cross_field_main}
+    q_u^2 - q_d^2 = \int_{T_d}^{T_u} 2 \chi n^3 f_z L_Z(T) dT
+\end{equation}
+
+where the subscript $d,u$ signifies downstream and upstream conditions.
+
+\subsubsection{Competing transport regime}
+
+In the regime between the limiting cases where parallel and cross-field transport are dominant, parallel transport competes with the cross-field transport. This regime can be described by the equation from \cite{feng2002transport}, but directed along a field line:
+\begin{align}
+\label{eq:fengs_transport_model_heat_flux}
+    q_{\parallel} = D_{eff} \frac{\partial T_e}{\partial l_{\parallel}}\\
+    q_{\parallel} = \kappa_{0e} T_e^{2.5} \frac{\partial T_e}{\partial l_{\parallel}} + \chi n \Theta^{-2}\frac{\partial T_e}{\partial l_{\parallel}}
+\end{align}
+where $D_{eff} = \kappa_{0e} T_e^{2.5} + \chi n \Theta^{-2}$. Combining it with the equation for heat flux loss due to radiation, the equation for heat flux along field lines comparing upstream and downstream conditions can be expressed as:
+\begin{equation}
+    q_u^2 - q_d^2 = 2\int_{T_d}^{T_u} dT_e D_{eff}(T_e)n_e^2f_ZL_Z(T_e).
+\end{equation}
+
+It is worth noting that some of the assumptions made in the limiting cases no longer hold. The effective diffusion coefficient $D_{eff}$ is dependent on the temperature $T_e$ and contains both perpendicular and parallel heat transport which makes it hard to assume anything about the spatial distribution of the heat loss.
 
 
 

@@ -1,9 +1,17 @@
-\section{Related Work}
+\section{Other scaling approaches of the total radiated power}
 \label{sec:related_work}
 
-\subsection{Alternative scaling approaches}
+\subsection{P.H. Rebut, B.J. Green - Effect on impurity radiation on tokamak equilibrium}
 
-\subsubsection{G.F. Matthews et al. - Scaling radiative plasmas to ITER}
+\cite{rebut1977effect} derive an energy balance equation including the impurity contribution. The terms given by the authors is:
+\begin{equation}
+    \sum_Z n_e^2 \alpha_Z R_Z
+\end{equation}
+where $n_e$ is the electron density, $\alpha_Z$ is the impurity fraction and $\alpha_Z n_e R_Z$ is the radiation power for impurities with density $\alpha_Z n_e$ where $R_Z$ is the sum of the photon emission coefficients (PEC) over all charge states, i.e. the fractional abundance. $R_Z$ is dependent on temperature; $R_Z = R_Z(T)$.
+
+The presence of impurities causes bremsstrahlung in the core, line radiation and recombination radiation according to \cite{rebut1977effect}. High $Z$-materials will typically not be fully ionized, but radiates strongly and vice versa for low-$Z$ materials. The trade-off is the level of radiation against the level if ionization and the tolerance of contamination. For high-$Z$ materials the level of contamination is lower than for low-$Z$ materials.
+
+\subsection{G.F. Matthews et al. - Scaling radiative plasmas to ITER}
 
 The starting point of the scaling analysis done by \cite{matthews1997scaling} is the simple assumption that the radiation comes from a plasma volume $V_{rad}$ where the electron and impurity densities are $n_{e,rad}$ and $n_{Z, rad}$. The power can then be written on the form as shown in Eq. \ref{eq:matthews_prad_eq1}:
 \begin{equation}
@@ -45,157 +53,6 @@ Expressed for $P_{rad}$ the model is then:
 
 However interesting, this model is suitable for machines where the magnetic geometry allows for a reasonable calculation of the radiation surface area $S$ which is hard to compute for stellarators which have complex magnetic geometries. A crude assumption often made is that the radiation surface area is the same as the surface of the a torus with minor and major radius equal to that of the machine, i.e. $4\pi^2 r R$. As demonstrated by \cite{effenberg2019first} this is not necessarily a valid assumption.
 
-\subsubsection{Perseo et al. - 2D measurements of parallel counter-streaming
-flows in the W7-X scrape-off layer for attached and
-detached plasmas}
-
-\cite{perseo20212d} presents a linear scaling for the total radiated power with $I_{C^{2+}}$ as given in Eq. \ref{eq:scaling_perseo_ic2+}:
-\begin{equation}
-\label{eq:scaling_perseo_ic2+}
-    P_{rad} = a\cdot I_{C^{2+}} + b
-\end{equation}
-
-They plot the total radiated power measured by W7-X's bolometry system against the $I_{C^{2+}}$ measured by coherence imaging spectroscopy and observe a linear relationship. Furthermore they fit the $I_{C^{2+}}$ data with a linear least square model and get $a = 0.08, b = -0.43$ and a correlation coefficient $r = 0.98$ which strongly strengthens the observations made. Furthermore \cite{perseo20212d} also investigates a the regression model for the total radiated power given by Eq. \ref{eq:scaling_perseo_nbare}:
-
-\begin{equation}
-\label{eq:scaling_perseo_nbare}
-    P_{rad} = \frac{1}{7}(Z_{eff})S \Bar{n}_e^{\gamma}
-\end{equation}
-
-where the only regression parameter $\gamma$ is set for the line integrated density. The observation is that the fit shows a enough correlation to argue for a link between $I_{C^{2+}}$ and the line integrated density when considering their shared correlation to the total radiated power for $\gamma \geq 2$.
-
-\subsection{Post et al. - Analytic criteria for power exhaust in divertors}
-
-Impurity radiation is a key mechanism for exhausting power from the edge plasma to the divertor targets and walls, and the main chamber. \cite{post1995calculations} has used ADPAK impurity radiation rates to develop criteria for the required impurity fraction, -species, connection length and mid-plane (half the distance from target to target) electron temperature for reaching detachment. They have also developed criteria for the required enhancement over coronal equilibrium due to charge exchange recombination and impurity recycling rate to radiate a given power for Be, C, Ne and Ar. 
-
-The essence of the analysis is to identify analytical criteria for detachment of the plasma with respect to relevant quantities. By integrating the heat flux equation along magnetic field lines in the SOL including impurity radiation losses enhanced by impurity recycling (ionisation and recombination) and charge exchange recombination. The criteria is for the quantities to achieve enough radiative losses for the plasma to detach from the divertor targets. 
-
-The heat conduction along field lines can be cast into Eqs. \ref{eq:post1995_heat_cond_eq1} \& \ref{eq:post1995_heat_cond_eq2}:
-\begin{align}
-    \label{eq:post1995_heat_cond_eq1}
-    \frac{\partial Q_{\parallel}}{\partial x} = -n_e n_z L_Z(T_e) \\
-    \label{eq:post1995_heat_cond_eq2}
-    Q_{\parallel} = -\kappa_0 T_e^{2.5}\frac{\partial T_e}{\partial x}
-\end{align}
-
-where $x$ is the direction along magnetic field lines, $n_{\alpha}$ is the density of species $\alpha$, $L_Z(T_e)$ is the temperature dependent radiation cooling rate function and $\kappa_0$ the heat conduction coefficient where the strong temperature dependence originates from the Spitzer conductance (\cite{spitzer2006physics}) - which is assumed for this model. Coronal equilibrium is assumed, and since there is no transport the charge state distribution and radiation rate coefficient are only dependent on electron temperature.
-
-Assuming pressure balance along field lines setting $p_e = n_e T_e = const$, defining the impurity fraction $f_z = \frac{n_Z}{n_e}$ and combining Eqs. \ref{eq:post1995_heat_cond_eq1} \& \ref{eq:post1995_heat_cond_eq2} a new equation for the parallel heat conduction flux can be derived:
-\begin{align}
-    \frac{\partial Q_{\parallel}}{\partial x}Q_{\parallel} = n_e n_z L_Z(T_e)\kappa_0 T_e^{2.5}\frac{\partial T_e}{\partial x}\\
-    \frac{\partial Q_{\parallel}^2}{\partial x} = 2n_e^2 f_z L_Z(T_e)\kappa_0 T_e^{2.5}\frac{\partial T_e}{\partial x}\\
-    \frac{\partial Q_{\parallel}^2}{\partial T_e}\frac{\partial T_e}{\partial x} = 2p_e^2f_z L_Z(T_e)\kappa_0 T_e^{0.5}\frac{\partial T_e}{\partial x}
-\label{eq:post1995_derivation_dq^2dTe}
-\end{align}
-
-which simplifies to:
-\begin{equation}
-    \frac{\partial Q_{\parallel}^2}{\partial T_e} = 2p_e^2 f_z L_Z(T_e)\kappa_0 T_e^{0.5}.
-\label{eq:post1995_dq^2dTe}
-\end{equation}
-
-Eqs. \ref{eq:post1995_heat_cond_eq1} and \ref{eq:post1995_heat_cond_eq2} can then be rewritten as:
-\begin{align}
-\label{eq:post1995_d/dTe_eq1}
-   \frac{\partial Q_{\parallel}^2}{\partial T_e} &= 2p_e^2 f_z L_Z(T_e)\kappa_0 T_e^{0.5}\\
-\label{eq:post1995_d/dTe_eq2}
-   \frac{\partial x}{\partial T_e} &= -\frac{\kappa_0T_e^{2.5}}{Q_{\parallel}}
-\end{align}
-
-\subsubsection{Natural variables}
-
-Eqs. \ref{eq:post1995_d/dTe_eq1} and \ref{eq:post1995_d/dTe_eq2} have a natural set of variables on the form:
-\begin{align}
-\label{eq:post1995_nat_var1}
-    \Tilde{q} & = \frac{Q_{\parallel}}{n_s}\sqrt{\frac{Z_{eff} \ln \Lambda}{f_z}}\\
-\label{eq:post1995_nat_var2}
-    \xi &= n_s x \sqrt{Z_{eff}\ln \Lambda f_z}
-\end{align}
-
-In table \ref{tab:post1995_practunits} the variables is expressed in their practical units:
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|}
-       \hline
-        $Q_{\parallel}$ &     $\mathrm{GW/m^2}$ \\
-        $n_s$ & $\mathrm{m}^{-3}$ \\
-        $T_e$& $100\mathrm{eV}$ \\
-        $f_Z$ & $\%$\\
-        $\Omega_Z = \frac{L(T)}{10^{-25}}$ & $\mathrm{Wcm^3}$\\
-        $x$& $100\mathrm{m}$\\
-        \hline
-    \end{tabular}
-    \caption{Practical units for Eqs. \ref{eq:post1995_d/dTe_eq1} \& \ref{eq:post1995_d/dTe_eq2} using the natural variables in Eqs. \ref{eq:post1995_nat_var1} \& \ref{eq:post1995_nat_var2}}
-    \label{tab:post1995_practunits}
-\end{table}
-
-Inserting the natural variables into the equation for the heat flux gradient:
-\begin{align}
-    \frac{\partial Q_{\parallel}}{\partial x} &= \frac{n_s \sqrt{\frac{f_z}{Z_{eff} \ln \Lambda}}}{\frac{1}{n_s \sqrt{Z_{eff}\ln \Lambda f_z}}}\frac{\partial \Tilde{q}}{\partial \xi}\\
-    &= n_s^2f_z \frac{\partial \Tilde{q}}{\partial \xi}\\
-    & = -n_e^2f_z L_Z(T_e)\\
-    \implies \frac{\partial \Tilde{q}}{\partial \xi} &= -\frac{n_e^2 f_z L_Z(T_e)}{n_s^2 f_z}\\
-    &\overset{p_s = p_e}{=} -\frac{T_s^2}{T_e^2}L_Z(T_e)
-\end{align}
-
-and the heat flux:
-\begin{align}
-    Q_{\parallel} &= -\kappa_0 T_e^{2.5}\frac{\partial T_e}{\partial x}\\
-    n_s\sqrt{\frac{f_z}{Z_{eff}\ln\Lambda }} \Tilde{q} &= -\kappa_0 T_e^{2.5}n_s\sqrt{Z_{eff}\ln \Lambda f_z}\frac{\partial T_e}{\partial \xi}\\
-   \Tilde{q} &= -\kappa_0 T_e^{2.5}Z_{eff}\ln \Lambda\frac{\partial T_e}{\partial \xi}
-\end{align}
-
-and combining them:
-\begin{align}
-    \Tilde{q}\frac{\partial \Tilde{q}}{\partial \xi} &= \kappa_0 T_e^{2.5}Z_{eff}\ln \Lambda L_Z(T_e) \frac{T_s^2}{T_e^2}\frac{\partial T_e}{\partial \xi}\\
-    \frac{\partial \Tilde{q}^2}{\partial \xi} &= 2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda L_Z(T_e) T_s^2\frac{\partial T_e}{\partial \xi}
-\end{align}
-
-solving for the normalised heat flux we get the following:
-\begin{align}
-    \frac{\partial \Tilde{q}^2}{\partial \xi} &= 2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda T_s^2L_Z(T_e)\frac{\partial T_e}{\partial \xi}\\
-    \frac{\partial \Tilde{q}^2}{\partial T_e}\frac{\partial T_e}{\partial \xi}&= 2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda T_s^2L_Z(T_e)\frac{\partial T_e}{\partial \xi}\\
-    \Tilde{q}^2 - \Tilde{q}^2_{0} &= \int_{0}^{T_s}2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda T_s^2 L_Z(T_e)
-\end{align}
-
-where the normalized radiation loss flux is:
-\begin{equation}
-    \frac{\Tilde{P}_{rad}}{\Tilde{A}_{rad}} = \Tilde{q} - \Tilde{q}_{0}
-\end{equation}
-
-and the solution for the heat flux is:
-\begin{align}
-\label{eq:post_rad_plus_transport}
-     Q_{\parallel}^2 - Q_{\parallel,0}^2 &= n_s^2 T_s^2 2\kappa_0  f_Z \int_{T_d}^{T_s} T_e^{0.5}  L_Z(T_e) dT_e\\
-\end{align}
-
-where the radiation loss flux is given by:
-\begin{equation}
-\label{eq:relation_prad_heatflux_diff}
-    \frac{P_{rad}}{A_{rad}} = Q_{\parallel} - Q_{\parallel,0}
-\end{equation}
-
-\textbf{Detachment condition}
-
-Detachment is defined as $\Tilde{q}_0 = 0$ which means that all the SOL input power gets radiated. This results in the equation:
-\begin{align}
-    \Tilde{q}^2  &= \int_{0}^{T_s}2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda T_s^2 L_Z(T_e) \nonumber \\
-    \left( \frac{Q_{\parallel}}{n_s}\sqrt{\frac{Z_{eff} \ln \Lambda}{f_z}} \right)^2 &= \int_{0}^{T_s}2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda T_s^2 L_Z(T_e) \nonumber \\
-    Q_{\parallel}^2 &= n_s^2 \frac{f_Z}{Z_{eff}\ln\Lambda} \int_{0}^{T_s}2\kappa_0 T_e^{0.5}Z_{eff}\ln \Lambda T_s^2 L_Z(T_e) dT_e \nonumber \\
-    \label{eq:post_detachment_radiatoin_loss_eq}
-    Q_{\parallel} &= n_s T_s\sqrt{2\kappa_0  f_Z \int_{0}^{T_s} T_e^{0.5}  L_Z(T_e)} dT_e\\
-\end{align}
-
-\subsubsection{Relation to two-point model}
-
-The desired state regime for fusion reactor puts a limit on the upstream temperature and the temperature at the target. It is favorable to have a high upstream temperature for more fusion reactions and low target temperature for the divertor plate to not melt. More specifically we want the plasma to detach from the targets so that the peak heat loads on the target is tolerable for the material the target consists of. It also has implications on sputtering from the target - when target temperature increases so does the sputtering. This leads to a net flux of impurities and the plasma will be diluted. This dilution needs to be kept at a tolerable level. The effects are many, but the overall picture is what the two-point model describes connecting the upstream temperature and density, target temperature, the heat flux density, recycling rate and particle flux density and sputtering production. The purpose of the simplified model is to formulate conditions on controllable quantities. It is not evident which of the quantities that are controllable, and in the two-point model they come with a series of assumptions. The three unknowns of the two-point model are $n_u, T_u, T_t$. $n_u$ is assumed to have little change above the x-point since the temperature is rather constant and the pressure along field lines is a preserved quantity. Therefore the upstream density is related to the density upstream at the LCFS which again is related to the first flux tube outside the separatrix using the same argument as for the validity of setting the upstream density as constant. This density is called $n_u^{sep}$ by \cite{stangeby2000plasma} and is related to the line integrated electron density $\Bar{n}_e$ which is measurable quantity. 
-
-Regarding $q_{\parallel}$, we have to assume that the power loss due to radiation in the main plasma is much smaller compared to the SOL. The power entering the SOL can simply be expressed as $P_{SOL} = P_{in} - P_{main,rad}$, where $P_{main,rad}$ is the radiated power of the main plasma. For simplicity the $q_{\parallel}$ is assumed to be a controllable quantity where the loss in the main plasma is taken care of by correction factors in the extension of the two-point model.
-
-\subsection{P.H. Rebut, B.J. Green - Effect on impurity radiation on tokamak equilibrium}
-
-According to \cite{rebut1977effect} energy balance limits the impurity fraction which further governs the choice of the most effective radiative species. The presence of impurities causes bremsstrahlung in the core, line radiation and recombination radiation according to \cite{rebut1977effect}. High $Z$-materials will typically not be fully ionized, but radiates strongly and vice versa for low-$Z$ materials. The trade-off is the level of radiation against the level if ionization and the tolerance of contamination. For high-$Z$ materials the level of contamination is lower than for low-$Z$ materials.
-
 \subsection{Goldston et al. - A new scaling for divertor detachment}
 
 \cite{goldston2017new} evaluates the upstream heat flux which can be dissipated by impurity radiation for divertor detachment:
@@ -204,101 +61,44 @@ According to \cite{rebut1977effect} energy balance limits the impurity fraction 
 \label{eq:goldston_qpar_detachment}
 \end{equation}
 
-where $q_{\parallel, det}$ is the heat flux entering the SOL for a detached plasma, $n_{e,sep},T_{e,sep}$ is the electron density and temperature at the separatrix, $T_{e,det}$ is the temperature at the point of detachment, $F_z = c_z \kappa_z$ where $\kappa_z \equiv \kappa_0 T_e^{2.5}$ for $Z = 1$ and $c_z \equiv \frac{n_z}{n_e}$. Introducing impurities leads to the need for correcting $\kappa_z$ since the former no longer holds for as a result the introduction of higher $Z$-species. Braginskii provides this correction for discrete values, and using a fit \cite{goldston2017new} finds a formula for $\kappa_z = (0.672 + 0.076 Z_{eff}^{0.5} + 0.252 Z_{eff})^{-1}$ which is accurate up to $1\%$ precision. For a single dominant impurity, the main radiator, $Z_{eff} = 1 + c_z (Z^2-Z)$. 
+where $q_{\parallel, det}$ is the heat flux entering the SOL for a detached plasma, $n_{e,sep},T_{e,sep}$ is the electron density and temperature at the separatrix, $T_{e,det}$ is the temperature at the point of detachment, $F_z = c_z \kappa_z$ where $\kappa_z \equiv \kappa_0 T_e^{2.5}$ for $Z = 1$ and $c_z \equiv \frac{n_z}{n_e}$. Introducing impurities leads to the need for correcting $\kappa_z$ since the former no longer holds for high $Z$-species. Braginskii provides this correction for discrete values, and using a fit \cite{goldston2017new} finds a fit for $\kappa_z = (0.672 + 0.076 Z_{eff}^{0.5} + 0.252 Z_{eff})^{-1}$ accurate up to $1\%$ precision. To find the impurity concentration $c_Z$ for a single dominant impurity the following relation can be derived $Z_{eff} = 1 + c_Z (Z^2-Z) \implies c_Z = \frac{Z_{eff}-1}{Z^2-Z}$. 
 
 To evaluate the integral in Eq. \ref{eq:goldston_qpar_detachment} the integration boundaries needs to be expressed in reasonable parameters. Using the two-point model the temperature at the separatrix can be, according to \cite{goldston2017new},  expressed as:
 \begin{align}
-    T_{e,sep} &= \left( \frac{7}{2}\frac{q_{\parallel}L}{\kappa_Z \kappa_0} \right)^{2/7}\\
+    T_{e,sep} &= \left( \frac{7}{2}\frac{q_{\parallel}L}{\kappa_Z \kappa_0} \right)^{2/7}\nonumber \\
     &= \left( \frac{7}{2}\frac{q_{\parallel}l_{\parallel}^{*}\pi q_{cyl}R}{\kappa_Z \kappa_0} \right)^{2/7}
 \end{align}
 
-where the $L$ is the connection length, $l_{\parallel}^{*}\pi q_{cyl}R$ is the estimate of the connection length for a given magnetic configuration for a tokamak where $l_{\parallel}^{*}$ is the correction to the connection length for a magnetic configuration different from the standard magnetic configuration. $q_{cyl}$ is the safety factor corrected by the conductivity of the plasma with impurities included?
+where the $L$ is the connection length, $l_{\parallel}^{*}\pi q_{cyl}R$ is the estimate of the connection length for a given magnetic configuration for a tokamak where $l_{\parallel}^{*}$ is the correction to the connection length for a magnetic configuration different from the standard magnetic configuration. $q_{cyl}$ is the safety factor after the corrected conductivity of the diluted plasma (plasma with impurities). Thus all the ingredients for evaluating Eq. \ref{eq:goldston_qpar_detachment} is found and the radiation loss for detached cases following the respective definition of detachment from the paper can be evaluated. This gives an interesting approach to the scaling problem, but is unfortunately restricted for detached cases and does not hold for a general scaling for the total radiated power. \cite{goldston2017new} also exploits the dimensionality reduction of the problem to derive the scaling with global plasma parameters important for tokamaks which is not applicable for the W7-X database.
 
-\subsubsection{The heat flux spread}
+\subsection{Perseo et al. - 2D measurements of parallel counter-streaming flows in the W7-X scrape-off layer for attached and detached plasmas}
 
-One way of characterising the heat flux profile by a scalar quantity is the heat flux width. The integral width is defined as:
+\cite{perseo20212d} presents a linear scaling for the total radiated power with $I_{C^{2+}}$ as given in Eq. \ref{eq:scaling_perseo_ic2+}:
 \begin{equation}
-\label{eq:integral_width}
-    \lambda_{int} = \frac{1}{q_{\parallel, 0}}\int q_{\parallel}(s)ds
+\label{eq:scaling_perseo_ic2+}
+    P_{rad} = a\cdot I_{C^{2+}} + b
 \end{equation}
 
-where $q_{\parallel, 0}$ is the peak heat flux and $q_{\parallel}(s)$ is the radially dependent parallel heat flux (for axisymmetric machines). The integral width is of interest because it captures the contributions from the total heat flux. The measure also accounts for the peak heat flux which is of main importance in the problem we are addressing. 
+They plot the total radiated power measured by W7-X's bolometry system against the $I_{C^{2+}}$ measured by coherence imaging spectroscopy and observe a linear relationship with the radiated power. Furthermore they fit the $I_{C^{2+}}$ data with a linear least square model and get $a = 0.08, b = -0.43$ and a correlation coefficient $r = 0.98$ which strongly strengthens argument for the observed relationship. Furthermore \cite{perseo20212d} also investigates an empirical model of the total radiated power given by Eq. \ref{eq:scaling_perseo_nbare}:
 
-Eich has developed a heuristic model - a convolution of an exponential and a Gaussian - for the heat flux profile from measurements done on the outer divertor target:
 \begin{equation}
-\label{eq:Eich_model_heat_flux}
-    q_{\parallel}(s) = \frac{q_{\parallel, 0}}{2N}e^{\frac{w_{pvt}^2 - 4s\lambda_{SOL}}{4\lambda_{SOL}^2}}\mathrm{erfc}\left( \frac{w_{pvt}}{2\lambda_{SOL}} - \frac{s}{w_{pvt}}\right) + q_{bkg}
+\label{eq:scaling_perseo_nbare}
+    P_{rad} = \frac{1}{7}(Z_{eff}-1)S \Bar{n}_e^{\gamma}
 \end{equation}
 
-where $q_{\parallel, 0}$ is the peak heat flux, $w_{pvt}$ is the width in the private flux region, $\lambda_{SOL}$ is the exponential width which captures the transport physics occurring in the common flux region. $q_{bkg}$ is the background heat flux, $s$ is the radial path lenght along the divertor and $N$ is a normalization constant.
+where $S$ represents the surface of the radiating plasma volume and is estimated by $4\pi^2 r R$ and the only free regression parameter $\gamma$ is set for the line integrated density. Note that the dimensions of the left hand side is not equal to the right hand side which implies that the temperature dependent radiation contribution is set to a constant. The observation is that the fit shows a enough correlation to argue for a link between $I_{C^{2+}}$ and the line integrated density when considering their shared correlation to the total radiated power for $\gamma \geq 2$. $Z_{eff}$ is used to represent the impurity fraction.
 
-The integral widht of this profile is approximately given by:
+\subsection{D. Zhang et al. - Plasma radiation behavior approaching high-radiation scenarios in W7-X }
+
+\cite{zhang2021plasma} presents a similar scaling for $P_{rad}$ given in Eq. \ref{eq:zhang_model}:
 \begin{equation}
-\label{eq:approx_integral_width_eich}
-    \lambda_{eich - int} \approx \lambda_{SOL} + 1.64 w_{pvt}
+\label{eq:zhang_model}
+    P_{rad} = V_p \Bar{n}_e^2(Z_{eff} - 1)\alpha_R
 \end{equation}
 
-and this is used to characterize the full profile with a single parameter. Individual regression of the parameters $w_{pvt}$ and $\lambda_{SOL}$ are of interest since they are characteristic of the private and SOL regions.
-
-\subsection{Physics of island divertors - Feng et al.}
-
-Because of two orders of magnitude lower field line pitch $\Theta \sim 10^{-3}$ for stellarators compared to tokamaks $\Theta \sim 10^{-1}$, the cross-field transport competes with the parallel transport. It could potentially be dominant. If cross-field transport is included the heat transport equations becomes:
-\begin{align}
-    q_{\parallel} &= D_{eff}\frac{\partial T_
-    e}{\partial l_{\parallel}}\\
-    D_{eff} &\equiv \kappa_0 T_e^{2.5} + \chi n \Theta^{-2}\\
-    \Theta &\equiv \frac{dx}{d l_{\parallel}}\\
-    & = \frac{\iota_i r}{R}\\
-    \iota_i &\equiv r_i \iota'\\
-    \iota' &\equiv \frac{\iota - m/n}{r_i}\\
-    \iota &\equiv 2\pi \frac{R B_p}{r B_t}
-\end{align}
-
-where $\iota$ is the rotational transform for poloidal divertors for tokamaks, $x$ is the distance to the target (shown in Fig. ), $r$ the minor radius, $R$ the major radius, $m$ represents the toroidal mode number, $n$ represents the poloidal mode number, $r_i$ represents the internal radius of the island. $\iota'$ is then the shear at the  $\frac{m}{n}$-resonance and $\chi$ is the cross-field heat conductivity (diffusion coefficient). Note that the field line pitch $\Theta$ for poloidal divertors in tokamaks can be simplified to $\Theta = \frac{\iota r}{R} = \frac{B_p}{B(r)}$.
-
-In the limit where cross-field transport is dominant the heat flux equations reduce to:
-\begin{align}
-    q = \chi n \frac{\partial T_e}{\partial x}\\
-    \label{eq:cross_field_1}
-    \frac{\partial q}{\partial x} = - n^2f_Z L_Z(T)
-\end{align}
-
-Repeating the combination of both equations the heat flux can be expressed as an integral over temperature:
+where $V_p$ is the plasma volume, $Z_{eff}$ is the effective ion charge, and $\alpha_R$ is a function of temperature related to the input power $P_{Heat}$, impurities and the impurity transport. A model for the radiated power fraction is also presented given en Eq.
 \begin{equation}
-\label{eq:cross_field_main}
-    q_u^2 - q_d^2 = \int_{T_d}^{T_u} 2 \chi n^3 f_z L_Z(T) dT
+    f_{rad} = V_p \Bar{n}_e^2(Z_{eff} - 1)\alpha_f
 \end{equation}
 
-where the subscript $d,u$ signifies downstream and upstream conditions.
-
-\subsubsection{Competing transport regime}
-
-In the regime between the limiting cases where parallel and cross-field transport are dominant, parallel transport competes with the cross-field transport. This regime can be described by the equation from \cite{feng2002transport}, but directed along a field line:
-\begin{align}
-\label{eq:fengs_transport_model_heat_flux}
-    q_{\parallel} = D_{eff} \frac{\partial T_e}{\partial l_{\parallel}}\\
-    q_{\parallel} = \kappa_{0e} T_e^{2.5} \frac{\partial T_e}{\partial l_{\parallel}} + \chi n \Theta^{-2}\frac{\partial T_e}{\partial l_{\parallel}}
-\end{align}
-where $D_{eff} = \kappa_{0e} T_e^{2.5} + \chi n \Theta^{-2}$. Combining it with the equation for heat flux loss due to radiation, the equation for heat flux along field lines comparing upstream and downstream conditions can be expressed as:
-\begin{equation}
-    q_u^2 - q_d^2 = 2\int_{T_d}^{T_u} dT_e D_{eff}(T_e)n_e^2f_ZL_Z(T_e).
-\end{equation}
-
-It is worth noting that some of the assumptions made in the limiting cases no longer hold. The effective diffusion coefficient $D_{eff}$ is dependent on the temperature $T_e$ and contains both perpendicular and parallel heat transport which makes it hard to assume anything about the spatial distribution of the heat loss.
-
-Ideas:
-- Is it possible to divide in regions where we do know one of the two terms are dominating?
-    - Where is perpendicular transport most important spatially?
-- In this model the perpendicular term is strongly dependent on the density of the plasma while the parallel term is both strongly dependent on the temperature as well as the density
-
-\subsection{The trade-off between detachment and dilution}
-
-Bulletpoints:
-- detachment is favorable for long operations
-- dilution is unfavorable
-- detachment needs to be reached while minimising the dilution
-- choice of impurity species is very important for this to be optimised
-- transport is important because the radiation potential needs to be larger than the upstream heat flux at the target and lower at the separatrix for the detachment to be stable because if this is not true the radiation region can suddenly move to the upstream destabilising the process due to radiation of the core plasma
-    - input power needs to be exceeded for detachment to occur which in the model, only assuming loss due to radiation, means that all the input power needs to be radiated. In practice detachment is seen for $f_rad \sim 0.8$ so power loss due to other processes are present
-    Phase transition - an argument for the importance of representing the impurity content in stellarators and that the downstream conditions changes and that the unstable region is surrounding the peak of the radiation loss rate function $L_Z$
-    - also from Feng you have a unstable region of detachment with respect to the sputtering coefficient (impurity fraction) which can be explained: there is a phase transition in the region where the sputtering coefficient is between two critical values. One value represents the phase transition where the sputtering coefficient is increasing and the other when the sputtering coefficient is decreasing. For the former you see a jump in the electron temperature down to the detached state for a higher sputtering coefficient than the opposite case where the sputtering coefficient is reduced in the detached state where it jumps to up to the attached state. This refers to figure 6 a) in Fengs paper from 2002.
+where $\alpha_f = \frac{\alpha_R}{P_{Heat}}$. This definition is similar to the definition of radiated power fraction in this paper. The result of the computation using the database (same as for this paper) for  $\alpha_f \propto P_{Heat}^{-\beta}$ is $\beta \approx 1$. 

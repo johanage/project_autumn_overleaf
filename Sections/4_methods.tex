@@ -11,11 +11,11 @@
 
 \subsection{Motivation and introduction NLLS}
 
-For the radiated power scaling a non-linear least square regression model has been used. The point of using a non-linear regression model is that the suspected regression exponents are non-linear and that it is not evident how interplay between chosen observables affects the value of the exponents.
+For the radiated power scaling a non-linear least square regression model has been used. The point of using a non-linear regression model is that the suspected regression exponents are non-linear and that it is not evident how interplay between chosen observables affects the value of the exponents. More fancy statistical methods have been avoided in this problem for the sake of a simple interpretation of the results. The idea is that to understand the underlying physics the processing of the data needed to be minimised.
 
-\subsection{Non-Linear Least-Square (NLLS) regression model}
+\subsection{Non-Linear Least-Squares (NLLS)}
 
-Given an arbitrary nonlinear model on the form:
+NLLS is a nonlinear regression model where an arbitrary nonlinear model can be given on the form:
 \begin{equation}
     y = f(\mathbf{x}; \mathbf{\beta}) + \epsilon
 \end{equation}
@@ -38,11 +38,11 @@ where the derivatives $\frac{\partial \rho(f_i(x_i; \mathbf{\beta})}{\partial \m
     \item Update estimate
 \end{enumerate}
 
-and after last step the procedure is to restart linearising the problem. 
+and after last step the procedure is to restart linearising the problem and repeat the process until convergence. 
 
 \subsubsection{Linearisation}
 
-A Taylor expansion of the nonlinear problem is done with respect to the objective function $f(\mathbf{x})$, where $\rho = f$ is set for simplicity:
+A Taylor expansion of the nonlinear problem is done with respect to the objective function $f(\mathbf{x})$, where $\rho = f$ is set for simplicity of the derivation:
 \begin{equation}
     f(x_i;\mathbf{\beta}) \approx f(x_i;\mathbf{\beta}^k) + \sum_j \frac{\partial f(x_i;\mathbf{\beta}^k)}{\beta_j}(\beta_j - \beta_j^k) = f(x_i; \mathbf{\beta}^k) + \sum_j J_{ij}\beta_j.
 \end{equation}
@@ -83,7 +83,7 @@ Rewriting the equation so you get an expression for $\bm{\Delta \beta_j}$:
     \bm{\Delta \beta} = (\bm J^T \bm J )^{-1}\bm J^T\Delta y
 \end{equation}
 
-which forms the basis for the Gauss-Newton algorithm for a NLLS problem.
+which forms the basis for the Gauss-Newton algorithm for a NLLS problem (\cite{gratton2007approximate}).
 
 \subsubsection{Estimate update}
 
@@ -104,10 +104,10 @@ where $\epsilon$ is the user defined error tolerance.
 
 One of the disadvantages of NLLS is that bad initial estimates can result ending up in local minima rather than the global. An unfortunate property which NLLS shares with LLS is that it is strongly sensitive to outliers which in a nonlinear model are hard to detect. However, the effect of outliers can be countered using a loss function $\rho$ which weakens the effect of outliers such as a logarithmic function.
 
-The NLLS-function from the $\verb|scipy|$ python-library was used as the regression routine. The important parameters in $\verb|scipy.optimize.leas_square|$ are given in Table \ref{tab:NLLS_params}:
+The NLLS-function from the $\verb|scipy|$ python-library was used as the regression routine. The key parameters which was used in the regression analysis from the python implementation\\ $\verb|scipy.optimize.leas_square|$ are given in Table \ref{tab:NLLS_params}:
 \begin{table}[H]
     \centering
-    \begin{tabularx}{0.9\textwidth}{| X | X | X |}
+    \begin{tabularx}{0.95\textwidth}{| X | X | X |}
         \hline
         \textbf{Parameter} & \textbf{Description} & \textbf{Values used} \\ \hline
         \Verb|x0| & Initial parameter estimate & Vector of ones \\ \hline
@@ -117,7 +117,7 @@ The NLLS-function from the $\verb|scipy|$ python-library was used as the regress
         \Verb|f_scale|  & $\rho(f^2) = C^2 \rho(f^2/c^2); C \equiv$ \Verb|f_scale| & $\{1, 5\}$ \\ \hline
         \Verb|kwargs| & Data & $P_{ECRH}$, $\bar{n}_e$, $Z_{eff}$,$p_{neutral}$, $I_{C^{2+}}$ \\ \hline
     \end{tabularx}
-    \caption{The parameters of interest in the NLLS problem. The loss functions are standard options in the scipy-implementation of NLLS, no loss function was defined specifically for this paper.}
+    \caption{The key parameters of the NLLS implementation routine. The listed loss functions are standard options in the implementation of NLLS, no loss function was defined specifically for this paper.}
     \label{tab:NLLS_params}
 \end{table}
 
